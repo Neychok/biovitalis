@@ -1,0 +1,90 @@
+{
+  "Main": {
+    "product_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "product_name",
+        "placeholder": "Име на продукт"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "description",
+        "placeholder": "Описание"
+      }
+    },
+    "power": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "power",
+        "placeholder": "Мощност"
+      }
+    },
+    "length": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "length",
+        "placeholder": "Дължина"
+      }
+    },
+    "height": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "height",
+        "placeholder": "Височина"
+      }
+    },
+    "width": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "width",
+        "placeholder": "Ширина"
+      }
+    },
+    "weight": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Weight",
+        "placeholder": "Тегло"
+      }
+    },
+    "capacity": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "capacity",
+        "placeholder": "Капацитет"
+      }
+    },
+    "gallery": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "image"
+            }
+          }
+        },
+        "label": "gallery"
+      }
+    }
+  }
+}
