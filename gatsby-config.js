@@ -34,26 +34,28 @@ module.exports = {
         accessToken:
           "MC5YMEZMMkJBQUFDUUFCSURl.Ehbvv73vv73vv71gEO-_ve-_vRLvv70H77-9Ie-_vUEl77-977-9EAdXQxnvv71Z77-9MBBzFAo",
         linkResolver: ({ node, key, value }) => doc => {
-          if (doc.type === "product") return "/product/" + doc.uid
-          if (doc.type === "page") return "/" + doc.uid
-          // Fallback for other types, in case new custom types get created
-          return "/doc/" + doc.id
+          // URL for a category type
+          if (doc.type === "category") {
+            return `/категория/${doc.uid}`
+          }
+
+          // URL for a product type
+          if (doc.type === "product") {
+            return `/продукт/${doc.uid}`
+          }
+
+          // URL for a page type
+          if (doc.type === "page") {
+            return `/${doc.uid}`
+          }
+
+          // Backup for all other types
+          return "/"
         },
 
-        // Set a list of links to fetch and be made available in your link
-        // resolver function.
-        // See: https://prismic.io/docs/javascript/query-the-api/fetch-linked-document-fields
         fetchLinks: [
           // Your list of links
         ],
-
-        // Set an HTML serializer function used to process formatted content.
-        // Fields with rich text formatting use this function to generate the
-        // correct HTML.
-        // The document node, field key (i.e. API ID), and field value are
-        // provided to the function, as seen below. This allows you to use
-        // different HTML serializer logic for each field if necessary.
-        // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
         htmlSerializer: ({ node, key, value }) => (
           type,
           element,
@@ -78,21 +80,12 @@ module.exports = {
           // }
         },
 
-        // Provide an object of Prismic custom type JSON schemas to load into
-        // Gatsby. This is required.
         schemas: {
           // Your custom types mapped to schemas
           product: require("./src/schemas/product.json"),
         },
-
-        // Set a default language when fetching documents. The default value is
-        // '*' which will fetch all languages.
-        // See: https://prismic.io/docs/javascript/query-the-api/query-by-language
         lang: "*",
 
-        // Add the Prismic Toolbar script to the site. Defaults to false.
-        // Set to "legacy" if your repository requires the older toolbar script.
-        // See: https://prismic.io/docs/rest-api/beyond-the-api/the-preview-feature
         prismicToolbar: true,
 
         // Set a function to determine if images are downloaded locally and made
@@ -126,15 +119,9 @@ module.exports = {
           q: 50,
         },
 
-        // Set the prefix for the filename where type paths for your schemas are
-        // stored. The filename will include the MD5 hash of your schemas after
-        // the prefix.
-        // This defaults to 'prismic-typepaths---${repositoryName}'.
         typePathsFilenamePrefix: "prismic-typepaths---neycho",
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
 }
