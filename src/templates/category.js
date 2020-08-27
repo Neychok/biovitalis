@@ -5,13 +5,14 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const CategoryPage = ({ data }) => (
-  <>
+const CategoryPage = ({ data }) => {
+  const document = data.allPrismicProduct.edges
+  return (
     <Layout>
       <SEO title="Home" />
       <h1>This is a Category Page</h1>
       <ul>
-        {data.allPrismicProduct.edges.map(node => {
+        {document.map(node => {
           return (
             <li key={node.node.id}>
               <Link to={node.node.url}>{node.node.data.product_name.text}</Link>
@@ -20,8 +21,8 @@ const CategoryPage = ({ data }) => (
         })}
       </ul>
     </Layout>
-  </>
-)
+  )
+}
 
 export const query = graphql`
   query($slug: String!) {
