@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             uid
+            id
           }
         }
       }
@@ -35,10 +36,11 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allPrismicCategory.edges.forEach(({ node }) => {
     createPage({
       path: "/категория/" + node.uid,
-      component: path.resolve(`./src/templates/single-product.js`),
+      component: path.resolve(`./src/templates/category.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
+        id: node.prismicId,
         slug: node.uid,
       },
     })

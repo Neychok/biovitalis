@@ -3,7 +3,7 @@
     "product_name": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1",
         "label": "product_name",
         "placeholder": "Име на продукт"
       }
@@ -12,6 +12,15 @@
       "type": "UID",
       "config": {
         "label": "slug"
+      }
+    },
+    "category": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["category"],
+        "label": "category",
+        "placeholder": "Категория"
       }
     },
     "description": {
@@ -70,20 +79,43 @@
         "placeholder": "Капацитет"
       }
     },
-    "gallery": {
-      "type": "Group",
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
       "config": {
-        "fields": {
-          "image": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "image"
+        "labels": {
+          "_________": []
+        },
+        "choices": {
+          "image_gallery": {
+            "type": "Slice",
+            "fieldset": "Image Gallery",
+            "description": "Image Gallery with a title and a caption for each image",
+            "icon": "photo_library",
+            "non-repeat": {},
+            "repeat": {
+              "image_captions": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Image captions",
+                  "placeholder": "Images captions"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": null,
+                    "height": null
+                  },
+                  "thumbnails": [],
+                  "label": "Снимка"
+                }
+              }
             }
           }
-        },
-        "label": "gallery"
+        }
       }
     }
   }
