@@ -88,7 +88,7 @@ module.exports = {
         },
         lang: "*",
 
-        prismicToolbar: true,
+        prismicToolbar: false,
 
         // Set a function to determine if images are downloaded locally and made
         // available for gatsby-transformer-sharp for use with gatsby-image.
