@@ -34,7 +34,7 @@ function Header({ siteTitle }) {
             className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white focus:outline-none"
           >
             <svg
-              className="fill-current h-6 w-6"
+              className="fill-current h-5 w-5"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
