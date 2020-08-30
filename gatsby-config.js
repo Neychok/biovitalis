@@ -16,6 +16,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -121,6 +122,14 @@ module.exports = {
         },
 
         typePathsFilenamePrefix: "prismic-typepaths---neycho",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: false,
+        tailwind: true,
       },
     },
     `gatsby-plugin-offline`,

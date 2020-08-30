@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
-import "./header.css"
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false)
