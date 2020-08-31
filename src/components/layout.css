@@ -47,7 +47,7 @@ body {
   position: fixed;
   width: 36px;
   height: 30px;
-  left: 36px;
+  right: 36px;
   top: 36px;
 }
 
@@ -74,7 +74,7 @@ body {
 /* bm-menu */
 .bm-menu {
   background: #373a47;
-  padding: 2.5em 1.5em 0;
+  padding: 5rem;
   font-size: 1.15em;
 }
 

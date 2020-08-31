@@ -4,7 +4,11 @@ import { Link } from "gatsby"
 
 export default props => {
   return (
-    <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
+    <Menu
+      width="300px"
+      pageWrapId={"page-wrap"}
+      outerContainerId={"outer-container"}
+    >
       <Link to="/" className="menu-item">
         Начало
       </Link>
