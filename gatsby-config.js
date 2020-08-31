@@ -133,7 +133,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true,
+        whitelist: [
+          "bm-overlay",
+          "bm-item-list",
+          "bm-morph-shape",
+          "bm-menu",
+          "bm-cross",
+          "bm-burger-bars",
+          "bm-burger-button",
+          "bm-item:hover",
+          "bm-item",
+          "page-wrap",
+          "outer-container",
+        ],
+        printRejected: false,
         develop: false,
         tailwind: true,
       },
