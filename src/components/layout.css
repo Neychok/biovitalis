@@ -20,28 +20,6 @@ body {
   /* Prevent sidebar from showing a scrollbar on page */
   overflow: auto;
 }
-
-/* Individual item */
-/* bm-item */
-.bm-item {
-  display: inline-block;
-
-  /* Our sidebar item styling */
-  text-decoration: none;
-  margin-bottom: 10px;
-  color: #d1d1d1;
-  transition: color 0.2s;
-}
-
-/* Change color on hover */
-/* bm-item:hover */
-.bm-item:hover {
-  color: white;
-}
-
-/* The rest copied directly from react-burger-menu docs */
-
-/* Position and sizing of burger button */
 /* bm-burger-button */
 .bm-burger-button {
   position: fixed;
@@ -73,15 +51,14 @@ body {
 /* General sidebar styles */
 /* bm-menu */
 .bm-menu {
-  background: #373a47;
-  padding: 5rem;
-  font-size: 1.15em;
+  background: #f2dcc2;
+  padding: 3rem 1.5rem;
 }
 
 /* Morph shape necessary with bubble or elastic */
 /* bm-morph-shape */
 .bm-morph-shape {
-  fill: #373a47;
+  fill: #f2dcc2;
 }
 
 /* Wrapper for item list */
@@ -93,5 +70,9 @@ body {
 /* Styling of overlay */
 /* bm-overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+}
+
+#menulogo {
+  outline: none !important;
+  color: #91a663;
 }
