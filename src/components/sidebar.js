@@ -9,9 +9,10 @@ export default props => {
         <div className="fixed top-0 w-full shadow-md h-16 bg-white"></div>
         <div className="logonav text-2xl fixed">BioVitalis</div>
         <Menu disableAutoFocus right width="250px" pageWrapId={"page-wrap"}>
+          <div className="menuimage fixed w-full top-0 py-10"></div>
           <Link
             to="/"
-            className="menu-item text-left text-sm py-2 mt-20 mobile-menu-item"
+            className="menu-item text-left text-sm py-2 mt-24 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
