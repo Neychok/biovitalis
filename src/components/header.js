@@ -9,9 +9,9 @@ const Header = () => {
       <div className="visible md:invisible z-50">
         <SideBar />
       </div>
-      <div className="invisible md:visible z-50">
+      {/* <div className="invisible md:visible z-50">
         <NavigationBar />
-      </div>
+      </div> */}
     </>
   )
 }

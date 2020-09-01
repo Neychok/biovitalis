@@ -11,7 +11,7 @@ export default props => {
         <Menu disableAutoFocus right width="250px" pageWrapId={"page-wrap"}>
           <Link
             to="/"
-            className="menu-item text-lg text-left py-2 mt-20 mobile-menu-item"
+            className="menu-item text-left py-2 mt-20 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
@@ -26,7 +26,7 @@ export default props => {
           </Link>
           <Link
             to="/категории"
-            className="menu-item text-lg text-left py-2 mt-2 mobile-menu-item"
+            className="menu-item text-left py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
@@ -45,7 +45,7 @@ export default props => {
           </Link>
           <Link
             to="/за-нас"
-            className="menu-item text-lg text-left py-2 mt-2 mobile-menu-item"
+            className="menu-item text-left py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
@@ -60,7 +60,7 @@ export default props => {
           </Link>
           <Link
             to="/контакти"
-            className="menu-item text-lg text-left py-2 mt-2 mobile-menu-item"
+            className="menu-item text-left py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg

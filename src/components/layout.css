@@ -75,6 +75,7 @@ body {
 /* Styling of overlay */
 /* bm-overlay */
 .bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }
 .mobile-menu-item {
   color: #486581;
