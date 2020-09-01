@@ -18,7 +18,7 @@
 
   "Link": {
     "prefix": ["link", "<link"],
-    "body": ["<Link to=\"/${1:url}\" className=\"\">\"${0:name}\"</Link>"],
+    "body": ["<Link to=\"/${1:url}\" className=\"\">${0:name}</Link>"],
     "description": "Link"
   }
 }

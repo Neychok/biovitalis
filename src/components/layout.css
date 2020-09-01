@@ -25,8 +25,14 @@ body {
   position: fixed;
   width: 36px;
   height: 30px;
-  right: 36px;
-  top: 36px;
+  right: 25px;
+  top: 25px;
+}
+.logonav {
+  left: 25px;
+  top: 27px;
+  line-height: 30px;
+  color: #014d40;
 }
 
 /* Color/shape of burger icon bars */
@@ -51,28 +57,50 @@ body {
 /* General sidebar styles */
 /* bm-menu */
 .bm-menu {
-  background: #f2dcc2;
-  padding: 3rem 1.5rem;
+  background: #fff;
+  padding: 3rem 0rem;
 }
 
 /* Morph shape necessary with bubble or elastic */
 /* bm-morph-shape */
 .bm-morph-shape {
-  fill: #f2dcc2;
+  fill: #fff;
 }
 
 /* Wrapper for item list */
 /* bm-item-list */
 .bm-item-list {
-  color: #b8b7ad;
 }
 
 /* Styling of overlay */
 /* bm-overlay */
 .bm-overlay {
 }
-
-#menulogo {
+.mobile-menu-item {
+  color: #486581;
+}
+.mobile-menu-item:hover {
+  background: #bcccdc;
+}
+.mobile-menu-item-active {
+  background: #f0f4f8;
+  color: #014d40;
+}
+.menulogo {
   outline: none !important;
-  color: #91a663;
+  color: #014d40;
+}
+
+.bordermenu-item {
+  opacity: 0.7;
+  color: #014d40;
+}
+
+.bordermenu-item-active {
+  border-bottom: 2px solid #3ebd93;
+  opacity: 1;
+}
+
+.bordermenu-item:hover {
+  border-bottom: 3px solid #3ebd93;
 }
