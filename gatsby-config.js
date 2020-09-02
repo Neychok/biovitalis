@@ -16,7 +16,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
-    "gatsby-plugin-layout",
+    {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/components/layout.js`),
+      },
+    },
 
     {
       resolve: `gatsby-plugin-typography`,

@@ -113,3 +113,9 @@ body {
 .menu-item:hover {
   border-bottom: 3px solid #27ab83;
 }
+
+.tl-edges {
+  width: 100% !important;
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+}

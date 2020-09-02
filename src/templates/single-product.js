@@ -1,12 +1,13 @@
 import React from "react"
-import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
 
 const Product = ({ data }) => {
   const document = data.allPrismicProduct.edges[0].node.data
 
   return (
-    <Layout>
+    <>
+      <SEO title="Home" />
       <h1>{document.product_name.text}</h1>
       <h3>Описание</h3>
       <p>{document.description.text}</p>
@@ -17,7 +18,7 @@ const Product = ({ data }) => {
       <p>Дължина: {document.length.text}</p>
       <p>Височина: {document.height.text}</p>
       <p>Широчина: {document.width.text}</p>
-    </Layout>
+    </>
   )
 }
 

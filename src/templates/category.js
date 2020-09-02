@@ -1,14 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
-
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const CategoryPage = ({ data }) => {
   const document = data.allPrismicProduct.edges
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       <h1>This is a Category Page</h1>
       <ul>
@@ -20,7 +18,7 @@ const CategoryPage = ({ data }) => {
           )
         })}
       </ul>
-    </Layout>
+    </>
   )
 }
 
