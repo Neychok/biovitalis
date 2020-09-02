@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -26,7 +25,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <div id="outer-container">
-        <Header />
         <div id="page-wrap" className="">
           <main className="mt-5">{children}</main>
           <footer>

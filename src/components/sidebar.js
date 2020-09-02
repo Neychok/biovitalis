@@ -7,12 +7,12 @@ export default props => {
     <>
       <nav className="">
         <div className="fixed top-0 w-full shadow-md h-16 bg-white"></div>
-        <div className="logonav text-2xl fixed">BioVitalis</div>
+        <div className="mobile-menulogo text-2xl fixed">BioVitalis</div>
         <Menu disableAutoFocus right width="250px" pageWrapId={"page-wrap"}>
-          <div className="menuimage fixed w-full top-0 py-10"></div>
+          <div className="mobile-menuimage fixed w-full top-0 py-10"></div>
           <Link
             to="/"
-            className="menu-item text-left text-sm py-2 mt-24 mobile-menu-item"
+            className="text-left text-sm py-2 mt-24 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
@@ -27,7 +27,7 @@ export default props => {
           </Link>
           <Link
             to="/категории"
-            className="menu-item text-left text-sm py-2 mt-2 mobile-menu-item"
+            className="text-left text-sm py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
@@ -46,7 +46,7 @@ export default props => {
           </Link>
           <Link
             to="/за-нас"
-            className="menu-item text-left text-sm py-2 mt-2 mobile-menu-item"
+            className="text-left text-sm py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
@@ -61,7 +61,7 @@ export default props => {
           </Link>
           <Link
             to="/контакти"
-            className="menu-item text-left text-sm py-2 mt-2 mobile-menu-item"
+            className="text-left text-sm py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
             <svg
