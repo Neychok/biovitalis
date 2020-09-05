@@ -50,17 +50,17 @@ module.exports = {
         linkResolver: ({ node, key, value }) => doc => {
           // URL for a category type
           if (doc.type === "category") {
-            return `/категория/${doc.uid}`
+            return `/продукти/${doc.uid}/`
           }
 
           // URL for a product type
           if (doc.type === "product") {
-            return `/продукт/${doc.uid}`
+            return `/продукти/${doc.data.category.uid}/${doc.uid}/`
           }
 
           // URL for a page type
           if (doc.type === "page") {
-            return `/${doc.uid}`
+            return `/${doc.uid}/`
           }
 
           // Backup for all other types

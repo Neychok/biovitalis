@@ -1,17 +1,25 @@
 import React from "react"
-import { push as Menu } from "react-burger-menu"
+import Menu from "react-burger-menu/lib/menus/push"
 import { Link } from "gatsby"
 
 export default props => {
+  const closeMenu = () => document.querySelector(".closeMenu").click()
   return (
     <>
       <nav className="">
         <div className="fixed top-0 w-full shadow-md h-16 bg-white"></div>
         <div className="mobile-menulogo text-2xl fixed">BioVitalis</div>
-        <Menu disableAutoFocus right width="250px" pageWrapId={"page-wrap"}>
+        <Menu
+          disableAutoFocus
+          right
+          width="250px"
+          pageWrapId={"page-wrap"}
+          overlayClassName={"closeMenu"}
+        >
           <div className="mobile-menuimage fixed w-full top-0 py-10"></div>
           <Link
             to="/"
+            onClick={closeMenu}
             className="text-left text-sm py-2 mt-24 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
@@ -26,7 +34,9 @@ export default props => {
             Начало
           </Link>
           <Link
-            to="/категории"
+            partiallyActive={true}
+            to="/продукти/"
+            onClick={closeMenu}
             className="text-left text-sm py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
@@ -45,7 +55,8 @@ export default props => {
             Продукти
           </Link>
           <Link
-            to="/за-нас"
+            to="/за-нас/"
+            onClick={closeMenu}
             className="text-left text-sm py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >
@@ -60,7 +71,8 @@ export default props => {
             За нас
           </Link>
           <Link
-            to="/контакти"
+            to="/контакти/"
+            onClick={closeMenu}
             className="text-left text-sm py-2 mt-2 mobile-menu-item"
             activeClassName="mobile-menu-item-active"
           >

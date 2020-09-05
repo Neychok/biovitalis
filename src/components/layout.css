@@ -64,6 +64,7 @@ body {
 /* Wrapper for item list */
 /* bm-item-list */
 .bm-item-list {
+  overflow: hidden;
 }
 
 /* Styling of overlay */

@@ -15,6 +15,11 @@ exports.createPages = async ({ graphql, actions }) => {
       allPrismicProduct {
         edges {
           node {
+            data {
+              category {
+                uid
+              }
+            }
             uid
           }
         }
@@ -23,7 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   result.data.allPrismicProduct.edges.forEach(({ node }) => {
     createPage({
-      path: "/продукт/" + node.uid,
+      path: "/продукти/" + node.data.category.uid + "/" + node.uid,
       component: path.resolve(`./src/templates/single-product.js`),
       context: {
         // Data passed to context is available
@@ -35,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allPrismicCategory.edges.forEach(({ node }) => {
     createPage({
-      path: "/категория/" + node.uid,
+      path: "/продукти/" + node.uid,
       component: path.resolve(`./src/templates/category.js`),
       context: {
         // Data passed to context is available
