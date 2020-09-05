@@ -14,7 +14,7 @@ function NavigationBar() {
         <div className="text-lg text-gray-900 ">
           <Link
             to="/"
-            className="py-4 px-5 transition duration-300 ease-in hover:opacity-100 menu-item"
+            className="py-4 px-5 hover:opacity-100 menu-item"
             activeClassName="opacity-100 menu-item-active"
           >
             Начало
@@ -22,21 +22,21 @@ function NavigationBar() {
           <Link
             to="/продукти/"
             partiallyActive={true}
-            className="ml-4 py-4 px-5 transition duration-300 ease-in hover:opacity-100 menu-item"
+            className="ml-4 py-4 px-5 hover:opacity-100 menu-item"
             activeClassName="opacity-100 menu-item-active"
           >
             Продукти
           </Link>
           <Link
             to="/за-нас/"
-            className="ml-4 py-4 px-5 transition duration-300 ease-in hover:opacity-100 menu-item"
+            className="ml-4 py-4 px-5 hover:opacity-100 menu-item"
             activeClassName="opacity-100 menu-item-active"
           >
             За нас
           </Link>
           <Link
             to="/контакти/"
-            className="ml-4 py-4 px-5 transition duration-300 ease-in hover:opacity-100 menu-item"
+            className="ml-4 py-4 px-5 hover:opacity-100 menu-item"
             activeClassName="opacity-100 menu-item-active"
           >
             Контакти

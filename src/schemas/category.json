@@ -12,6 +12,14 @@
       "config": {
         "label": "slug"
       }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "image"
+      }
     }
   }
 }

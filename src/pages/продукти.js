@@ -9,13 +9,20 @@ const ProductsPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      <h1>This is the Categories Page</h1>
-      <ul>
+      <ul className="flex flex-wrap justify-center">
         {document.map(node => {
           return (
-            <li key={node.node.id}>
-              <Link to={node.node.url}>{node.node.data.name}</Link>
-            </li>
+            <Link
+              to={node.node.url}
+              className="w-2/5 rounded shadow-lg mx-2 mb-4"
+            >
+              <img
+                src={node.node.data.image.url}
+                alt={node.node.data.name}
+                className="w-full"
+              ></img>
+              <div className="px-2 py-1">{node.node.data.name}</div>
+            </Link>
           )
         })}
       </ul>
@@ -30,6 +37,9 @@ export const query = graphql`
         node {
           data {
             name
+            image {
+              url
+            }
           }
           url
           id
