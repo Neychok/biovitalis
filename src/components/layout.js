@@ -20,7 +20,7 @@ const Layout = ({ location, children }) => {
       <div id="outer-container">
         <Header />
         <div id="page-wrap">
-          <main className="mt-5">{children}</main>
+          <main className="mt-2">{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with
             {` `}

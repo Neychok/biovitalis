@@ -7,8 +7,8 @@ export default props => {
   return (
     <>
       <nav className="">
-        <div className="fixed top-0 w-full shadow-md h-16 bg-white"></div>
-        <div className="mobile-menulogo text-2xl fixed">BioVitalis</div>
+        <div className="fixed top-0 w-full shadow-md h-16 bg-white z-50"></div>
+        <div className="mobile-menulogo text-2xl fixed z-50">BioVitalis</div>
         <Menu
           disableAutoFocus
           right

@@ -9,23 +9,26 @@ const ProductsPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      <ul className="flex flex-wrap justify-center">
+      <div className="text-xl text-left ml-3 mb-1">Категории продукти</div>
+      <hr className="hr-line"></hr>
+      <div className="flex flex-wrap">
         {document.map(node => {
           return (
-            <Link
-              to={node.node.url}
-              className="w-2/5 rounded shadow-lg mx-2 mb-4"
-            >
-              <img
-                src={node.node.data.image.url}
-                alt={node.node.data.name}
-                className="w-full"
-              ></img>
-              <div className="px-2 py-1">{node.node.data.name}</div>
-            </Link>
+            <div className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 px-3 py-0">
+              <Link to={node.node.url} className="">
+                <img
+                  src={node.node.data.image.url}
+                  alt={node.node.data.name}
+                  className="w-full mb-0 rounded-t-lg"
+                ></img>
+                <div className="text-sm px-1 py-2 category-product-name rounded-b-lg shadow-lg">
+                  {node.node.data.name}
+                </div>
+              </Link>
+            </div>
           )
         })}
-      </ul>
+      </div>
     </>
   )
 }
