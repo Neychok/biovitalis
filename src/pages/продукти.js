@@ -11,10 +11,10 @@ const ProductsPage = ({ data }) => {
       <SEO title="Home" />
       <div className="text-xl text-left ml-3 mb-1">Категории продукти</div>
       <hr className="hr-line"></hr>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap px-1">
         {document.map(node => {
           return (
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 px-3 py-0">
+            <div className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 px-2 py-0">
               <Link to={node.node.url} className="">
                 <img
                   src={node.node.data.image.url}
