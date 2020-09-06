@@ -6,10 +6,10 @@ import NavigationBar from "./navigationbar"
 const Header = () => {
   return (
     <>
-      <div className="visible md:invisible z-50 overflow-hidden">
+      <div className="md:invisible z-50 visible overflow-hidden">
         <SideBar />
       </div>
-      <div className="invisible md:visible z-50 overflow-hidden">
+      <div className="md:visible z-50 invisible overflow-hidden">
         <NavigationBar />
       </div>
     </>

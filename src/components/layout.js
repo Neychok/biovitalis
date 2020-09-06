@@ -17,9 +17,9 @@ const Layout = ({ location, children }) => {
 
   return (
     <>
-      <div id="outer-container">
+      <div id="scroll-container" className="h-full">
         <Header />
-        <div id="page-wrap">
+        <div id="">
           <main className="mt-2">{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with

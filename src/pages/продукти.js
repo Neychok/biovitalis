@@ -9,19 +9,22 @@ const ProductsPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      <div className="text-xl text-left ml-3 mb-1">Категории продукти</div>
+      <div className="mb-1 ml-3 text-xl text-left">Категории продукти</div>
       <hr className="hr-line"></hr>
       <div className="flex flex-wrap px-1">
         {document.map(node => {
           return (
-            <div className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 px-2 py-0">
+            <div
+              key={node.node.id}
+              className="md:w-1/3 lg:w-1/4 xl:w-1/6 w-1/2 px-2 py-0 mb-4"
+            >
               <Link to={node.node.url} className="">
                 <img
                   src={node.node.data.image.url}
                   alt={node.node.data.name}
                   className="w-full mb-0 rounded-t-lg"
                 ></img>
-                <div className="text-sm px-1 py-2 category-product-name rounded-b-lg shadow-lg">
+                <div className="category-product-name px-1 py-2 text-sm rounded-b-lg shadow-lg">
                   {node.node.data.name}
                 </div>
               </Link>
@@ -38,6 +41,7 @@ export const query = graphql`
     allPrismicCategory {
       edges {
         node {
+          id
           data {
             name
             image {
@@ -45,7 +49,6 @@ export const query = graphql`
             }
           }
           url
-          id
         }
       }
     }

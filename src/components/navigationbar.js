@@ -3,18 +3,18 @@ import React from "react"
 function NavigationBar() {
   return (
     <>
-      <nav className="xl:container flex mx-auto px-2 h-20 bg-white items-center justify-between z-50">
+      <nav className="xl:container z-50 flex items-center justify-between h-20 px-2 mx-auto bg-white">
         {/* Container for Logo*/}
         <div className="">
-          <Link to="/" className="text-2xl p-4 menulogo">
+          <Link to="/" className="menulogo p-4 text-2xl">
             BioVitalis
           </Link>
         </div>
         {/* Container for Menu Links */}
-        <div className="text-lg text-gray-900 ">
+        <div className=" text-lg text-gray-900">
           <Link
             to="/"
-            className="py-4 px-5 hover:opacity-100 menu-item"
+            className="hover:opacity-100 menu-item px-5 py-4"
             activeClassName="opacity-100 menu-item-active"
           >
             Начало
@@ -22,21 +22,21 @@ function NavigationBar() {
           <Link
             to="/продукти/"
             partiallyActive={true}
-            className="ml-4 py-4 px-5 hover:opacity-100 menu-item"
+            className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
           >
             Продукти
           </Link>
           <Link
             to="/за-нас/"
-            className="ml-4 py-4 px-5 hover:opacity-100 menu-item"
+            className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
           >
             За нас
           </Link>
           <Link
             to="/контакти/"
-            className="ml-4 py-4 px-5 hover:opacity-100 menu-item"
+            className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
           >
             Контакти

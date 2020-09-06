@@ -23,6 +23,14 @@
         "placeholder": "Категория"
       }
     },
+    "main_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Главно изображение"
+      }
+    },
     "description": {
       "type": "StructuredText",
       "config": {

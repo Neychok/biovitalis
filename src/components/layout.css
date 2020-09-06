@@ -7,77 +7,11 @@ body {
   margin: 0;
 }
 
-/* outer-container */
-#outer-container {
-  /* Give app full page to work with */
-  height: 100vh;
-}
-
-/* page-wrap */
-#page-wrap {
-  text-align: center;
-
-  /* Prevent sidebar from showing a scrollbar on page */
-  overflow: auto;
-}
-/* bm-burger-button */
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 25px;
-  top: 22px;
-}
-
-/* Color/shape of burger icon bars */
-/* bm-burger-bars */
-.bm-burger-bars {
-  background: #102a43;
-}
-
-/* Position and sizing of clickable cross button */
-/* bm-cross-button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-/* Color/shape of close button cross */
-/* bm-cross */
-.bm-cross {
-  background: #bdc3c7;
-}
-
-/* General sidebar styles */
-/* bm-menu */
-.bm-menu {
-  background: #fff;
-  padding: 3rem 0rem;
-}
-
-/* Morph shape necessary with bubble or elastic */
-/* bm-morph-shape */
-.bm-morph-shape {
-  fill: #fff;
-}
-
-/* Wrapper for item list */
-/* bm-item-list */
-.bm-item-list {
-  overflow: hidden;
-}
-
-/* Styling of overlay */
-/* bm-overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
 /** Mobile CSS */
 .mobile-menulogo {
-  left: 25px;
+  /* left: 25px;
   top: 24px;
-  line-height: 30px;
+  line-height: 30px; */
   color: #0c6b58;
 }
 .mobile-menu-item {

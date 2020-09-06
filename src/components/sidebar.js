@@ -1,93 +1,150 @@
-import React from "react"
-import Menu from "react-burger-menu/lib/menus/push"
+import React, { Component } from "react"
+import { motion } from "framer-motion"
 import { Link } from "gatsby"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import "./hamburger-button.css"
 
-export default props => {
-  const closeMenu = () => document.querySelector(".closeMenu").click()
-  return (
-    <>
-      <nav className="">
-        <div className="fixed top-0 w-full shadow-md h-16 bg-white z-50"></div>
-        <div className="mobile-menulogo text-2xl fixed z-50">BioVitalis</div>
-        <Menu
-          disableAutoFocus
-          right
-          width="250px"
-          pageWrapId={"page-wrap"}
-          overlayClassName={"closeMenu"}
-        >
-          <div className="mobile-menuimage fixed w-full top-0 py-10"></div>
-          <Link
-            to="/"
-            onClick={closeMenu}
-            className="text-left text-sm py-2 mt-24 mobile-menu-item"
-            activeClassName="mobile-menu-item-active"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-6 h-6 ml-4 mr-8 inline-block"
-            >
-              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-            </svg>
-            Начало
-          </Link>
-          <Link
-            partiallyActive={true}
-            to="/продукти/"
-            onClick={closeMenu}
-            className="text-left text-sm py-2 mt-2 mobile-menu-item"
-            activeClassName="mobile-menu-item-active"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-6 h-6 ml-4 mr-8 inline-block"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Продукти
-          </Link>
-          <Link
-            to="/за-нас/"
-            onClick={closeMenu}
-            className="text-left text-sm py-2 mt-2 mobile-menu-item"
-            activeClassName="mobile-menu-item-active"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-6 h-6 ml-4 mr-8 inline-block"
-            >
-              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-            </svg>
-            За нас
-          </Link>
-          <Link
-            to="/контакти/"
-            onClick={closeMenu}
-            className="text-left text-sm py-2 mt-2 mobile-menu-item"
-            activeClassName="mobile-menu-item-active"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-6 h-6 ml-4 mr-8 inline-block"
-            >
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-            </svg>
-            Контакти
-          </Link>
-        </Menu>
-      </nav>
-    </>
-  )
+const variantsMenu = {
+  open: { x: 0 },
+  closed: { x: "100%" },
 }
+const variantsOverlay = {
+  open: { opacity: 1 },
+  closed: { opacity: 0 },
+}
+
+class Sidebar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { active: false }
+  }
+
+  componentDidMount() {
+    // 2. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav).
+    // Specifically, the target element is the one we would like to allow scroll on (NOT a parent of that element).
+    // This is also the element to apply the CSS '-webkit-overflow-scrolling: touch;' if desired.
+    this.targetElement = document.querySelector("#navigation")
+  }
+
+  OpenMenu = () => {
+    this.setState({ active: !this.state.active })
+    this.state.active
+      ? enableBodyScroll(this.targetElement)
+      : disableBodyScroll(this.targetElement)
+  }
+
+  render() {
+    return (
+      <>
+        <nav id="navigation">
+          {/* TOP BAR OF MENU */}
+          <div className="fixed top-0 z-50 flex items-center justify-between w-full h-16 px-4 bg-white shadow-md">
+            <div className="">
+              <h1 className="mobile-menulogo text-xl">BioVitalis</h1>
+            </div>
+            <div className="pt-2 outline-none">
+              <button
+                className={`hamburger hamburger--collapse  ${
+                  this.state.active ? "is-active" : ""
+                }`}
+                onClick={this.OpenMenu}
+              >
+                <span className="hamburger-box">
+                  <span className="hamburger-inner"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Menu items list */}
+          <motion.div
+            animate={this.state.active ? "open" : "closed"}
+            initial={"closed"}
+            variants={variantsMenu}
+            transition="easeIn"
+            className="fixed top-0 right-0 z-50 flex flex-col w-56 h-full pt-24 mt-16 overflow-hidden bg-white border-t"
+          >
+            <Link
+              to="/"
+              className="mobile-menu-item py-3 mb-2"
+              activeClassName="mobile-menu-item-active"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="inline-block w-6 h-6 ml-4 mr-8"
+              >
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              </svg>
+              Начало
+            </Link>
+            <Link
+              partiallyActive={true}
+              to="/продукти/"
+              className="mobile-menu-item py-3 mb-2"
+              activeClassName="mobile-menu-item-active"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="inline-block w-6 h-6 ml-4 mr-8"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Продукти
+            </Link>
+            <Link
+              to="/за-нас/"
+              className="mobile-menu-item py-3 mb-2"
+              activeClassName="mobile-menu-item-active"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="inline-block w-6 h-6 ml-4 mr-8"
+              >
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+              </svg>
+              За нас
+            </Link>
+            <Link
+              to="/контакти/"
+              className="mobile-menu-item py-3"
+              activeClassName="mobile-menu-item-active"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="inline-block w-6 h-6 ml-4 mr-8"
+              >
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              Контакти
+            </Link>
+          </motion.div>
+
+          {/* OVERLAY */}
+          <motion.div
+            animate={this.state.active ? "open" : "closed"}
+            initial={"closed"}
+            variants={variantsOverlay}
+            transition="easeIn"
+            onClick={this.OpenMenu}
+            className={`bg-opacity-50 bg-gray-900 h-full w-full top-0 right-0 fixed overflow-hidden z-30 ${
+              this.state.active ? "" : "hidden"
+            }`}
+          ></motion.div>
+        </nav>
+      </>
+    )
+  }
+}
+export default Sidebar
