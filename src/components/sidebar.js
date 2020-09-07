@@ -40,11 +40,11 @@ class Sidebar extends Component {
           {/* TOP BAR OF MENU */}
           <div className="fixed top-0 z-50 flex items-center justify-between w-full h-16 px-4 bg-white shadow-md">
             <div className="">
-              <h1 className="mobile-menulogo text-xl">BioVitalis</h1>
+              <h1 className="mobile-menulogo text-2xl">BioVitalis</h1>
             </div>
-            <div className="pt-2 outline-none">
+            <div className="pt-2">
               <button
-                className={`hamburger hamburger--collapse  ${
+                className={`hamburger hamburger--collapse no-outline pr-1 pl-2  ${
                   this.state.active ? "is-active" : ""
                 }`}
                 onClick={this.OpenMenu}
@@ -62,18 +62,20 @@ class Sidebar extends Component {
             initial={"closed"}
             variants={variantsMenu}
             transition="easeIn"
-            className="fixed top-0 right-0 z-50 flex flex-col w-56 h-full pt-24 mt-16 overflow-hidden bg-white border-t"
+            className="fixed top-0 right-0 z-50 flex flex-col w-48 h-full mt-16 overflow-hidden bg-white border-t"
           >
+            <div className="mobile-menuimage w-full h-32"></div>
             <Link
               to="/"
-              className="mobile-menu-item py-3 mb-2"
+              className="mobile-menu-item py-2 mt-8 mb-2 text-sm"
               activeClassName="mobile-menu-item-active"
+              onClick={this.OpenMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="inline-block w-6 h-6 ml-4 mr-8"
+                className="inline-block w-6 h-6 ml-4 mr-5"
               >
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
@@ -82,14 +84,15 @@ class Sidebar extends Component {
             <Link
               partiallyActive={true}
               to="/продукти/"
-              className="mobile-menu-item py-3 mb-2"
+              className="mobile-menu-item py-2 mb-2 text-sm"
               activeClassName="mobile-menu-item-active"
+              onClick={this.OpenMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="inline-block w-6 h-6 ml-4 mr-8"
+                className="inline-block w-6 h-6 ml-4 mr-5"
               >
                 <path
                   fillRule="evenodd"
@@ -101,14 +104,15 @@ class Sidebar extends Component {
             </Link>
             <Link
               to="/за-нас/"
-              className="mobile-menu-item py-3 mb-2"
+              className="mobile-menu-item py-2 mb-2 text-sm"
               activeClassName="mobile-menu-item-active"
+              onClick={this.OpenMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="inline-block w-6 h-6 ml-4 mr-8"
+                className="inline-block w-6 h-6 ml-4 mr-5"
               >
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
               </svg>
@@ -116,14 +120,15 @@ class Sidebar extends Component {
             </Link>
             <Link
               to="/контакти/"
-              className="mobile-menu-item py-3"
+              className="mobile-menu-item py-2 text-sm"
               activeClassName="mobile-menu-item-active"
+              onClick={this.OpenMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="inline-block w-6 h-6 ml-4 mr-8"
+                className="inline-block w-6 h-6 ml-4 mr-5"
               >
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
