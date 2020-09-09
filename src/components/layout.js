@@ -17,17 +17,13 @@ const Layout = ({ location, children }) => {
 
   return (
     <>
-      <div id="scroll-container" className="h-full">
-        <Header />
-        <div id="">
-          <main className="mt-2">{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </div>
+      <Header />
+      <main className="h-full mt-2">{children}</main>
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      </footer>
     </>
   )
 }

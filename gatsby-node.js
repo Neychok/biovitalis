@@ -26,6 +26,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
+  // Creates a page for every category
   result.data.allPrismicProduct.edges.forEach(({ node }) => {
     createPage({
       path: "/продукти/" + node.data.category.uid + "/" + node.uid,
@@ -38,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // Create a page for every product
   result.data.allPrismicCategory.edges.forEach(({ node }) => {
     createPage({
       path: "/продукти/" + node.uid,

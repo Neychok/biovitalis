@@ -1,13 +1,20 @@
 import React, { Component } from "react"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock"
 import "./hamburger-button.css"
 
+// Variants of the Menu for Framer-Motion animation
 const variantsMenu = {
   open: { x: 0 },
   closed: { x: "100%" },
 }
+
+// Variants of the Overlay for Framer-Motion animation
 const variantsOverlay = {
   open: { opacity: 1 },
   closed: { opacity: 0 },
@@ -19,13 +26,14 @@ class Sidebar extends Component {
     this.state = { active: false }
   }
 
+  // Sets the element that *WONT* lock on bodylock
   componentDidMount() {
-    // 2. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav).
-    // Specifically, the target element is the one we would like to allow scroll on (NOT a parent of that element).
-    // This is also the element to apply the CSS '-webkit-overflow-scrolling: touch;' if desired.
     this.targetElement = document.querySelector("#navigation")
   }
 
+  // Opens/Closes menu and locks body (adds overflow hidden)
+  //! Does not lock for Android
+  //TODO Fix bodylocking for android
   OpenMenu = () => {
     this.setState({ active: !this.state.active })
     this.state.active
@@ -33,18 +41,27 @@ class Sidebar extends Component {
       : disableBodyScroll(this.targetElement)
   }
 
+  // Clears all bodylocks
+  componentWillUnmount() {
+    clearAllBodyScrollLocks()
+  }
+
   render() {
     return (
       <>
-        <nav id="navigation">
-          {/* TOP BAR OF MENU */}
-          <div className="fixed top-0 z-50 flex items-center justify-between w-full h-16 px-4 bg-white shadow-md">
+        {/* Container for the whole menu */}
+        <nav id="navigation" className="mb-12">
+          {/* Top navbar */}
+          <div className="fixed top-0 z-50 flex items-center justify-between w-full h-12 pl-4 pr-0 bg-white shadow-md">
+            {/* Container for the LOGO */}
             <div className="">
               <h1 className="mobile-menulogo text-2xl">BioVitalis</h1>
             </div>
+
+            {/* Container for the hamburger button */}
             <div className="pt-2">
               <button
-                className={`hamburger hamburger--collapse no-outline pr-1 pl-2  ${
+                className={`hamburger hamburger--collapse no-outline pr-4 pl-4  ${
                   this.state.active ? "is-active" : ""
                 }`}
                 onClick={this.OpenMenu}
@@ -56,15 +73,17 @@ class Sidebar extends Component {
             </div>
           </div>
 
-          {/* Menu items list */}
+          {/* Sidebar with menu items */}
           <motion.div
             animate={this.state.active ? "open" : "closed"}
-            initial={"closed"}
+            initial={"closed"} // Initial state of the menu
             variants={variantsMenu}
             transition="easeIn"
-            className="fixed top-0 right-0 z-50 flex flex-col w-48 h-full mt-16 overflow-hidden bg-white border-t"
+            className="fixed top-0 right-0 z-50 flex flex-col w-48 h-full mt-12 overflow-hidden bg-white border-t"
           >
-            <div className="mobile-menuimage w-full h-32"></div>
+            {/* Background pattern */}
+            <div className="mobile-menuimage w-full h-20"></div>
+
             <Link
               to="/"
               className="mobile-menu-item py-2 mt-8 mb-2 text-sm"

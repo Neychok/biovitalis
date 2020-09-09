@@ -1,11 +1,15 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://hungry-kowalevski-954933.netlify.app/`,
     title: `BioVitalis`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@Neycho`,
   },
   plugins: [
+    // Plugin for SEO
     `gatsby-plugin-react-helmet`,
+
+    // Plugin for filesystem data sourcing
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,9 +17,103 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+
+    // Plugin for image processing
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+
+    // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
+
+    // Adds Sitemap
+    //TODO Configure Sitemap
+    `gatsby-plugin-advanced-sitemap`,
+    // {
+    //   resolve: `gatsby-plugin-advanced-sitemap`,
+    //   options: {
+    //     // 1 query for each data type
+    //     query: `
+    //       {
+    //           allGhostPost {
+    //               edges {
+    //                   node {
+    //                       id
+    //                       slug
+    //                       updated_at
+    //                       feature_image
+    //                   }
+    //               }
+    //           }
+    //           allGhostPage {
+    //               edges {
+    //                   node {
+    //                       id
+    //                       slug
+    //                       updated_at
+    //                       feature_image
+    //                   }
+    //               }
+    //           }
+    //           allGhostTag {
+    //               edges {
+    //                   node {
+    //                       id
+    //                       slug
+    //                       feature_image
+    //                   }
+    //               }
+    //           }
+    //           allGhostAuthor {
+    //               edges {
+    //                   node {
+    //                       id
+    //                       slug
+    //                       profile_image
+    //                   }
+    //               }
+    //           }
+    //       }`,
+    //     mapping: {
+    //       // Each data type can be mapped to a predefined sitemap
+    //       // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
+    //       // The default sitemap - if none is passed - will be pages
+    //       allGhostPost: {
+    //         sitemap: `posts`,
+    //       },
+    //       allGhostTag: {
+    //         sitemap: `tags`,
+    //       },
+    //       allGhostAuthor: {
+    //         sitemap: `authors`,
+    //       },
+    //       allGhostPage: {
+    //         sitemap: `pages`,
+    //       },
+    //     },
+    //     exclude: [
+    //       `/dev-404-page`,
+    //       `/404`,
+    //       `/404.html`,
+    //       `/offline-plugin-app-shell-fallback`,
+    //       `/my-excluded-page`,
+    //       /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
+    //     ],
+    //     createLinkInHead: true, // optional: create a link in the `<head>` of your site
+    //     addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+    //     additionalSitemaps: [
+    //       // optional: add additional sitemaps, which are e. g. generated somewhere else, but need to be indexed for this domain
+    //       {
+    //         name: `my-other-posts`,
+    //         url: `/blog/sitemap-posts.xml`,
+    //       },
+    //       {
+    //         url: `https://example.com/sitemap.xml`,
+    //       },
+    //     ],
+    //   },
+    // },
+
+    // Plugin that makes the menu persistent when browsing through the site
     {
       resolve: "gatsby-plugin-transition-link",
       options: {
@@ -23,12 +121,15 @@ module.exports = {
       },
     },
 
+    // Plugin for easy typography management /Probably not needed/
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+
+    // Plugin needed for PWA support
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -41,6 +142,8 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+
+    // Plugin needed for Prismic CMS
     {
       resolve: "gatsby-source-prismic",
       options: {
@@ -136,15 +239,24 @@ module.exports = {
         typePathsFilenamePrefix: "prismic-typepaths---neycho",
       },
     },
+
+    // Plugin that purges all unused CSS from TailwindCSS
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         whitelist: [],
-        printRejected: false,
+        printRejected: true,
         develop: false,
         tailwind: true,
+        ignore: [
+          "slick-carousel/slick/slick.css",
+          "slick-carousel/slick/slick-theme.css",
+          "gatsby-plugin-transition-link/style.css",
+        ],
       },
     },
+
+    // Plugin that adds offline support
     `gatsby-plugin-offline`,
   ],
 }

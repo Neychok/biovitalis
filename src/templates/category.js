@@ -8,13 +8,18 @@ const CategoryPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
+
+      {/* Name of category */}
       <div className="mb-1 ml-3 text-xl text-left">
         {data.allPrismicCategory.edges[0].node.data.name}
       </div>
       <hr className="hr-line"></hr>
+
+      {/* Category list */}
       <div className="flex flex-wrap px-1">
         {document.map(node => {
           return (
+            // Container for item
             <div
               key={node.node.id}
               className="md:w-1/3 lg:w-1/4 xl:w-1/6 w-1/2 px-2 py-0 mb-4"
@@ -37,6 +42,7 @@ const CategoryPage = ({ data }) => {
   )
 }
 
+//! QUERY that gets product ID, URL, Name, URL of image and category name
 export const query = graphql`
   query($slug: String!) {
     allPrismicProduct(filter: { data: { category: { uid: { eq: $slug } } } }) {

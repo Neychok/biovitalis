@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html {
+  overflow: auto;
+}
+
 body {
   margin: 0;
+  background: #f5f5f5;
 }
 button:focus {
   outline: none;
@@ -65,4 +69,42 @@ button:focus {
   margin-left: 0.75rem;
   margin-bottom: 1.25rem;
   width: 15%;
+}
+
+/* Utility CSS */
+
+.slick-current.slick-active.slick-center {
+  opacity: 1;
+}
+.slick-slide {
+  opacity: 0.5;
+}
+
+/* purgecss ignore */
+.MuiBreadcrumbs-ol {
+  margin-bottom: 0;
+}
+
+/* purgecss ignore */
+.MuiBreadcrumbs-li {
+  margin-bottom: 0;
+  color: #9fb3c8;
+  font-size: 12px;
+}
+
+/* purgecss ignore */
+.MuiBreadcrumbs-li:hover {
+  color: #3ebd93;
+}
+
+/* purgecss ignore */
+.MuiBreadcrumbs-separator {
+  margin-bottom: 0;
+  color: #9fb3c8;
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}
+/* purgecss ignore */
+.breadcrumbs-container {
+  color: #bcccdc;
 }
