@@ -71,6 +71,13 @@ button:focus {
   width: 15%;
 }
 
+.hr-line-table {
+  border: 1px solid #627d98;
+  opacity: 0.2;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
 /* Utility CSS */
 
 .slick-current.slick-active.slick-center {

@@ -3,11 +3,43 @@ import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 
+import Breadcrumbs from "@material-ui/core/Breadcrumbs"
+
 const CategoryPage = ({ data }) => {
   const document = data.allPrismicProduct.edges
   return (
     <>
       <SEO title="Home" />
+
+      <Breadcrumbs
+          aria-label="breadcrumb"
+          className="w-full px-4"
+        >
+          <Link to="/продукти/" className="mb-0">
+            Продукти
+          </Link>
+          <p className="mb-0">
+            {data.allPrismicCategory.edges[0].node.uid}
+          </p>
+        </Breadcrumbs>
+
+        {/* Back Button */}
+        <div className="py-1">
+          <Link to={`/продукти/`} className="">
+            <svg
+              className="h-10 pl-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="#014D40"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </Link>
+        </div>
 
       {/* Name of category */}
       <div className="mb-1 ml-3 text-xl text-left">
@@ -64,6 +96,7 @@ export const query = graphql`
     allPrismicCategory(filter: { uid: { eq: $slug } }) {
       edges {
         node {
+          uid
           data {
             name
           }

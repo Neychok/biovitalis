@@ -189,10 +189,10 @@ const Product = ({ data }) => {
           </Link>
         </div>
 
-        <Paper elevation={1} className="pb-1 mb-8">
+        
         {/* Product Name */}
         <h1 className="px-4 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
-
+        <Paper elevation={1} className="pb-1 mb-4 mx-2">
         {/* Main image slider */}
         <Slider
           {...settingsMain}
@@ -223,7 +223,7 @@ const Product = ({ data }) => {
         </Slider>
       </Paper>
 
-      <Paper>
+      <Paper className="mx-2">
       <ThemeProvider theme={theme}>
       <AppBar position="static" color="transparent">
         <Tabs
@@ -247,15 +247,39 @@ const Product = ({ data }) => {
         className="border-b mb-8 border-t bg-white"
       >
         <TabPanel value={value} index={0} >
-        <p>{document.description.text}</p>
+        <p className="text-sm">{document.description.text}</p>
         </TabPanel>
         <TabPanel value={value} index={1} >
-        <p>Мощност: {document.power.text}</p>
-        <p>Капацитет: {document.capacity.text}</p>
-        <p>Тегло: {document.weight.text}</p>
-        <p>Дължина: {document.length.text}</p>
-        <p>Височина: {document.height.text}</p>
-        <p>Широчина: {document.width.text}</p>
+          <div className="flex text-sm">
+            <p className="w-1/2">Мощност:</p>
+            <p className="w-1/2">{document.power.text}</p>
+          </div>
+          <hr className="hr-line-table border-gray-400"></hr>
+          <div className="flex text-sm">
+            <p className="w-1/2">Капацитет:</p>
+            <p className="w-1/2">{document.capacity.text}</p>
+          </div>
+          <hr className="hr-line-table border-gray-400"></hr>
+          <div className="flex text-sm">
+            <p className="w-1/2">Тегло:</p>
+            <p className="w-1/2">{document.weight.text}</p>
+          </div>
+          <hr className="hr-line-table border-gray-400"></hr>
+          <div className="flex text-sm">
+            <p className="w-1/2">Дължина:</p>
+            <p className="w-1/2">{document.length.text}</p>
+          </div>
+          <hr className="hr-line-table border-gray-400"></hr>
+          <div className="flex text-sm">
+            <p className="w-1/2">Височина:</p>
+            <p className="w-1/2">{document.height.text}</p>
+          </div>
+          <hr className="hr-line-table border-gray-400"></hr>
+          <div className="flex text-sm">
+            <p className="w-1/2">Широчина:</p>
+            <p className="w-1/2">{document.width.text}</p>
+          </div>
+          <hr className="hr-line-table border-gray-400"></hr>
         </TabPanel>
       </SwipeableViews>
       </Paper>
