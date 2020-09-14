@@ -18,7 +18,7 @@ const Layout = ({ location, children }) => {
   return (
     <>
       <Header />
-      <main className="h-full mt-2">{children}</main>
+      <main className="h-full min-h-screen mt-2">{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
