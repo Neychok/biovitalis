@@ -25,9 +25,6 @@ module.exports = {
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
 
-    // PREACT
-    `gatsby-plugin-preact`,
-
     // Adds Sitemap
     //TODO Configure Sitemap
     `gatsby-plugin-advanced-sitemap`,
