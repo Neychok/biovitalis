@@ -8,13 +8,11 @@ import {
 } from "body-scroll-lock"
 import "./hamburger-button.css"
 
-// Variants of the Menu for Framer-Motion animation
 const variantsMenu = {
   open: { x: 0 },
   closed: { x: "100%" },
 }
 
-// Variants of the Overlay for Framer-Motion animation
 const variantsOverlay = {
   open: { opacity: 1 },
   closed: { opacity: 0 },
@@ -26,12 +24,10 @@ class Sidebar extends Component {
     this.state = { active: false }
   }
 
-  // Sets the element that *WONT* lock on bodylock
   componentDidMount() {
     this.targetElement = document.querySelector("#navigation")
   }
 
-  // Opens/Closes menu and locks body (adds overflow hidden)
   //! Does not lock for Android
   //TODO Fix bodylocking for android
   OpenMenu = () => {
@@ -54,18 +50,21 @@ class Sidebar extends Component {
           {/* Top navbar */}
           <div className="fixed top-0 z-50 flex items-center justify-between w-full h-12 pl-4 pr-0 bg-white shadow-md">
             {/* Container for the LOGO */}
-            <div className="">
+            <Link to="/" className="">
               <h1 className="mobile-menulogo text-2xl">BioVitalis</h1>
-            </div>
+            </Link>
 
             {/* Container for the hamburger button */}
-            <div className="pt-2">
+            <div className="pt-1">
               <button
-                className={`hamburger hamburger--collapse no-outline pr-4 pl-4  ${
+                className={`hamburger hamburger--collapse flex items-center no-outline pr-2 py-1 ${
                   this.state.active ? "is-active" : ""
                 }`}
                 onClick={this.OpenMenu}
               >
+                <span className="dark-green pr-1 text-base">
+                  {this.state.active ? "ЗАТВОРИ" : "МЕНЮ"}
+                </span>
                 <span className="hamburger-box">
                   <span className="hamburger-inner"></span>
                 </span>

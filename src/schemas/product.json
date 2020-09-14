@@ -23,12 +23,35 @@
         "placeholder": "Категория"
       }
     },
-    "main_image": {
+    "featured_image": {
       "type": "Image",
       "config": {
         "constraint": {},
         "thumbnails": [],
         "label": "Главно изображение"
+      }
+    },
+    "gallery": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Снимка"
+            }
+          }
+        },
+        "label": "Gallery"
+      }
+    },
+    "video": {
+      "type": "Embed",
+      "config": {
+        "label": "video",
+        "placeholder": "Видео"
       }
     },
     "description": {
@@ -85,45 +108,6 @@
         "single": "paragraph",
         "label": "capacity",
         "placeholder": "Капацитет"
-      }
-    },
-    "body": {
-      "type": "Slices",
-      "fieldset": "Slice zone",
-      "config": {
-        "labels": {
-          "_________": []
-        },
-        "choices": {
-          "image_gallery": {
-            "type": "Slice",
-            "fieldset": "Image Gallery",
-            "description": "Image Gallery with a title and a caption for each image",
-            "icon": "photo_library",
-            "non-repeat": {},
-            "repeat": {
-              "image_captions": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph",
-                  "label": "Image captions",
-                  "placeholder": "Images captions"
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "width": null,
-                    "height": null
-                  },
-                  "thumbnails": [],
-                  "label": "Снимка"
-                }
-              }
-            }
-          }
-        }
       }
     }
   }

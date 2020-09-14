@@ -61,7 +61,7 @@ button:focus {
 }
 
 .category-product-name {
-  background-color: #f0f4f8;
+  min-height: 3rem;
 }
 
 .hr-line {
@@ -69,6 +69,7 @@ button:focus {
   margin-left: 0.75rem;
   margin-bottom: 1.25rem;
   width: 15%;
+  border-radius: 9999px;
 }
 
 .hr-line-table {
@@ -76,12 +77,13 @@ button:focus {
   opacity: 0.2;
   margin-bottom: 0.5rem;
   width: 100%;
+  border-radius: 9999px;
 }
 
 /* Utility CSS */
 
-.slick-current.slick-active.slick-center {
-  opacity: 1;
+.slick-current {
+  opacity: 1 !important;
 }
 .slick-slide {
   opacity: 0.5;
@@ -114,4 +116,19 @@ button:focus {
 /* purgecss ignore */
 .breadcrumbs-container {
   color: #bcccdc;
+}
+
+.dark-green {
+  color: #014d40;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
+import PropTypes from "prop-types"
+import SwipeableViews from "react-swipeable-views"
 
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
-import { createMuiTheme, ThemeProvider  } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Tabs from "@material-ui/core/Tabs"
+import Tab from "@material-ui/core/Tab"
+import AppBar from "@material-ui/core/AppBar"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+import Paper from "@material-ui/core/Paper"
 
+import ReactPlayer from "react-player/lazy"
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <div
@@ -27,47 +28,43 @@ function TabPanel(props) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <div className="p-3">
-          {children}
-        </div>
-      )}
+      {value === index && <div className="p-3">{children}</div>}
     </div>
-  );
+  )
 }
 
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
-};
+}
 
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
+    "aria-controls": `full-width-tabpanel-${index}`,
+  }
 }
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#27ab83',
-      main: '#0c6b58',
-      dark: '#102A43',
-      contrastText: '#fff',
+      light: "#27ab83",
+      main: "#0c6b58",
+      dark: "#102A43",
+      contrastText: "#fff",
     },
     secondary: {
-      light: '#bcccdc',
-      main: '#627D98',
-      dark: '#ba000d',
-      contrastText: '#000',
+      light: "#bcccdc",
+      main: "#627D98",
+      dark: "#ba000d",
+      contrastText: "#000",
     },
-    background:{
-      main: '#fff'
-    }
+    background: {
+      main: "#fff",
+    },
   },
-});
+})
 
 const Product = ({ data }) => {
   const document = data.allPrismicProduct.edges[0].node.data
@@ -85,6 +82,7 @@ const Product = ({ data }) => {
   const settingsMain = {
     slidesToShow: 1,
     slidesToScroll: 1,
+    infinite: false,
     lazyLoad: "progressive",
     arrows: false,
     fade: true,
@@ -96,6 +94,7 @@ const Product = ({ data }) => {
     centerPadding: "60px",
     centerMode: true,
     lazyLoad: "progressive",
+    infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: ".slider-for",
@@ -103,55 +102,24 @@ const Product = ({ data }) => {
     swipeToSlide: true,
     focusOnSelect: true,
   }
-  const slidesData = [
-    {
-      id: 1,
-      title: "repellendus id ullam",
-      label: "Dolorem officiis temporibus.",
-    },
-    {
-      id: 2,
-      title: "excepturi consequatur est",
-      label: "Officia non provident dolor esse et neque.",
-    },
-    {
-      id: 3,
-      title: "eius doloribus blanditiis",
-      label: "Ut recusandae vel vitae molestiae id soluta.",
-    },
-    {
-      id: 4,
-      title: "nihil voluptates delectus",
-      label: "Qui vel consequatur recusandae illo repellendus.",
-    },
-    {
-      id: 5,
-      title: "nemo dolorem necessitatibus",
-      label: "Placeat odit velit itaque voluptatem.",
-    },
-    {
-      id: 6,
-      title: "dolorem quibusdam quasi",
-      label: "Adipisci officiis repudiandae.",
-    },
-  ]
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
+  const handleChangeIndex = index => {
+    setValue(index)
+  }
 
   return (
     <>
       <SEO title="Home" />
 
-
-      {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
+      {/* Hides footer out of sight and makes product pages look more consistent*/}
+      <div className="min-h-screen">
+        {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
         <Breadcrumbs
           aria-label="breadcrumb"
           maxItems={3}
@@ -160,15 +128,10 @@ const Product = ({ data }) => {
           <Link to="/продукти/" className="mb-0">
             Продукти
           </Link>
-          <Link
-            to={`/продукти/${document.category.uid}/`}
-            className="mb-0"
-          >
+          <Link to={`/продукти/${document.category.uid}/`} className="mb-0">
             {document.category.uid}
           </Link>
-          <p className="mb-0">
-            {data.allPrismicProduct.edges[0].node.uid}
-          </p>
+          <p className="mb-0">{data.allPrismicProduct.edges[0].node.uid}</p>
         </Breadcrumbs>
 
         {/* Back Button */}
@@ -189,100 +152,108 @@ const Product = ({ data }) => {
           </Link>
         </div>
 
-        
         {/* Product Name */}
         <h1 className="px-4 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
-        <Paper elevation={1} className="pb-1 mb-4 mx-2">
-        {/* Main image slider */}
-        <Slider
-          {...settingsMain}
-          asNavFor={nav2}
-          ref={slider => setSlider1(slider)}
-        >
-          {slidesData.map(slide => (
-            <div className="">
-              <img className="mb-0" src={`https://picsum.photos/800/400`} />
-            </div>
-          ))}
-        </Slider>
+        <Paper elevation={1} className="pb-1 mx-2 mb-4">
+          {/* Main image slider */}
+          <Slider
+            {...settingsMain}
+            asNavFor={nav2}
+            ref={slider => setSlider1(slider)}
+          >
+            {document.gallery.map(slide => (
+              //TODO Add key
+              <div key="">
+                <img className="mb-0" src={`${slide.image.url}`} />
+              </div>
+            ))}
+          </Slider>
 
-        {/* Thumbnail slider */}
-        <Slider
-          {...settingsThumbs}
-          asNavFor={nav1}
-          ref={slider => setSlider2(slider)}
-        >
-          {slidesData.map(slide => (
-            <div className="">
-              <img
-                className="px-1 mb-1"
-                src={`https://picsum.photos/800/400`}
-              />
-            </div>
-          ))}
-        </Slider>
-      </Paper>
+          {/* Thumbnail slider */}
+          <Slider
+            {...settingsThumbs}
+            asNavFor={nav1}
+            ref={slider => setSlider2(slider)}
+            className=""
+          >
+            {document.gallery.map(slide => (
+              <div className="">
+                <img className="px-1 mb-1" src={`${slide.image.url}`} />
+              </div>
+            ))}
+          </Slider>
+        </Paper>
 
-      <Paper className="mx-2">
-      <ThemeProvider theme={theme}>
-      <AppBar position="static" color="transparent">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="secondary"
-          variant="fullWidth"
-          aria-label="информация"
-        >
-          <Tab label="Описание" {...a11yProps(0)} />
-          <Tab label="Характеристики" {...a11yProps(1)} />
-        </Tabs>
-        </AppBar>
-      </ThemeProvider>
-      
-      <SwipeableViews
-        axis={'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-        className="border-b mb-8 border-t bg-white"
-      >
-        <TabPanel value={value} index={0} >
-        <p className="text-sm">{document.description.text}</p>
-        </TabPanel>
-        <TabPanel value={value} index={1} >
-          <div className="flex text-sm">
-            <p className="w-1/2">Мощност:</p>
-            <p className="w-1/2">{document.power.text}</p>
-          </div>
-          <hr className="hr-line-table border-gray-400"></hr>
-          <div className="flex text-sm">
-            <p className="w-1/2">Капацитет:</p>
-            <p className="w-1/2">{document.capacity.text}</p>
-          </div>
-          <hr className="hr-line-table border-gray-400"></hr>
-          <div className="flex text-sm">
-            <p className="w-1/2">Тегло:</p>
-            <p className="w-1/2">{document.weight.text}</p>
-          </div>
-          <hr className="hr-line-table border-gray-400"></hr>
-          <div className="flex text-sm">
-            <p className="w-1/2">Дължина:</p>
-            <p className="w-1/2">{document.length.text}</p>
-          </div>
-          <hr className="hr-line-table border-gray-400"></hr>
-          <div className="flex text-sm">
-            <p className="w-1/2">Височина:</p>
-            <p className="w-1/2">{document.height.text}</p>
-          </div>
-          <hr className="hr-line-table border-gray-400"></hr>
-          <div className="flex text-sm">
-            <p className="w-1/2">Широчина:</p>
-            <p className="w-1/2">{document.width.text}</p>
-          </div>
-          <hr className="hr-line-table border-gray-400"></hr>
-        </TabPanel>
-      </SwipeableViews>
-      </Paper>
+        <Paper className="mx-2">
+          <ThemeProvider theme={theme}>
+            <AppBar position="static" color="transparent">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="secondary"
+                textColor="secondary"
+                variant="fullWidth"
+                aria-label="информация"
+              >
+                <Tab label="Описание" {...a11yProps(0)} />
+                <Tab label="Характеристики" {...a11yProps(1)} />
+              </Tabs>
+            </AppBar>
+          </ThemeProvider>
+
+          <SwipeableViews
+            axis={"x"}
+            index={value}
+            onChangeIndex={handleChangeIndex}
+            className="mb-8 bg-white border-t border-b"
+          >
+            <TabPanel value={value} index={0}>
+              <div className="player-wrapper mt-1 mb-4">
+                <ReactPlayer
+                  className="react-player"
+                  url={document.video.embed_url}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+
+              <p className="text-sm">{document.description.text}</p>
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <div className="flex text-sm">
+                <p className="w-1/2">Мощност:</p>
+                <p className="w-1/2">{document.power.text}</p>
+              </div>
+              <hr className="hr-line-table border-gray-400"></hr>
+              <div className="flex text-sm">
+                <p className="w-1/2">Капацитет:</p>
+                <p className="w-1/2">{document.capacity.text}</p>
+              </div>
+              <hr className="hr-line-table border-gray-400"></hr>
+              <div className="flex text-sm">
+                <p className="w-1/2">Тегло:</p>
+                <p className="w-1/2">{document.weight.text}</p>
+              </div>
+              <hr className="hr-line-table border-gray-400"></hr>
+              <div className="flex text-sm">
+                <p className="w-1/2">Дължина:</p>
+                <p className="w-1/2">{document.length.text}</p>
+              </div>
+              <hr className="hr-line-table border-gray-400"></hr>
+              <div className="flex text-sm">
+                <p className="w-1/2">Височина:</p>
+                <p className="w-1/2">{document.height.text}</p>
+              </div>
+              <hr className="hr-line-table border-gray-400"></hr>
+              <div className="flex text-sm">
+                <p className="w-1/2">Широчина:</p>
+                <p className="w-1/2">{document.width.text}</p>
+              </div>
+              <hr className="hr-line-table border-gray-400"></hr>
+            </TabPanel>
+          </SwipeableViews>
+        </Paper>
+      </div>
     </>
   )
 }
@@ -293,6 +264,17 @@ export const query = graphql`
         node {
           uid
           data {
+            gallery {
+              image {
+                url
+              }
+            }
+
+            video {
+              html
+              embed_url
+            }
+
             capacity {
               text
             }
