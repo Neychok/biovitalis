@@ -43,7 +43,7 @@ const ProductsPage = ({ data }) => {
   )
 }
 
-export const query = graphql`
+const query = graphql`
   {
     allPrismicCategory {
       edges {
