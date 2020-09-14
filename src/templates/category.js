@@ -73,7 +73,7 @@ const CategoryPage = ({ data }) => {
 }
 
 //! QUERY that gets product ID, URL, Name, URL of image and category name
-const query = graphql`
+export const query = graphql`
   query($slug: String!) {
     allPrismicProduct(filter: { data: { category: { uid: { eq: $slug } } } }) {
       edges {

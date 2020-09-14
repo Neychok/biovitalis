@@ -257,7 +257,7 @@ const Product = ({ data }) => {
     </>
   )
 }
-const query = graphql`
+export const query = graphql`
   query($slug: String!) {
     allPrismicProduct(filter: { uid: { eq: $slug } }) {
       edges {
