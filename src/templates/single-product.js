@@ -15,7 +15,7 @@ import AppBar from "@material-ui/core/AppBar"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
 
-import ReactPlayer from "react-player/lazy"
+// import ReactPlayer from "react-player/lazy"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -208,14 +208,14 @@ const Product = ({ data }) => {
             className="mb-8 bg-white border-t border-b"
           >
             <TabPanel value={value} index={0}>
-              <div className="player-wrapper mt-1 mb-4">
+              {/* <div className="player-wrapper mt-1 mb-4">
                 <ReactPlayer
                   className="react-player"
                   url={document.video.embed_url}
                   width="100%"
                   height="100%"
                 />
-              </div>
+              </div> */}
 
               <p className="text-sm">{document.description.text}</p>
             </TabPanel>
