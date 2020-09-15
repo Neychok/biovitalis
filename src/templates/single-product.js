@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import PropTypes from "prop-types"
-import SwipeableViews from "react-swipeable-views"
 
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+import Breadcrumbs from "@material-ui/core/Breadcrumbs"
+import Paper from "@material-ui/core/Paper"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-import Breadcrumbs from "@material-ui/core/Breadcrumbs"
+import AppBar from "@material-ui/core/AppBar"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
-import AppBar from "@material-ui/core/AppBar"
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
-import Paper from "@material-ui/core/Paper"
+import SwipeableViews from "react-swipeable-views"
 
 // import ReactPlayer from "react-player/lazy"
 
@@ -77,7 +77,7 @@ const Product = ({ data }) => {
   useEffect(() => {
     setNav1(slider1)
     setNav2(slider2)
-  })
+  }, [slider1, slider2])
 
   const settingsMain = {
     slidesToShow: 1,
