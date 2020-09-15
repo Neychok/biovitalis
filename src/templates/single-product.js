@@ -83,7 +83,7 @@ const Product = ({ data }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
-    lazyLoad: "ondemand",
+    lazyLoad: false,
     arrows: false,
     fade: true,
     asNavFor: ".slider-nav",
