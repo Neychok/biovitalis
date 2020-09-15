@@ -56,6 +56,8 @@ const CategoryPage = ({ data }) => {
               <Paper>
                 <Link to={node.node.url} className="">
                   <img
+                    height="250px"
+                    width="313px"
                     src={node.node.data.featured_image.url}
                     alt={node.node.data.product_name.text}
                     className="mb-0 rounded-t"
@@ -86,7 +88,7 @@ export const query = graphql`
               text
             }
             featured_image {
-              url
+              url(imgixParams: { height: 250 })
             }
           }
         }

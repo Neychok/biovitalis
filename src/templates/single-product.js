@@ -163,6 +163,8 @@ const Product = ({ data }) => {
             {document.gallery.map(slide => (
               <div key={`${slide.image.url}`}>
                 <img
+                  height="400px"
+                  width="500px"
                   className="mb-0"
                   src={`${slide.image.url}`}
                   alt={`${slide.image.alt}`}
@@ -181,6 +183,8 @@ const Product = ({ data }) => {
             {document.gallery.map(slide => (
               <div key={`${slide.image.url + "_thumb"}`} className="">
                 <img
+                  height="400px"
+                  width="500px"
                   className="px-1 mb-1 bg-contain"
                   src={`${slide.image.url}`}
                   alt={`${slide.image.alt}`}

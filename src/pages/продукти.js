@@ -26,6 +26,8 @@ const ProductsPage = ({ data }) => {
               <Paper>
                 <Link to={node.node.url} className="">
                   <img
+                    height="250px"
+                    width="313px"
                     src={node.node.data.image.url}
                     alt={node.node.data.name}
                     className="mb-0 rounded-t"
