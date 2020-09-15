@@ -133,3 +133,10 @@ button:focus {
 .dark-green {
   color: #014d40;
 }
+
+.thumbnail {
+  max-height: 80px;
+}
+.container-500 {
+  max-width: 500px;
+}

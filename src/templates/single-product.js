@@ -153,47 +153,47 @@ const Product = ({ data }) => {
 
         {/* Product Name */}
         <h1 className="px-4 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
-        <Paper elevation={1} className="pb-1 mx-2 mb-4">
-          {/* Main image slider */}
-          <Slider
-            {...settingsMain}
-            asNavFor={nav2}
-            ref={slider => setSlider1(slider)}
-          >
-            {document.gallery.map(slide => (
-              <div key={`${slide.image.url}`}>
-                <img
-                  height="400px"
-                  width="500px"
-                  className="mb-0"
-                  src={`${slide.image.url}`}
-                  alt={`${slide.image.alt}`}
-                />
-              </div>
-            ))}
-          </Slider>
+        <div className="mx-2">
+          <Paper elevation={1} className="container-500 pb-1 mx-auto mb-4">
+            {/* Main image slider */}
+            <Slider
+              {...settingsMain}
+              asNavFor={nav2}
+              ref={slider => setSlider1(slider)}
+            >
+              {document.gallery.map(slide => (
+                <div key={`${slide.image.url}`}>
+                  <img
+                    height="400px"
+                    width="500px"
+                    className="mb-0"
+                    src={`${slide.image.url}`}
+                    alt={`${slide.image.alt}`}
+                  />
+                </div>
+              ))}
+            </Slider>
 
-          {/* Thumbnail slider */}
-          <Slider
-            {...settingsThumbs}
-            asNavFor={nav1}
-            ref={slider => setSlider2(slider)}
-            className=""
-          >
-            {document.gallery.map(slide => (
-              <div key={`${slide.image.url + "_thumb"}`} className="">
-                <img
-                  height="400px"
-                  width="500px"
-                  className="px-1 mb-1 bg-contain"
-                  src={`${slide.image.url}`}
-                  alt={`${slide.image.alt}`}
-                />
-              </div>
-            ))}
-          </Slider>
-        </Paper>
-
+            {/* Thumbnail slider */}
+            <Slider
+              {...settingsThumbs}
+              asNavFor={nav1}
+              ref={slider => setSlider2(slider)}
+              className=""
+            >
+              {document.gallery.map(slide => (
+                <div key={`${slide.image.url + "_thumb"}`} className="">
+                  <img
+                    height="100px"
+                    className="thumbnail px-1 mb-0 bg-contain"
+                    src={`${slide.image.url}`}
+                    alt={`${slide.image.alt}`}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </Paper>
+        </div>
         <Paper className="mx-2">
           <ThemeProvider theme={theme}>
             <AppBar position="static" color="transparent">
