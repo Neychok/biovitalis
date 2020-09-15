@@ -121,14 +121,6 @@ module.exports = {
       },
     },
 
-    // Plugin for easy typography management /Probably not needed/
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-
     // Plugin needed for PWA support
     {
       resolve: `gatsby-plugin-manifest`,

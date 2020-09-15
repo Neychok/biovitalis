@@ -37,8 +37,7 @@
     "react-swipeable-views": "^0.13.9",
     "react-typography": "^0.16.19",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^1.7.6",
-    "typography": "^0.16.19"
+    "tailwindcss": "^1.7.6"
   },
   "devDependencies": {
     "prettier": "2.1.1"

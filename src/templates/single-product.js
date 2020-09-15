@@ -116,7 +116,6 @@ const Product = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-
       {/* Hides footer out of sight and makes product pages look more consistent*/}
       <div className="">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
@@ -162,8 +161,7 @@ const Product = ({ data }) => {
             ref={slider => setSlider1(slider)}
           >
             {document.gallery.map(slide => (
-              //TODO Add key
-              <div key="">
+              <div key={`${slide.image.url}`}>
                 <img
                   className="mb-0"
                   src={`${slide.image.url}`}
@@ -181,7 +179,7 @@ const Product = ({ data }) => {
             className=""
           >
             {document.gallery.map(slide => (
-              <div className="">
+              <div key={`${slide.image.url + "_thumb"}`} className="">
                 <img
                   className="px-1 mb-1 bg-contain"
                   src={`${slide.image.url}`}
@@ -274,8 +272,8 @@ export const query = graphql`
           data {
             gallery {
               image {
-                url
                 alt
+                url(imgixParams: { height: 400 })
               }
             }
 
