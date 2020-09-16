@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import PropTypes from "prop-types"
+import "lazysizes"
+import "lazysizes/plugins/parent-fit/ls.parent-fit"
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
@@ -166,11 +168,11 @@ const Product = ({ data }) => {
               {document.gallery.map(slide => (
                 <div key={`${slide.image.url}`}>
                   <img
-                    height="400px"
-                    width="500px"
-                    className="mb-0"
-                    src={`${slide.image.url}`}
-                    alt={`${slide.image.alt}`}
+                    src={`${slide.image.fluid.src}`}
+                    srcSet={`${slide.image.fluid.base64}`}
+                    data-srcset={`${slide.image.fluid.srcSet}`}
+                    data-sizes="auto"
+                    className="lazyload block w-full"
                   />
                 </div>
               ))}
@@ -189,11 +191,11 @@ const Product = ({ data }) => {
                   className="container-thumb"
                 >
                   <img
-                    width="108px"
-                    height="80px"
-                    className="thumbnail px-1 mb-0 bg-contain"
-                    src={`${slide.image.url}`}
-                    alt={`${slide.image.alt}`}
+                    src={`${slide.image.fluid.src}`}
+                    srcSet={`${slide.image.fluid.base64}`}
+                    data-srcset={`${slide.image.fluid.srcSet}`}
+                    data-sizes="auto"
+                    className="lazyload block w-full px-1"
                   />
                 </div>
               ))}
@@ -286,6 +288,11 @@ export const query = graphql`
               image {
                 alt
                 url(imgixParams: { height: 400 })
+                fluid {
+                  base64
+                  src
+                  srcSet
+                }
               }
             }
 
