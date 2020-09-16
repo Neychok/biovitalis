@@ -182,7 +182,10 @@ const Product = ({ data }) => {
               className=""
             >
               {document.gallery.map(slide => (
-                <div key={`${slide.image.url + "_thumb"}`} className="">
+                <div
+                  key={`${slide.image.url + "_thumb"}`}
+                  className="container-thumb"
+                >
                   <img
                     width="108px"
                     height="80px"
