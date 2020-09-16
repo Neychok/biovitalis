@@ -173,6 +173,7 @@ const Product = ({ data }) => {
                     data-srcset={`${slide.image.fluid.srcSet}`}
                     data-sizes="auto"
                     className="lazyload block w-full"
+                    alt={`${slide.image.url}`}
                   />
                 </div>
               ))}
@@ -196,6 +197,7 @@ const Product = ({ data }) => {
                     data-srcset={`${slide.image.fluid.srcSet}`}
                     data-sizes="auto"
                     className="lazyload block w-full px-1"
+                    alt={`${slide.image.url}`}
                   />
                 </div>
               ))}
