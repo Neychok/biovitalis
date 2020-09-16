@@ -39,6 +39,7 @@ module.exports = {
 
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-material-ui`,
 
     // Adds Sitemap
     //TODO Configure Sitemap
@@ -133,13 +134,6 @@ module.exports = {
       resolve: "gatsby-plugin-transition-link",
       options: {
         layout: require.resolve(`./src/components/layout.js`),
-      },
-    },
-
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
       },
     },
 
