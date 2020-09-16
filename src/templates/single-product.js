@@ -15,6 +15,8 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
 
+import ContactForm from "../components/contactForm"
+
 // import ReactPlayer from "react-player/lazy"
 
 function TabPanel(props) {
@@ -268,6 +270,8 @@ const Product = ({ data }) => {
           </SwipeableViews>
         </Paper>
       </div>
+
+      <ContactForm></ContactForm>
     </>
   )
 }
