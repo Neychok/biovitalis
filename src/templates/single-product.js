@@ -15,7 +15,7 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
 
-import ContactForm from "../components/contactForm"
+import ContactForm from "../components/contactform"
 
 // import ReactPlayer from "react-player/lazy"
 
