@@ -122,7 +122,7 @@ const Product = ({ data }) => {
         <Breadcrumbs
           aria-label="breadcrumb"
           maxItems={3}
-          className="w-full h-5 px-4"
+          className="w-full h-5 px-4 list-none"
         >
           <Link to="/продукти/" className="mb-0">
             Продукти
@@ -184,7 +184,8 @@ const Product = ({ data }) => {
               {document.gallery.map(slide => (
                 <div key={`${slide.image.url + "_thumb"}`} className="">
                   <img
-                    height="100px"
+                    width="108px"
+                    height="80px"
                     className="thumbnail px-1 mb-0 bg-contain"
                     src={`${slide.image.url}`}
                     alt={`${slide.image.alt}`}
@@ -196,7 +197,7 @@ const Product = ({ data }) => {
         </div>
         <Paper className="mx-2">
           <ThemeProvider theme={theme}>
-            <AppBar position="static" color="transparent">
+            <AppBar position="static" color="transparent" className="h-12">
               <Tabs
                 value={value}
                 onChange={handleChange}
