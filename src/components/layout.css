@@ -135,13 +135,31 @@ button:focus {
 .dark-green {
   color: #014d40;
 }
-
+/* purgecss ignore */
 .thumbnail {
   max-height: 80px;
 }
+/* purgecss ignore */
 .container-500 {
   max-width: 500px;
 }
+/* purgecss ignore */
 .container-thumb {
   min-height: 60px;
+}
+/* purgecss ignore */
+#splide02 .splide__slide {
+  margin-top: 0.25rem;
+  opacity: 0.5;
+}
+/* purgecss ignore */
+#splide02 .is-active {
+  opacity: 1;
+  border: none;
+  border-bottom: 3px solid #3ebd93;
+}
+/* purgecss ignore */
+.swiper-slide-thumb-active img {
+  opacity: 1 !important;
+  border-bottom: 3px solid #3ebd93;
 }

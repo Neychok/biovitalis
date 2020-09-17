@@ -32,11 +32,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-
-    // Plugin for image processing
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
     `gatsby-plugin-material-ui`,
@@ -186,24 +181,7 @@ module.exports = {
           element,
           content,
           children
-        ) => {
-          // switch(type) {
-          //   // Add a class to paragraph elements
-          //   case Elements.paragraph:
-          //     return '<p class="paragraph-class">' + children.join('') + '</p>';
-          //   // Don't wrap images in a <p> tag
-          //   case Elements.image:
-          //     return '<img src="' + element.url + '" alt="' + element.alt + '">';
-          //   // Add a class to hyperlinks
-          //   case Elements.hyperlink:
-          //     var target = element.data.target ? 'target="' + element.data.target + '" rel="noopener"' : '';
-          //     var linkUrl = PrismicDOM.Link.url(element.data, linkResolver);
-          //     return '<a class="some-link"' + target + ' href="' + linkUrl + '">' + content + '</a>';
-          //   // Return null to stick with the default behavior for all other elements
-          //   default:
-          //     return null;
-          // }
-        },
+        ) => {},
 
         schemas: {
           // Your custom types mapped to schemas
@@ -213,32 +191,16 @@ module.exports = {
 
         prismicToolbar: false,
 
-        // Set a function to determine if images are downloaded locally and made
-        // available for gatsby-transformer-sharp for use with gatsby-image.
-        // The document node, field key (i.e. API ID), and field value are
-        // provided to the function, as seen below. This allows you to use
-        // different logic for each field if necessary.
-        // This defaults to always return false.
         shouldDownloadImage: ({ node, key, value }) => {
           // Return true to download the image or false to skip.
           return false
         },
-
-        // Provide a default set of Imgix image transformations applied to
-        // Imgix-backed gatsby-image fields. These options will override the
-        // defaults set by Prismic.
-        // See: https://docs.imgix.com/apis/url
         imageImgixParams: {
           auto: "compress,format",
           fit: "max",
           q: 50,
         },
 
-        // Provide a default set of Imgix image transformations applied to
-        // the placeholder images of Imgix-backed gatsby-image fields. These
-        // parameters will be applied over those provided in the above
-        // `imageImgixParams` option.
-        // See: https://docs.imgix.com/apis/url
         imagePlaceholderImgixParams: {
           w: 100,
           blur: 15,
@@ -258,9 +220,8 @@ module.exports = {
         develop: false,
         tailwind: true,
         ignore: [
-          "slick-carousel/slick/slick.css",
-          "slick-carousel/slick/slick-theme.css",
           "gatsby-plugin-transition-link/style.css",
+          "swiper/swiper-bundle.min.css",
         ],
       },
     },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import PropTypes from "prop-types"
@@ -8,9 +8,7 @@ import "lazysizes/plugins/parent-fit/ls.parent-fit"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
 import Paper from "@material-ui/core/Paper"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import Carousel from "../components/carousel"
 
 import AppBar from "@material-ui/core/AppBar"
 import Tabs from "@material-ui/core/Tabs"
@@ -54,7 +52,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: "#27ab83",
-      main: "#0c6b58",
+      main: "#3ebd93",
       dark: "#102A43",
       contrastText: "#fff",
     },
@@ -72,40 +70,6 @@ const theme = createMuiTheme({
 
 const Product = ({ data }) => {
   const document = data.allPrismicProduct.edges[0].node.data
-
-  const [nav1, setNav1] = useState(null)
-  const [nav2, setNav2] = useState(null)
-  const [slider1, setSlider1] = useState(null)
-  const [slider2, setSlider2] = useState(null)
-
-  useEffect(() => {
-    setNav1(slider1)
-    setNav2(slider2)
-  }, [slider1, slider2])
-
-  const settingsMain = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: false,
-    lazyLoad: false,
-    arrows: false,
-    fade: true,
-    asNavFor: ".slider-nav",
-  }
-
-  const settingsThumbs = {
-    className: "center",
-    centerPadding: "60px",
-    centerMode: true,
-    lazyLoad: false,
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: ".slider-for",
-    dots: false,
-    swipeToSlide: true,
-    focusOnSelect: true,
-  }
 
   const [value, setValue] = React.useState(0)
 
@@ -159,49 +123,7 @@ const Product = ({ data }) => {
         <h1 className="px-4 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
         <div className="mx-2">
           <Paper elevation={1} className="container-500 pb-1 mx-auto mb-4">
-            {/* Main image slider */}
-            <Slider
-              {...settingsMain}
-              asNavFor={nav2}
-              ref={slider => setSlider1(slider)}
-            >
-              {document.gallery.map(slide => (
-                <div key={`${slide.image.url}`}>
-                  <img
-                    src={`${slide.image.fluid.src}`}
-                    srcSet={`${slide.image.fluid.base64}`}
-                    data-srcset={`${slide.image.fluid.srcSet}`}
-                    data-sizes="auto"
-                    className="lazyload block w-full"
-                    alt={`${slide.image.url}`}
-                  />
-                </div>
-              ))}
-            </Slider>
-
-            {/* Thumbnail slider */}
-            <Slider
-              {...settingsThumbs}
-              asNavFor={nav1}
-              ref={slider => setSlider2(slider)}
-              className=""
-            >
-              {document.gallery.map(slide => (
-                <div
-                  key={`${slide.image.url + "_thumb"}`}
-                  className="container-thumb"
-                >
-                  <img
-                    src={`${slide.image.fluid.src}`}
-                    srcSet={`${slide.image.fluid.base64}`}
-                    data-srcset={`${slide.image.fluid.srcSet}`}
-                    data-sizes="auto"
-                    className="lazyload block w-full px-1"
-                    alt={`${slide.image.url}`}
-                  />
-                </div>
-              ))}
-            </Slider>
+            <Carousel images={document.gallery}></Carousel>
           </Paper>
         </div>
         <Paper className="mx-2">
@@ -210,7 +132,7 @@ const Product = ({ data }) => {
               <Tabs
                 value={value}
                 onChange={handleChange}
-                indicatorColor="secondary"
+                indicatorColor="primary"
                 textColor="secondary"
                 variant="fullWidth"
                 aria-label="информация"
