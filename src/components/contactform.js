@@ -81,56 +81,64 @@ export default class Contact extends React.Component {
             <form
               noValidate
               autoComplete="off"
-              onSubmit={this.handleSubmit}
               className="flex-col px-2"
+              onSubmit={this.handleSubmit}
             >
               <TextField
+                name="name"
                 id="standard-name"
                 label="Вашето име"
                 variant="filled"
                 color="background"
+                size="small"
+                className="w-full mt-2"
+                // error
+                // helperText="Моля попълнете полето."
+                required
                 value={this.state.name}
                 onChange={this.handleChange}
-                name="name"
-                required
-                className="w-full mt-2"
-                size="small"
               />
               <TextField
+                name="phone"
                 id="standard-phone"
                 label="Телефон за обратна връзка"
                 variant="filled"
                 color="background"
+                size="small"
+                className="w-full mt-2"
+                // error
+                // helperText="Моля попълнете полето."
+                required
                 value={this.state.phone}
                 onChange={this.handleChange}
-                name="phone"
-                required
-                className="w-full mt-2"
-                size="small"
               />
               <TextField
+                name="email"
                 id="standard-email"
                 label="Вашият И-мейл"
                 variant="filled"
                 color="background"
+                size="small"
+                className="w-full mt-2"
+                // error
+                // helperText="Моля попълнете полето."
+                required
                 value={this.state.email}
                 onChange={this.handleChange}
-                name="email"
-                required
-                className="w-full mt-2"
-                size="small"
               />
               <TextField
+                name="message"
                 id="standard-message"
                 label="Съобщение"
                 variant="filled"
                 color="background"
+                className="w-full mt-2"
+                // error
+                // helperText="Моля попълнете полето."
+                required
                 multiline
                 value={this.state.message}
                 onChange={this.handleChange}
-                name="message"
-                required
-                className="w-full mt-2"
               />
               <Button
                 variant="contained"

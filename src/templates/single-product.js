@@ -146,8 +146,9 @@ const Product = ({ data }) => {
                 <ReactPlayer
                   className="react-player"
                   url={document.video.embed_url}
+                  height="200px"
                   width="100%"
-                  height="100%"
+                  controls="true"
                 />
               </div>
 
