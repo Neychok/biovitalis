@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import SwiperCore, { Thumbs } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
+import "lazysizes"
+import "lazysizes/plugins/parent-fit/ls.parent-fit"
 
 SwiperCore.use([Thumbs])
 
@@ -17,7 +19,7 @@ const Carousel = ({ images }) => {
               srcSet={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}
               data-sizes="auto"
-              className="block w-full"
+              className="lazyload block w-full"
               alt={`${slide.image.url}`}
             />
           </SwiperSlide>

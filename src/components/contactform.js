@@ -60,21 +60,21 @@ export default class Contact extends React.Component {
         <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
           <TextField
             id="standard-name"
-            label="Name"
+            label="Име"
             value={this.state.name}
             onChange={this.handleChange}
             name="name"
           />
           <TextField
             id="standard-email"
-            label="Email"
+            label="Имейл"
             value={this.state.email}
             onChange={this.handleChange}
             name="email"
           />
           <TextField
             id="standard-message"
-            label="Message"
+            label="Съобщение"
             value={this.state.message}
             onChange={this.handleChange}
             name="message"

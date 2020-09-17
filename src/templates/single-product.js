@@ -2,8 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import PropTypes from "prop-types"
-import "lazysizes"
-import "lazysizes/plugins/parent-fit/ls.parent-fit"
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
