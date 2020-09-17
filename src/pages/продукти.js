@@ -13,7 +13,7 @@ const ProductsPage = ({ data }) => {
 
       {/* Categories Title */}
       <div className="mt-4 mb-2 ml-3 text-xl text-left">Категории продукти</div>
-      <hr className="hr-line mb-1"></hr>
+      <hr className="hr-line"></hr>
 
       {/* Categories List */}
       <div className="flex flex-wrap px-1">

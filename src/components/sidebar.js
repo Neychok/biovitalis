@@ -48,7 +48,7 @@ class Sidebar extends Component {
         {/* Container for the whole menu */}
         <nav id="navigation" className="mb-12">
           {/* Top navbar */}
-          <div className="fixed top-0 z-50 flex items-center justify-between w-full h-12 pl-4 pr-0 bg-white shadow-md">
+          <div className="h-14 fixed top-0 z-50 flex items-center justify-between w-full pl-4 pr-0 bg-white shadow-md">
             {/* Container for the LOGO */}
             <Link to="/" className="">
               <h1 className="mobile-menulogo text-2xl">BioVitalis</h1>
@@ -78,14 +78,14 @@ class Sidebar extends Component {
             initial={"closed"} // Initial state of the menu
             variants={variantsMenu}
             transition="easeIn"
-            className="fixed top-0 right-0 z-50 flex flex-col w-48 h-full mt-12 overflow-hidden bg-white border-t"
+            className="mt-14 fixed top-0 right-0 z-50 flex flex-col w-48 h-full overflow-hidden bg-white border-t"
           >
             {/* Background pattern */}
-            <div className="mobile-menuimage w-full h-20"></div>
+            <div className="mobile-menuimage w-full h-24"></div>
 
             <Link
               to="/"
-              className="mobile-menu-item py-2 mt-8 mb-2 text-sm"
+              className="mobile-menu-item py-2 mt-6 mb-2 text-sm"
               activeClassName="mobile-menu-item-active"
               onClick={this.OpenMenu}
             >

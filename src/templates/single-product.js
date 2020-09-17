@@ -15,7 +15,7 @@ import SwipeableViews from "react-swipeable-views"
 
 import ContactForm from "../components/contactform"
 
-// import ReactPlayer from "react-player/lazy"
+import ReactPlayer from "react-player/lazy"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -49,16 +49,10 @@ function a11yProps(index) {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#27ab83",
       main: "#3ebd93",
-      dark: "#102A43",
-      contrastText: "#fff",
     },
     secondary: {
-      light: "#bcccdc",
       main: "#627D98",
-      dark: "#ba000d",
-      contrastText: "#000",
     },
     background: {
       main: "#fff",
@@ -148,14 +142,14 @@ const Product = ({ data }) => {
             className="mb-8 bg-white border-t border-b"
           >
             <TabPanel value={value} index={0}>
-              {/* <div className="player-wrapper mt-1 mb-4">
+              <div className="player-wrapper mt-1 mb-4">
                 <ReactPlayer
                   className="react-player"
                   url={document.video.embed_url}
                   width="100%"
                   height="100%"
                 />
-              </div> */}
+              </div>
 
               <p className="text-sm">{document.description.text}</p>
             </TabPanel>
