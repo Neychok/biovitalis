@@ -35,6 +35,13 @@ module.exports = {
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
     `gatsby-plugin-material-ui`,
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyzer",
+      options: {
+        analyzerPort: 3000,
+        production: false,
+      },
+    },
 
     // Adds Sitemap
     //TODO Configure Sitemap
@@ -229,5 +236,6 @@ module.exports = {
     // Plugin that adds offline support
     `gatsby-plugin-offline`,
     "gatsby-plugin-remove-serviceworker",
+    `gatsby-plugin-preact`,
   ],
 }

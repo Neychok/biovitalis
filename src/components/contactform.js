@@ -89,7 +89,6 @@ export default class Contact extends React.Component {
                 id="standard-name"
                 label="Вашето име"
                 variant="filled"
-                color="background"
                 size="small"
                 className="w-full mt-2"
                 // error
@@ -103,7 +102,6 @@ export default class Contact extends React.Component {
                 id="standard-phone"
                 label="Телефон за обратна връзка"
                 variant="filled"
-                color="background"
                 size="small"
                 className="w-full mt-2"
                 // error
@@ -117,7 +115,6 @@ export default class Contact extends React.Component {
                 id="standard-email"
                 label="Вашият И-мейл"
                 variant="filled"
-                color="background"
                 size="small"
                 className="w-full mt-2"
                 // error
@@ -131,7 +128,6 @@ export default class Contact extends React.Component {
                 id="standard-message"
                 label="Съобщение"
                 variant="filled"
-                color="background"
                 className="w-full mt-2"
                 // error
                 // helperText="Моля попълнете полето."

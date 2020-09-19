@@ -62,6 +62,14 @@ const CategoryPage = ({ data }) => {
                     alt={node.node.data.product_name.text}
                     className="mb-0 rounded-t"
                   ></img>
+                  <img
+                    src={node.node.data.featured_image.fluid.src}
+                    srcSet={node.node.data.featured_image.fluid.base64}
+                    data-srcset={node.node.data.featured_image.fluid.srcSet}
+                    data-sizes="auto"
+                    className="lazyload w-full mb-0 rounded-t"
+                    alt={node.node.data.featured_image.url}
+                  />
                   <div className="category-product-name px-2 py-1 text-sm">
                     {node.node.data.product_name.text}
                   </div>
@@ -89,6 +97,11 @@ export const query = graphql`
             }
             featured_image {
               url(imgixParams: { height: 250 })
+              fluid {
+                base64
+                src
+                srcSet
+              }
             }
           }
         }

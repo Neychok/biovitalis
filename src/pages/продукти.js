@@ -26,12 +26,11 @@ const ProductsPage = ({ data }) => {
               <Paper>
                 <Link to={node.node.url} className="">
                   <img
-                    height="250px"
-                    width="313px"
                     src={node.node.data.image.url}
-                    alt={node.node.data.name}
-                    className="mb-0 rounded-t"
-                  ></img>
+                    data-sizes="auto"
+                    className="lazyload w-full mb-0 rounded-t"
+                    alt={node.node.data.image.url}
+                  />
                   <div className="category-product-name px-2 py-1 text-sm">
                     {node.node.data.name}
                   </div>

@@ -62,52 +62,26 @@
         "placeholder": "Описание"
       }
     },
-    "power": {
-      "type": "StructuredText",
+    "specs": {
+      "type": "Group",
       "config": {
-        "single": "paragraph",
-        "label": "power",
-        "placeholder": "Мощност"
-      }
-    },
-    "length": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "length",
-        "placeholder": "Дължина"
-      }
-    },
-    "height": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "height",
-        "placeholder": "Височина"
-      }
-    },
-    "width": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph",
-        "label": "width",
-        "placeholder": "Ширина"
-      }
-    },
-    "weight": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "Weight",
-        "placeholder": "Тегло"
-      }
-    },
-    "capacity": {
-      "type": "StructuredText",
-      "config": {
-        "single": "paragraph",
-        "label": "capacity",
-        "placeholder": "Капацитет"
+        "fields": {
+          "spec_name": {
+            "type": "Text",
+            "config": {
+              "label": "име на характеристика",
+              "placeholder": "Име на характеристика"
+            }
+          },
+          "spec_value": {
+            "type": "Text",
+            "config": {
+              "label": "стойност",
+              "placeholder": "Стойност"
+            }
+          }
+        },
+        "label": "Характеристики"
       }
     }
   }

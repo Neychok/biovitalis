@@ -15,7 +15,7 @@ import SwipeableViews from "react-swipeable-views"
 
 import ContactForm from "../components/contactform"
 
-import ReactPlayer from "react-player/lazy"
+import ReactPlayer from "react-player/youtube"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -129,8 +129,8 @@ const Product = ({ data }) => {
                 variant="fullWidth"
                 aria-label="информация"
               >
-                <Tab label="Описание" {...a11yProps(0)} />
-                <Tab label="Характеристики" {...a11yProps(1)} />
+                <Tab label="Характеристики" {...a11yProps(0)} />
+                <Tab label="Описание" {...a11yProps(1)} />
               </Tabs>
             </AppBar>
           </ThemeProvider>
@@ -142,49 +142,29 @@ const Product = ({ data }) => {
             className="mb-8 bg-white border-t border-b"
           >
             <TabPanel value={value} index={0}>
+              {document.specs.map(specs => {
+                return (
+                  <>
+                    <div className="flex text-sm">
+                      <p className="w-1/2">{specs.spec_name}</p>
+                      <p className="w-1/2">{specs.spec_value}</p>
+                    </div>
+                    <hr className="hr-line-table border-gray-400"></hr>
+                  </>
+                )
+              })}
+            </TabPanel>
+            <TabPanel value={value} index={1}>
               <div className="player-wrapper mt-1 mb-4">
                 <ReactPlayer
                   className="react-player"
                   url={document.video.embed_url}
                   height="200px"
                   width="100%"
-                  controls="true"
+                  controls={true}
                 />
               </div>
-
               <p className="text-sm">{document.description.text}</p>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <div className="flex text-sm">
-                <p className="w-1/2">Мощност:</p>
-                <p className="w-1/2">{document.power.text}</p>
-              </div>
-              <hr className="hr-line-table border-gray-400"></hr>
-              <div className="flex text-sm">
-                <p className="w-1/2">Капацитет:</p>
-                <p className="w-1/2">{document.capacity.text}</p>
-              </div>
-              <hr className="hr-line-table border-gray-400"></hr>
-              <div className="flex text-sm">
-                <p className="w-1/2">Тегло:</p>
-                <p className="w-1/2">{document.weight.text}</p>
-              </div>
-              <hr className="hr-line-table border-gray-400"></hr>
-              <div className="flex text-sm">
-                <p className="w-1/2">Дължина:</p>
-                <p className="w-1/2">{document.length.text}</p>
-              </div>
-              <hr className="hr-line-table border-gray-400"></hr>
-              <div className="flex text-sm">
-                <p className="w-1/2">Височина:</p>
-                <p className="w-1/2">{document.height.text}</p>
-              </div>
-              <hr className="hr-line-table border-gray-400"></hr>
-              <div className="flex text-sm">
-                <p className="w-1/2">Широчина:</p>
-                <p className="w-1/2">{document.width.text}</p>
-              </div>
-              <hr className="hr-line-table border-gray-400"></hr>
             </TabPanel>
           </SwipeableViews>
         </Paper>
@@ -212,35 +192,19 @@ export const query = graphql`
                 }
               }
             }
-
-            video {
-              html
-              embed_url
-            }
-
-            capacity {
+            product_name {
               text
             }
             description {
               text
             }
-            height {
-              text
+            specs {
+              spec_name
+              spec_value
             }
-            length {
-              text
-            }
-            power {
-              text
-            }
-            product_name {
-              text
-            }
-            weight {
-              text
-            }
-            width {
-              text
+            video {
+              html
+              embed_url
             }
             category {
               uid
