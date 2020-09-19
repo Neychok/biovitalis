@@ -56,13 +56,6 @@ const CategoryPage = ({ data }) => {
               <Paper>
                 <Link to={node.node.url} className="">
                   <img
-                    height="250px"
-                    width="313px"
-                    src={node.node.data.featured_image.url}
-                    alt={node.node.data.product_name.text}
-                    className="mb-0 rounded-t"
-                  ></img>
-                  <img
                     src={node.node.data.featured_image.fluid.src}
                     srcSet={node.node.data.featured_image.fluid.base64}
                     data-srcset={node.node.data.featured_image.fluid.srcSet}
