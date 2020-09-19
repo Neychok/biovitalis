@@ -57,7 +57,6 @@ const CategoryPage = ({ data }) => {
                 <Link to={node.node.url} className="">
                   <img
                     src={node.node.data.featured_image.fluid.src}
-                    srcSet={node.node.data.featured_image.fluid.base64}
                     data-srcset={node.node.data.featured_image.fluid.srcSet}
                     data-sizes="auto"
                     className="lazyload w-full mb-0 rounded-t"
