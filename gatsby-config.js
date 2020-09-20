@@ -193,6 +193,7 @@ module.exports = {
         schemas: {
           // Your custom types mapped to schemas
           product: require("./src/schemas/product.json"),
+          category: require("./src/schemas/category.json"),
         },
         lang: "*",
 

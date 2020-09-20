@@ -56,10 +56,10 @@ const CategoryPage = ({ data }) => {
               <Paper>
                 <Link to={node.node.url} className="">
                   <img
-                    src={node.node.data.featured_image.fluid.src}
+                    src={node.node.data.featured_image.fluid.base64}
                     data-srcset={node.node.data.featured_image.fluid.srcSet}
                     data-sizes="auto"
-                    className="lazyload w-full mb-0 rounded-t"
+                    className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.featured_image.url}
                   />
                   <div className="category-product-name px-2 py-1 text-sm">

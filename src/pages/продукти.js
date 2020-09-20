@@ -26,9 +26,10 @@ const ProductsPage = ({ data }) => {
               <Paper>
                 <Link to={node.node.url} className="">
                   <img
-                    src={node.node.data.image.url}
+                    src={node.node.data.image.fluid.base64}
+                    data-srcset={node.node.data.image.fluid.srcSet}
                     data-sizes="auto"
-                    className="lazyload w-full mb-0 rounded-t"
+                    className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.image.url}
                   />
                   <div className="category-product-name px-2 py-1 text-sm">
@@ -54,6 +55,11 @@ export const query = graphql`
             name
             image {
               url
+              fluid {
+                src
+                srcSet
+                base64
+              }
             }
           }
           url

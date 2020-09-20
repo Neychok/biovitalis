@@ -18,7 +18,15 @@
       "config": {
         "constraint": {},
         "thumbnails": [],
-        "label": "Снимка"
+        "label": "image"
+      }
+    },
+    "featured_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "featured_image"
       }
     }
   }
