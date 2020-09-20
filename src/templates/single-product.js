@@ -45,6 +45,9 @@ function a11yProps(index) {
 }
 
 function youtubeLinkCutter(link) {
+  if (link == null) {
+    return null
+  }
   if (link.substring(0, 17) === "https://youtu.be/") {
     return link.substring(17)
   } else if (link.substring(0, 24) === "https://www.youtube.com/") {
@@ -161,22 +164,22 @@ const Product = ({ data }) => {
               })}
             </TabPanel>
             <TabPanel value={value} index={1}>
-              <div className="player-wrapper mt-1 mb-4">
-                <iframe
-                  title={document.video.title}
-                  modestbranding="1"
-                  showinfo="0"
-                  rel="0"
-                  iv_load_policy="3"
-                  autohide="0"
-                  frameborder="0"
-                  allowFullScreen="1"
-                  className="lazyload w-full h-48"
-                  data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
-                    document.video.embed_url
-                  )}`}
-                />
-              </div>
+              <iframe
+                title={document.video.title}
+                modestbranding="1"
+                showinfo="0"
+                rel="0"
+                iv_load_policy="3"
+                autohide="0"
+                frameborder="0"
+                allowFullScreen="1"
+                className={`lazyload w-full h-48 mt-2 mb-3 ${
+                  document.video.embed_url == null ? "hidden" : ""
+                }`}
+                data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
+                  document.video.embed_url
+                )}`}
+              />
               <p className="text-sm">{document.description.text}</p>
             </TabPanel>
           </SwipeableViews>
