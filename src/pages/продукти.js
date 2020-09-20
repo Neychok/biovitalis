@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Paper from "@material-ui/core/Paper"
+import "lazysizes"
+import "lazysizes/plugins/parent-fit/ls.parent-fit"
 
 const ProductsPage = ({ data }) => {
   const document = data.allPrismicCategory.edges

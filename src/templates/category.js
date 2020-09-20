@@ -5,6 +5,8 @@ import SEO from "../components/seo"
 
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
 import Paper from "@material-ui/core/Paper"
+import "lazysizes"
+import "lazysizes/plugins/parent-fit/ls.parent-fit"
 
 const CategoryPage = ({ data }) => {
   const document = data.allPrismicProduct.edges

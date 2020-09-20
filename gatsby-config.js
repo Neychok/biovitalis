@@ -224,7 +224,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         whitelist: [],
-        printRejected: true,
+        printRejected: false,
         develop: false,
         tailwind: true,
         ignore: [

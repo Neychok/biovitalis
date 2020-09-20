@@ -15,8 +15,6 @@ import SwipeableViews from "react-swipeable-views"
 
 import ContactForm from "../components/contactform"
 
-import ReactPlayer from "react-player/youtube"
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props
 
@@ -43,6 +41,14 @@ function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`,
+  }
+}
+
+function youtubeLinkCutter(link) {
+  if (link.substring(0, 17) === "https://youtu.be/") {
+    return link.substring(17)
+  } else if (link.substring(0, 24) === "https://www.youtube.com/") {
+    return link.substring(24)
   }
 }
 
@@ -156,12 +162,19 @@ const Product = ({ data }) => {
             </TabPanel>
             <TabPanel value={value} index={1}>
               <div className="player-wrapper mt-1 mb-4">
-                <ReactPlayer
-                  className="react-player"
-                  url={document.video.embed_url}
-                  height="200px"
-                  width="100%"
-                  controls={true}
+                <iframe
+                  title={document.video.title}
+                  modestbranding="1"
+                  showinfo="0"
+                  rel="0"
+                  iv_load_policy="3"
+                  autohide="0"
+                  frameborder="0"
+                  allowFullScreen="1"
+                  className="lazyload w-full h-48"
+                  data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
+                    document.video.embed_url
+                  )}`}
                 />
               </div>
               <p className="text-sm">{document.description.text}</p>
@@ -184,7 +197,6 @@ export const query = graphql`
             gallery {
               image {
                 alt
-                url(imgixParams: { height: 400 })
                 fluid {
                   base64
                   src
@@ -203,8 +215,8 @@ export const query = graphql`
               spec_value
             }
             video {
-              html
               embed_url
+              title
             }
             category {
               uid
