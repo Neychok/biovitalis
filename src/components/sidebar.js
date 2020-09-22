@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { m as motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import {
   disableBodyScroll,
