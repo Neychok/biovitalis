@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { motion } from "framer-motion"
+import { m as motion } from "framer-motion"
 import { Link } from "gatsby"
 import {
   disableBodyScroll,
@@ -48,7 +48,7 @@ class Sidebar extends Component {
         {/* Container for the whole menu */}
         <nav id="navigation" className="mb-12">
           {/* Top navbar */}
-          <div className="h-14 fixed top-0 z-50 flex items-center justify-between w-full pl-4 pr-0 bg-white shadow-md">
+          <div className="h-14 fixed top-0 z-50 flex items-center justify-between w-full pl-2 pr-0 bg-white shadow-md">
             {/* Container for the LOGO */}
             <Link to="/" className="">
               <h1 className="mobile-menulogo text-2xl">BioVitalis</h1>

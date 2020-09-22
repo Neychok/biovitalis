@@ -5,6 +5,7 @@
 /* purgecss ignore */
 html {
   overflow: auto;
+  scroll-behavior: smooth;
 }
 /* purgecss ignore */
 body {
@@ -155,18 +156,13 @@ button:focus {
   min-height: 60px;
 }
 /* purgecss ignore */
-#splide02 .splide__slide {
-  margin-top: 0.25rem;
-  opacity: 0.5;
-}
-/* purgecss ignore */
-#splide02 .is-active {
-  opacity: 1;
-  border: none;
-  border-bottom: 3px solid #3ebd93;
-}
-/* purgecss ignore */
 .swiper-slide-thumb-active img {
   opacity: 1 !important;
   border-bottom: 3px solid #3ebd93;
+}
+
+/* purgecss ignore */
+.scrollToContact {
+  color: #627d98;
+  border-bottom: 2px solid #27ab83;
 }

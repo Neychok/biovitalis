@@ -91,7 +91,7 @@ const Product = ({ data }) => {
         <Breadcrumbs
           aria-label="breadcrumb"
           maxItems={3}
-          className="w-full h-5 px-4 list-none"
+          className="w-full h-5 px-2 mt-1 mb-3 list-none"
         >
           <Link to="/продукти/" className="mb-0">
             Продукти
@@ -103,7 +103,7 @@ const Product = ({ data }) => {
         </Breadcrumbs>
 
         {/* Back Button */}
-        <div className="py-1">
+        <div className="flex items-center justify-between py-1">
           <Link to={`/продукти/${document.category.uid}/`} className="">
             <svg
               className="h-10 pl-2"
@@ -118,10 +118,17 @@ const Product = ({ data }) => {
               />
             </svg>
           </Link>
+
+          <Link
+            to="#contactForm"
+            className="scrollToContact px-4 py-2 mr-2 text-center bg-white rounded-md shadow"
+          >
+            Изпрати запитване
+          </Link>
         </div>
 
         {/* Product Name */}
-        <h1 className="px-4 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
+        <h1 className="px-2 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
         <div className="mx-2">
           <Paper elevation={1} className="container-500 pb-1 mx-auto mb-4">
             <Carousel images={document.gallery}></Carousel>
@@ -186,7 +193,9 @@ const Product = ({ data }) => {
         </Paper>
       </div>
 
-      <ContactForm></ContactForm>
+      <div id="contactForm">
+        <ContactForm></ContactForm>
+      </div>
     </>
   )
 }

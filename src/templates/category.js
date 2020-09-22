@@ -15,7 +15,10 @@ const CategoryPage = ({ data }) => {
       <SEO title="Home" />
 
       {/* Breadcrumbs */}
-      <Breadcrumbs aria-label="breadcrumb" className="w-full h-5 px-4">
+      <Breadcrumbs
+        aria-label="breadcrumb"
+        className="w-full h-5 px-4 mt-1 mb-3"
+      >
         <Link to="/продукти/" className="mb-0">
           Продукти
         </Link>
