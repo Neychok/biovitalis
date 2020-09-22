@@ -7,6 +7,10 @@ import {
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
 import "./hamburger-button.css"
+import "lazysizes"
+import "lazysizes/plugins/parent-fit/ls.parent-fit"
+
+import logo from "../images/logo.png"
 
 const variantsMenu = {
   open: { x: 0 },
@@ -51,7 +55,7 @@ class Sidebar extends Component {
           <div className="h-14 fixed top-0 z-50 flex items-center justify-between w-full pl-2 pr-0 bg-white shadow-md">
             {/* Container for the LOGO */}
             <Link to="/" className="">
-              <h1 className="mobile-menulogo text-2xl">BioVitalis</h1>
+              <img src={logo} alt="Biovitalis logo" className="lazyload w-32" />
             </Link>
 
             {/* Container for the hamburger button */}

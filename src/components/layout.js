@@ -17,13 +17,15 @@ const Layout = ({ location, children }) => {
 
   return (
     <>
-      <Header />
-      <main className="h-full min-h-screen mt-2">{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <div className="xl:container xl:bg-white xl:shadow-xl mx-auto">
+        <Header />
+        <main className="h-full min-h-screen mt-2">{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
     </>
   )
 }

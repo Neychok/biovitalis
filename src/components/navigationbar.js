@@ -3,7 +3,7 @@ import React from "react"
 function NavigationBar() {
   return (
     <>
-      <nav className="xl:container z-50 flex items-center justify-between h-20 px-2 mx-auto bg-white">
+      <nav className="z-50 flex items-center justify-between h-20 px-2 bg-white">
         {/* Container for Logo*/}
         <div className="">
           <Link to="/" className="menulogo p-4 text-2xl">
