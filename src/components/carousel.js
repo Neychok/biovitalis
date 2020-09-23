@@ -2,10 +2,9 @@ import React, { useState } from "react"
 import SwiperCore, { Thumbs } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
-import lazysizes from "lazysizes"
+import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
-import "lazysizes/plugins/blur-up/ls.blur-up"
-lazysizes.cfg.blurupMode = "auto"
+
 SwiperCore.use([Thumbs])
 
 const Carousel = ({ images }) => {
@@ -19,7 +18,7 @@ const Carousel = ({ images }) => {
               src={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}
               data-sizes="auto"
-              className="lazyload blur-up block w-full"
+              className="lazyload block w-full"
               alt={`${slide.image.url}`}
             />
           </SwiperSlide>
@@ -33,7 +32,7 @@ const Carousel = ({ images }) => {
               src={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}
               data-sizes="auto"
-              className="lazyload blur-up object-cover w-full h-20 p-1 mt-1 rounded-lg opacity-75"
+              className="lazyload object-cover w-full h-20 p-1 mt-1 rounded-lg opacity-75"
               alt={`${slide.image.url}`}
             />
           </SwiperSlide>

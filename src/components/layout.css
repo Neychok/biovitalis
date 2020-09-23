@@ -166,14 +166,3 @@ button:focus {
   color: #627d98;
   border-bottom: 2px solid #27ab83;
 }
-/* purgecss ignore */
-.blur-up {
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
-  transition: filter 250ms, -webkit-filter 250ms;
-}
-/* purgecss ignore */
-.blur-up.lazyloaded {
-  -webkit-filter: blur(0);
-  filter: blur(0);
-}

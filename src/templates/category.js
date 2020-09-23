@@ -5,11 +5,9 @@ import SEO from "../components/seo"
 
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
 import Paper from "@material-ui/core/Paper"
-import lazysizes from "lazysizes"
+import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
-import "lazysizes/plugins/blur-up/ls.blur-up"
 
-lazysizes.cfg.blurupMode = "auto"
 const CategoryPage = ({ data }) => {
   const document = data.allPrismicProduct.edges
   return (
@@ -66,7 +64,7 @@ const CategoryPage = ({ data }) => {
                     src={node.node.data.featured_image.fluid.base64}
                     data-srcset={node.node.data.featured_image.fluid.srcSet}
                     data-sizes="auto"
-                    className="lazyload blur-up block w-full mb-0 rounded-t"
+                    className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.featured_image.url}
                   />
                   <div className="category-product-name px-2 py-1 text-sm">
