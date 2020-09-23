@@ -3,9 +3,10 @@ import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Paper from "@material-ui/core/Paper"
-import "lazysizes"
+import lazysizes from "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
-
+import "lazysizes/plugins/blur-up/ls.blur-up"
+lazysizes.cfg.blurupMode = "auto"
 const ProductsPage = ({ data }) => {
   const document = data.allPrismicCategory.edges
 
@@ -31,7 +32,7 @@ const ProductsPage = ({ data }) => {
                     src={node.node.data.image.fluid.base64}
                     data-srcset={node.node.data.image.fluid.srcSet}
                     data-sizes="auto"
-                    className="lazyload block w-full mb-0 rounded-t"
+                    className="lazyload blur-up block w-full mb-0 rounded-t"
                     alt={node.node.data.image.url}
                   />
                   <div className="category-product-name px-2 py-1 text-sm">

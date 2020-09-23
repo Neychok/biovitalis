@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import SwiperCore, { Thumbs } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
-import "lazysizes"
+import lazysizes from "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
 import "lazysizes/plugins/blur-up/ls.blur-up"
-
+lazysizes.cfg.blurupMode = "auto"
 SwiperCore.use([Thumbs])
 
 const Carousel = ({ images }) => {
