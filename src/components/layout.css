@@ -155,6 +155,11 @@ button:focus {
 .container-thumb {
   min-height: 60px;
 }
+/* purgecss ignore */
+.swiper-slide-thumb-active img {
+  opacity: 1 !important;
+  border-bottom: 3px solid #3ebd93;
+}
 
 /* purgecss ignore */
 .scrollToContact {

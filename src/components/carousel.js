@@ -1,26 +1,51 @@
-import React from "react"
-import ImageGallery from "react-image-gallery"
+import React, { useState } from "react"
+import SwiperCore, { Thumbs, Zoom } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/swiper-bundle.min.css"
 import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
 import Lightbox from "./lightbox"
-import "react-image-gallery/styles/css/image-gallery.css"
+
+SwiperCore.use([Thumbs, Zoom])
 
 const Carousel = ({ images }) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <div>
-      <ImageGallery
-        lazyLoad
-        infinite={false}
-        showPlayButton={false}
-        items={images.map(slide => ({
-          original: slide.image.fluid.src,
-          thumbnail: slide.image.fluid.src,
-          srcSet: slide.image.fluid.srcSet,
-          originalClass: "lazyload",
-          thumbnailClass: "lazyload",
-          sizes: "auto",
-        }))}
-      />
+      <Swiper
+        thumbs={{ swiper: thumbsSwiper }}
+        className=""
+        autoHeight={true}
+        slidesPerView={1}
+      >
+        {images.map(slide => (
+          <SwiperSlide key={slide.src} zoom={true}>
+            <Lightbox image={slide.image.fluid.src}>
+              <img
+                src={`${slide.image.fluid.base64}`}
+                data-srcset={`${slide.image.fluid.srcSet}`}
+                data-sizes="auto"
+                className="lazyload carousel-image block object-cover w-full"
+                alt={`${slide.image.url}`}
+              />
+            </Lightbox>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <Swiper onSwiper={setThumbsSwiper} spaceBetween={2} slidesPerView={3}>
+        {images.map(slide => (
+          <SwiperSlide key={slide.src} className="">
+            <img
+              src={`${slide.image.fluid.base64}`}
+              data-srcset={`${slide.image.fluid.srcSet}`}
+              data-sizes="auto"
+              className="lazyload object-cover w-full h-20 p-1 mt-1 rounded-lg opacity-75"
+              alt={`${slide.image.url}`}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   )
 }

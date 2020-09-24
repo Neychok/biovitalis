@@ -224,13 +224,12 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         whitelist: [],
-        printRejected: true,
+        printRejected: false,
         develop: false,
         tailwind: true,
         ignore: [
           "gatsby-plugin-transition-link/style.css",
           "swiper/swiper-bundle.min.css",
-          "react-image-gallery/styles/css/image-gallery.css",
         ],
       },
     },
