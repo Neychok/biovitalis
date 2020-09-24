@@ -182,28 +182,3 @@ button:focus {
   max-height: 400px !important;
   object-position: center;
 }
-/* purgecss ignore */
-.swiper-container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* purgecss ignore */
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-/* purgecss ignore */
-.gallery-thumbs .swiper-slide {
-  height: 100%;
-  opacity: 0.4;
-}
-/* purgecss ignore */
-.gallery-thumbs .swiper-slide-thumb-active {
-  opacity: 1;
-}
-/* purgecss ignore */
-.gallery-thumbs .swiper-slide-thumb-active img {
-  opacity: 1;
-  border-bottom: 3px solid #3ebd93;
-}
