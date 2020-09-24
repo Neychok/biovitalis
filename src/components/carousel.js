@@ -1,26 +1,29 @@
 import React, { useState } from "react"
-import SwiperCore, { Thumbs } from "swiper"
+import SwiperCore, { Thumbs, Zoom } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
 import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
+import Lightbox from "./lightbox"
 
-SwiperCore.use([Thumbs])
+SwiperCore.use([Thumbs, Zoom])
 
 const Carousel = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <div>
-      <Swiper thumbs={{ swiper: thumbsSwiper }} className="">
+      <Swiper thumbs={{ swiper: thumbsSwiper }} className="" autoHeight={true}>
         {images.map(slide => (
-          <SwiperSlide key={slide.src}>
-            <img
-              src={`${slide.image.fluid.base64}`}
-              data-srcset={`${slide.image.fluid.srcSet}`}
-              data-sizes="auto"
-              className="lazyload block w-full"
-              alt={`${slide.image.url}`}
-            />
+          <SwiperSlide key={slide.src} zoom={true}>
+            <Lightbox image={slide.image.fluid.src}>
+              <img
+                src={`${slide.image.fluid.base64}`}
+                data-srcset={`${slide.image.fluid.srcSet}`}
+                data-sizes="auto"
+                className="lazyload carousel-image block object-cover w-full"
+                alt={`${slide.image.url}`}
+              />
+            </Lightbox>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -41,5 +44,4 @@ const Carousel = ({ images }) => {
     </div>
   )
 }
-
 export default Carousel

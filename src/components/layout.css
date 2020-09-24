@@ -177,7 +177,13 @@ button:focus {
   color: #27ab83;
   border-left: 3px solid #27ab83;
 }
+/* purgecss ignore */
 .menu-quick-action:hover {
   border-top: 1px solid #27ab83;
   border-bottom: 1px solid #27ab83;
+}
+/* purgecss ignore */
+.carousel-image {
+  max-height: 400px !important;
+  object-position: center;
 }
