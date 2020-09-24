@@ -12,7 +12,12 @@ const Carousel = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <div>
-      <Swiper thumbs={{ swiper: thumbsSwiper }} className="" autoHeight={true}>
+      <Swiper
+        thumbs={{ swiper: thumbsSwiper }}
+        className=""
+        autoHeight={true}
+        slidesPerView={1}
+      >
         {images.map(slide => (
           <SwiperSlide key={slide.src} zoom={true}>
             <Lightbox image={slide.image.fluid.src}>

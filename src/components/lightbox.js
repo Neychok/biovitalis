@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     width: "100%",
     boxShadow: theme.shadows[5],
+    padding: "0px 4px",
   },
 }))
 const Lightbox = ({ image, children }) => {
@@ -81,7 +82,7 @@ const Lightbox = ({ image, children }) => {
             <img
               src={`${image}`}
               data-sizes="auto"
-              className="lazysizes block w-full outline-none"
+              className="lazysizes block object-contain w-full max-h-screen outline-none"
               alt={`${image}`}
             />
           </div>
