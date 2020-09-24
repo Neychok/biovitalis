@@ -156,7 +156,7 @@ button:focus {
   min-height: 60px;
 }
 /* purgecss ignore */
-.swiper-slide-thumb-active img {
+.thumb-is-active img {
   opacity: 1 !important;
   border-bottom: 3px solid #3ebd93;
 }

@@ -1,25 +1,28 @@
 import React, { useState } from "react"
-import SwiperCore, { Thumbs, Zoom } from "swiper"
+import SwiperCore, { Thumbs } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
 import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
 import Lightbox from "./lightbox"
 
-SwiperCore.use([Thumbs, Zoom])
+SwiperCore.use([Thumbs])
 
 const Carousel = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <div>
       <Swiper
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={{
+          swiper: thumbsSwiper,
+          slideThumbActiveClass: "thumb-is-active",
+        }}
         className=""
         autoHeight={true}
         slidesPerView={1}
       >
         {images.map(slide => (
-          <SwiperSlide key={slide.src} zoom={true}>
+          <SwiperSlide key={slide.src}>
             <Lightbox image={slide.image.fluid.src}>
               <img
                 src={`${slide.image.fluid.base64}`}
