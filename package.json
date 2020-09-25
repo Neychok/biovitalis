@@ -45,13 +45,7 @@
     "tailwindcss": "^1.7.6"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.10.4",
     "prettier": "2.1.1"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
   },
   "keywords": [
     "gatsby"
