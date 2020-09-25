@@ -27,9 +27,7 @@ export function handler(event, context, callback) {
       to: process.env.MY_EMAIL_ADDRESS,
       replyTo: email,
       subject: `Запитване относно: ${product}`,
-      text: `${name} изпраща запитване относно продукт: "${(
-        <a href={productUrl}></a>
-      )}" \n Съобщение: \n ${message}`,
+      text: `${name} изпраща запитване относно продукт: "${product}" \n Адрес на продукта: ${productUrl} \n Съобщение: \n ${message}`,
     }
   } else {
     let mailOptions = {
