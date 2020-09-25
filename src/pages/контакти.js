@@ -88,16 +88,16 @@ class ContactPage extends Component {
               </svg>
               <div className="primary-1000 text-xl text-center">Телефон</div>
             </div>
-            <div className="border-color-primary w-3/5 border-l-2">
+            <div className="border-color-primary flex flex-col items-center justify-center w-3/5 h-20 border-l-2">
               <a
                 href="tel:+359878909322"
-                className="secondary-700 block pb-2 text-lg text-center"
+                className="secondary-700 block pb-2 text-lg"
               >
                 +359 878 909 322
               </a>
               <a
                 href="tel:+359885172150"
-                className="secondary-700 block pt-2 text-lg text-center"
+                className="secondary-700 block pt-2 text-lg"
               >
                 +359 885 172 150
               </a>
@@ -105,7 +105,7 @@ class ContactPage extends Component {
           </div>
 
           <div className="flex items-center justify-around px-2 py-4">
-            <div className="border-color-primary w-3/5 py-4 border-r-2">
+            <div className="border-color-primary flex items-center justify-center w-3/5 h-20 align-middle border-r-2">
               <a
                 href="mailto:biovitalis.bulgaria@gmail.com"
                 className="secondary-700 block text-lg text-center"
