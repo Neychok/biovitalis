@@ -74,14 +74,14 @@ export default class Contact extends React.Component {
   }
 
   render() {
+    this.state.product = this.props.product
+    this.state.productUrl = this.props.productUrl
     return (
       <>
         <Paper className="pb-4 mx-2 mb-4">
           <div className="p-4 text-xl">{this.props.message}</div>
 
           <ThemeProvider theme={theme}>
-            {(this.state.product = this.props.product)}
-            {(this.state.productUrl = this.props.productUrl)}
             <form
               noValidate
               autoComplete="off"

@@ -197,7 +197,7 @@ const Product = ({ data }) => {
         <ContactForm
           message="Изпрати запитване за този продукт"
           product={document.product_name.text}
-          product_url={data.allPrismicProduct.edges[0].node.url}
+          productUrl={data.allPrismicProduct.edges[0].node.url}
         ></ContactForm>
       </div>
     </>
