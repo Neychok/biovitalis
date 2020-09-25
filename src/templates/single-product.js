@@ -193,13 +193,13 @@ const Product = ({ data }) => {
         </Paper>
       </div>
 
-      <div id="contactForm">
+      <Paper className="pb-4 mx-2 mb-4" id="contactForm">
         <ContactForm
           message="Изпрати запитване за този продукт"
           product={document.product_name.text}
           productUrl={data.allPrismicProduct.edges[0].node.url}
         ></ContactForm>
-      </div>
+      </Paper>
     </>
   )
 }

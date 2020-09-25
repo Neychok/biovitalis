@@ -48,9 +48,7 @@ export function handler(event, context, callback) {
       Изпратено от: ${name} \n
       И-мейл: ${email} \n
       Телефон: ${phone} \n
-      Съобщение: \n
-       ${message}
-       `,
+      Съобщение: \n${message}`,
     }
   }
 

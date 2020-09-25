@@ -2,7 +2,6 @@ import React from "react"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
-import Paper from "@material-ui/core/Paper"
 
 const endpoints = {
   contact: "/.netlify/functions/sendEmail",
@@ -60,6 +59,7 @@ export default class Contact extends React.Component {
       name: "",
       email: "",
       message: "",
+      phone: "",
       loading: false,
       error: false,
     })
@@ -78,9 +78,8 @@ export default class Contact extends React.Component {
     this.state.productUrl = this.props.productUrl
     return (
       <>
-        <Paper className="pb-4 mx-2 mb-4">
-          <div className="p-4 text-xl">{this.props.message}</div>
-
+        <div>
+          <div className="px-2 pt-3 pb-2 text-xl">{this.props.message}</div>
           <ThemeProvider theme={theme}>
             <form
               noValidate
@@ -150,7 +149,7 @@ export default class Contact extends React.Component {
               </Button>
             </form>
           </ThemeProvider>
-        </Paper>
+        </div>
       </>
     )
   }

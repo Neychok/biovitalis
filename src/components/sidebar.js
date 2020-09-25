@@ -72,7 +72,7 @@ class Sidebar extends Component {
                   }`}
                   onClick={this.OpenMenu}
                 >
-                  <span className="dark-green pr-1 text-base">
+                  <span className="primary-1000 pr-1 text-base">
                     {this.state.active ? "ЗАТВОРИ" : "МЕНЮ"}
                   </span>
                   <span className="hamburger-box">
@@ -174,16 +174,16 @@ class Sidebar extends Component {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    className="menu-blue w-10"
+                    className="secondary-600 w-10"
                   >
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   <div>
-                    <div className="menu-blue text-sm leading-none">
+                    <div className="secondary-600 text-sm leading-none">
                       Обадете ни се
                     </div>
                     <div className="text-xl leading-tight underline">
-                      0878-909-322
+                      0878 909 322
                     </div>
                   </div>
                 </a>

@@ -144,6 +144,90 @@ button:focus {
   color: #014d40;
 }
 /* purgecss ignore */
+.dark-blue {
+  color: #102a43;
+}
+/* purgecss ignore */
+.secondary-100 {
+  color: #f0f4f8;
+}
+/* purgecss ignore */
+.secondary-200 {
+  color: #d9e2ec;
+}
+/* purgecss ignore */
+.secondary-300 {
+  color: #bcccdc;
+}
+/* purgecss ignore */
+.secondary-400 {
+  color: #9fb3c8;
+}
+/* purgecss ignore */
+.secondary-500 {
+  color: #829ab1;
+}
+/* purgecss ignore */
+.secondary-600 {
+  color: #627d98;
+}
+/* purgecss ignore */
+.secondary-700 {
+  color: #486581;
+}
+/* purgecss ignore */
+.secondary-800 {
+  color: #334e68;
+}
+/* purgecss ignore */
+.secondary-900 {
+  color: #243b53;
+}
+/* purgecss ignore */
+.secondary-1000 {
+  color: #102a43;
+}
+/* purgecss ignore */
+.primary-100 {
+  color: #effcf6;
+}
+/* purgecss ignore */
+.primary-200 {
+  color: #c6f7e2;
+}
+/* purgecss ignore */
+.primary-300 {
+  color: #8eedc7;
+}
+/* purgecss ignore */
+.primary-400 {
+  color: #65d6ad;
+}
+/* purgecss ignore */
+.primary-500 {
+  color: #3ebd93;
+}
+/* purgecss ignore */
+.primary-600 {
+  color: #27ab83;
+}
+/* purgecss ignore */
+.primary-700 {
+  color: #199473;
+}
+/* purgecss ignore */
+.primary-800 {
+  color: #147d64;
+}
+/* purgecss ignore */
+.primary-900 {
+  color: #0c6b58;
+}
+/* purgecss ignore */
+.primary-1000 {
+  color: #014d40;
+}
+/* purgecss ignore */
 .thumbnail {
   max-height: 80px;
 }
