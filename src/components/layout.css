@@ -271,3 +271,15 @@ button:focus {
   max-height: 400px !important;
   object-position: center;
 }
+/* purgecss ignore */
+.marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+}
+
+.border-color-primary {
+  border-color: #65d6ad;
+}

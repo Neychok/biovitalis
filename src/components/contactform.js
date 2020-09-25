@@ -28,8 +28,8 @@ export default class Contact extends React.Component {
     name: "",
     email: "",
     message: "",
-    product: "",
-    productUrl: "",
+    product: this.props.product,
+    productUrl: this.props.productUrl,
   }
 
   handleChange = event => {
@@ -74,8 +74,6 @@ export default class Contact extends React.Component {
   }
 
   render() {
-    this.state.product = this.props.product
-    this.state.productUrl = this.props.productUrl
     return (
       <>
         <div>

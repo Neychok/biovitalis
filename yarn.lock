@@ -1147,6 +1147,11 @@
     postcss "7.0.32"
     purgecss "^2.3.0"
 
+"@googlemaps/js-api-loader@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.2.0.tgz#d5229607638932ae7d0c1e91d1fc19784238834e"
+  integrity sha512-iSE0dRlnOSVOL07FJq7M0Vvi6se1gaJH196yZ04a1TZmKiDDAoVftl+OOv/sL1RgnOwk67mlsDF9o7p8TkdVmg==
+
 "@graphql-tools/schema@^6.0.14":
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-6.2.3.tgz#7ffc8e5f49d9a81f446fb8db87a6f5d07b1fba8e"
@@ -1205,6 +1210,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
+
+"@mapbox/point-geometry@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
+  integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
 
 "@material-ui/core@^4.11.0":
   version "4.11.0"
@@ -5233,7 +5243,7 @@ eventemitter3@^3.1.0:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
 
-eventemitter3@^4.0.0:
+eventemitter3@^4.0.0, eventemitter3@^4.0.4:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
@@ -6661,6 +6671,16 @@ globby@^6.1.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+google-map-react@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.1.6.tgz#ac73439b2e00ae04d0515a18cb97c7337eff5e32"
+  integrity sha512-g/5M5kMMO657U2Re1Ph6SFgfG0YzcCoAPklDo0L0j9YWyLH2sHzRNm8bCMjcuxHIOUFym8zmSy/7eCKaeVID7w==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.2.0"
+    "@mapbox/point-geometry" "^0.1.0"
+    eventemitter3 "^4.0.4"
+    prop-types "^15.7.2"
 
 got@8.3.2:
   version "8.3.2"

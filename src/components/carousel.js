@@ -19,7 +19,6 @@ const Carousel = ({ images }) => {
         }}
         className=""
         autoHeight
-        cssMode
         slidesPerView={1}
       >
         {images.map(slide => (
@@ -44,7 +43,6 @@ const Carousel = ({ images }) => {
               src={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}
               data-sizes="auto"
-              cssMode
               className="lazyload object-cover w-full h-20 p-1 mt-1 rounded-lg opacity-75"
               alt={`${slide.image.url}`}
             />

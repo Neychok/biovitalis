@@ -26,6 +26,7 @@
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-source-prismic": "^3.2.1",
+    "google-map-react": "^2.1.6",
     "http-proxy-middleware": "^1.0.5",
     "jquery": "^3.5.1",
     "lazysizes": "^5.2.2",
