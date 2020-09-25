@@ -29,6 +29,8 @@ export default class Contact extends React.Component {
     name: "",
     email: "",
     message: "",
+    product: "",
+    productUrl: "",
   }
 
   handleChange = event => {
@@ -41,8 +43,8 @@ export default class Contact extends React.Component {
   }
 
   handleSubmit = e => {
-    let { name, phone, email, message } = this.state
-    let data = { name, phone, email, message }
+    let { name, phone, email, message, product, productUrl } = this.state
+    let data = { name, phone, email, message, product, productUrl }
     axios.post(endpoints.contact, JSON.stringify(data)).then(response => {
       if (response.status !== 200) {
         this.handleError()
@@ -75,9 +77,11 @@ export default class Contact extends React.Component {
     return (
       <>
         <Paper className="pb-4 mx-2 mb-4">
-          <div className="p-4 text-xl">Изпрати запитване за този продукт</div>
+          <div className="p-4 text-xl">{this.props.message}</div>
 
           <ThemeProvider theme={theme}>
+            {(this.state.product = this.props.product)}
+            {(this.state.productUrl = this.props.productUrl)}
             <form
               noValidate
               autoComplete="off"

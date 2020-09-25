@@ -167,7 +167,7 @@ class Sidebar extends Component {
 
               <div className="text-center">
                 <a
-                  className="menu-quick-action flex items-center justify-between px-4 py-3 mb-1 text-xl"
+                  className="menu-quick-action flex items-center justify-between py-3 pl-2 pr-3 mb-1 text-xl"
                   href="tel:0895000166"
                 >
                   <svg
@@ -183,7 +183,7 @@ class Sidebar extends Component {
                       Обадете ни се
                     </div>
                     <div className="text-xl leading-tight underline">
-                      0895000166
+                      0878-909-322
                     </div>
                   </div>
                 </a>

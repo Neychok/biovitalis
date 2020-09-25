@@ -194,7 +194,11 @@ const Product = ({ data }) => {
       </div>
 
       <div id="contactForm">
-        <ContactForm></ContactForm>
+        <ContactForm
+          message="Изпрати запитване за този продукт"
+          product={document.product_name.text}
+          product_url={data.allPrismicProduct.edges[0].node.url}
+        ></ContactForm>
       </div>
     </>
   )
@@ -205,6 +209,7 @@ export const query = graphql`
       edges {
         node {
           uid
+          url
           data {
             gallery {
               image {

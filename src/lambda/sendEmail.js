@@ -19,12 +19,26 @@ const mg = mailgun({
 // Our Netlify function
 export function handler(event, context, callback) {
   let data = JSON.parse(event.body)
-  let { name, email, message } = data
-  let mailOptions = {
-    from: `${name} <${email}>`,
-    to: process.env.MY_EMAIL_ADDRESS,
-    replyTo: email,
-    text: `${message}`,
+  let { name, email, message, product, productUrl } = data
+
+  if (product != null) {
+    let mailOptions = {
+      from: `БиоВиталис: ${name} <${email}>`,
+      to: process.env.MY_EMAIL_ADDRESS,
+      replyTo: email,
+      subject: `Запитване относно: ${product}`,
+      text: `${name} изпраща запитване относно продукт: "${(
+        <a href={productUrl}></a>
+      )}" \n Съобщение: \n ${message}`,
+    }
+  } else {
+    let mailOptions = {
+      from: `БиоВиталис: ${name} <${email}>`,
+      to: process.env.MY_EMAIL_ADDRESS,
+      replyTo: email,
+      subject: `Изпратено съобщение от ${name} чрез формата за контакти`,
+      text: `Съобщение: \n ${message}`,
+    }
   }
 
   // Our MailGun code

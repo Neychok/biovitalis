@@ -14,8 +14,10 @@ const ProductsPage = ({ data }) => {
       <SEO title="Home" />
 
       {/* Categories Title */}
-      <div className="mt-4 mb-2 ml-3 text-xl text-left">Категории продукти</div>
-      <hr className="hr-line"></hr>
+      <div className="mt-8 mb-3 text-xl text-center">
+        <h1>Машини за сокопроизводство</h1>
+      </div>
+      <hr className="hr-line mx-auto mb-6"></hr>
 
       {/* Categories List */}
       <div className="flex flex-wrap px-1">

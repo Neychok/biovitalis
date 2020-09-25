@@ -58,13 +58,11 @@ const Lightbox = ({ image, children }) => {
       >
         <Fade in={open}>
           <div style={modalStyle} className={classes.paper}>
-            <div className="absolute top-0 right-0 flex items-center justify-center p-2 bg-transparent">
-              <div
-                className="text-sm text-white bg-transparent"
-                onClick={handleClose}
-              >
-                Затвори
-              </div>
+            <div
+              onClick={handleClose}
+              className="hover:border-green-300 absolute top-0 right-0 flex items-center justify-center p-2 m-2 border-2 border-white rounded cursor-pointer"
+            >
+              <div className="text-sm text-white bg-transparent">Затвори</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -91,5 +89,4 @@ const Lightbox = ({ image, children }) => {
     </>
   )
 }
-
 export default Lightbox
