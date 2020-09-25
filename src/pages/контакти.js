@@ -105,6 +105,15 @@ class ContactPage extends Component {
           </div>
 
           <div className="flex items-center justify-around px-2 py-4">
+            <div className="border-color-primary w-3/5 py-4 border-r-2">
+              <a
+                href="mailto:biovitalis.bulgaria@gmail.com"
+                className="secondary-700 block text-lg text-center"
+              >
+                <span className="block">biovitalis.bulgaria</span>
+                <span className="block">@gmail.com</span>
+              </a>
+            </div>
             <div className="w-2/5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,14 +130,6 @@ class ContactPage extends Component {
                 />
               </svg>
               <div className="primary-1000 text-xl text-center">E-mail</div>
-            </div>
-            <div className="border-color-primary w-3/5 py-4 border-l-2">
-              <a
-                href="mailto:biovitalis.bulgaria@gmail.com"
-                className="secondary-700 block text-base text-center"
-              >
-                biovitalis.bulgaria@gmail.com
-              </a>
             </div>
           </div>
         </Paper>
