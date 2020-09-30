@@ -1,7 +1,4 @@
 const { createProxyMiddleware } = require("http-proxy-middleware")
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
 
 module.exports = {
   siteMetadata: {
@@ -39,11 +36,11 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-material-ui`,
     {
-      // resolve: "gatsby-plugin-webpack-bundle-analyzer",
-      // options: {
-      //   analyzerPort: 3000,
-      //   production: false,
-      // },
+      resolve: "gatsby-plugin-webpack-bundle-analyzer",
+      options: {
+        analyzerPort: 3000,
+        production: false,
+      },
     },
 
     // Adds Sitemap
@@ -239,15 +236,6 @@ module.exports = {
 
     // Plugin that adds offline support
     `gatsby-plugin-offline`,
-    // Search plugin
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries: require("./src/utils/algolia-queries"),
-      },
-    },
     //"gatsby-plugin-remove-serviceworker",
     `gatsby-plugin-preact`,
   ],
