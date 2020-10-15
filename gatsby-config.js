@@ -243,7 +243,7 @@ module.exports = {
             "cache-control:  max-age=0",
             "cache-control: must-revalidate",
           ],
-          "/sw.js": [
+          "/public/sw.js": [
             "cache-control: public",
             "cache-control:  max-age=0",
             "cache-control: must-revalidate",
