@@ -25,6 +25,12 @@ button:focus {
   outline: none;
 }
 /** Mobile CSS */
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  height: 3px;
+}
 /* purgecss ignore */
 .mobile-menulogo {
   /* left: 25px;
@@ -279,14 +285,15 @@ button:focus {
   user-select: none;
   transform: translate(-50%, -50%);
 }
-
+/* purgecss ignore */
 .border-color-primary {
   border-color: #65d6ad;
 }
+/* purgecss ignore */
 .border-search {
   border-color: #d9e2ec;
 }
-
+/* purgecss ignore */
 .border-search:hover {
   border-color: #3ebd93;
 }

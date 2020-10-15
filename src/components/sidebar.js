@@ -12,7 +12,7 @@ import logo from "../images/logo.png"
 
 const variantsMenu = {
   open: { x: 0 },
-  closed: { x: "100%" },
+  closed: { x: "-100%" },
 }
 
 const variantsOverlay = {
@@ -46,26 +46,21 @@ const Sidebar = () => {
       <MotionConfig features={[AnimationFeature]}>
         <nav id="navigation" className="mb-12">
           {/* Top navbar */}
-          <div className="h-14 fixed top-0 z-50 flex items-center w-full pr-0 bg-white shadow-md">
-            {/* Search Button */}
-            <div className="w-1/3">
+          <div className="h-14 fixed top-0 z-50 flex items-center w-full bg-white shadow-md">
+            {/* Container for the hamburger button */}
+            <div className="flex justify-start w-1/3">
               <button
-                onClick={OpenSearch}
-                className="no-outline flex items-center justify-start max-w-full px-2 py-2"
+                className={`hamburger hamburger--collapse flex items-center no-outline p-3 ${
+                  menuOpen ? "is-active" : ""
+                }`}
+                onClick={OpenMenu}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="#014d40"
-                  className="w-8 ml-0"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="primary-1000 pl-1 text-sm">ТЪРСЕНЕ</span>
+                <span className="hamburger-box">
+                  <span className="hamburger-inner" />
+                </span>
+                <span className="primary-1000 pl-2 text-sm">
+                  {menuOpen ? "ЗАТВОРИ" : "МЕНЮ"}
+                </span>
               </button>
             </div>
 
@@ -75,24 +70,30 @@ const Sidebar = () => {
                 <img
                   src={logo}
                   alt="Biovitalis logo"
-                  className="lazyload w-32 mx-auto"
+                  className="lazyload w-24 mx-auto"
                 />
               </Link>
             </div>
-            {/* Container for the hamburger button */}
-            <div className="flex justify-end w-1/3 pt-1 mr-0">
+
+            {/* Search Button */}
+            <div className="flex items-center justify-end w-1/3">
               <button
-                className={`hamburger hamburger--collapse h-14 flex items-center  no-outline pr-2  ${
-                  menuOpen ? "is-active" : ""
-                }`}
-                onClick={OpenMenu}
+                onClick={OpenSearch}
+                className="no-outline flex items-center max-w-full p-3"
               >
-                <span className="primary-1000 pr-1 text-base">
-                  {menuOpen ? "ЗАТВОРИ" : "МЕНЮ"}
-                </span>
-                <span className="hamburger-box">
-                  <span className="hamburger-inner"></span>
-                </span>
+                <span className="primary-1000 pr-1 text-sm">ТЪРСЕНЕ</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="#014d40"
+                  className="w-8"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </button>
             </div>
           </div>
@@ -103,7 +104,7 @@ const Sidebar = () => {
             initial={"closed"} // Initial state of the m
             variants={variantsMenu}
             transition="easeIn"
-            className="mt-14 fixed top-0 right-0 z-50 flex flex-col justify-between w-48 h-full pb-24 overflow-hidden bg-white border-t"
+            className="mt-14 fixed top-0 left-0 z-50 flex flex-col justify-between w-48 h-full pb-24 overflow-hidden bg-white border-t"
           >
             <div>
               {/* Background pattern */}
