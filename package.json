@@ -45,8 +45,8 @@
   },
   "devDependencies": {
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
-    "prettier-plugin-tailwind-css": "^1.4.0",
-    "prettier": "2.1.1"
+    "prettier": "2.1.1",
+    "prettier-plugin-tailwind-css": "^1.4.0"
   },
   "keywords": [
     "gatsby"
