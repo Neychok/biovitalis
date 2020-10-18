@@ -26,6 +26,7 @@ const theme = createMuiTheme({
 export default class Contact extends React.Component {
   state = {
     name: "",
+    phone: "",
     email: "",
     message: "",
     product: this.props.product,
@@ -57,6 +58,7 @@ export default class Contact extends React.Component {
   handleSuccess = () => {
     this.setState({
       name: "",
+      phone: "",
       email: "",
       message: "",
       phone: "",
