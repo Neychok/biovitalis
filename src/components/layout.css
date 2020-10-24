@@ -10,7 +10,7 @@ html {
 /* purgecss ignore */
 body {
   margin: 0;
-  background: #f5f5f5;
+  background: #f0f4f8;
 }
 /* purgecss ignore */
 .h-14 {
@@ -26,11 +26,6 @@ button:focus {
 }
 /** Mobile CSS */
 
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-  height: 3px;
-}
 /* purgecss ignore */
 .mobile-menulogo {
   /* left: 25px;
@@ -91,7 +86,6 @@ button:focus {
 /* purgecss ignore */
 .hr-line {
   border: 2px solid #27ab83;
-  margin-left: 0.75rem;
   margin-bottom: 1.25rem;
   width: 15%;
   border-radius: 9999px;
@@ -152,6 +146,10 @@ button:focus {
 /* purgecss ignore */
 .dark-blue {
   color: #102a43;
+}
+/* purgecss ignore */
+.text-primary-black {
+  color: #333;
 }
 /* purgecss ignore */
 .secondary-100 {

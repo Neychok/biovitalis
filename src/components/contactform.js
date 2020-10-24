@@ -79,7 +79,9 @@ export default class Contact extends React.Component {
     return (
       <>
         <div>
-          <div className="px-2 pt-3 pb-2 text-xl">{this.props.message}</div>
+          <div className="text-primary-black px-3 pt-2 pb-2 text-lg text-center">
+            {this.props.message}
+          </div>
           <ThemeProvider theme={theme}>
             <form
               noValidate

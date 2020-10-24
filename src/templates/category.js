@@ -15,42 +15,45 @@ const CategoryPage = ({ data }) => {
       <SEO title="Home" />
 
       {/* Breadcrumbs */}
-      <Breadcrumbs
-        aria-label="breadcrumb"
-        className="w-full h-5 px-2 mt-1 mb-3"
-      >
-        <Link to="/продукти/" className="mb-0">
+      <Breadcrumbs aria-label="breadcrumb" className="w-full h-5 mt-1 mb-3">
+        <Link to="/produkti/" className="mb-0">
           Продукти
         </Link>
         <p className="mb-0">{data.allPrismicCategory.edges[0].node.uid}</p>
       </Breadcrumbs>
 
       {/* Back Button */}
-      <div className="py-1">
-        <Link to={`/продукти/`} className="">
+      <div className="flex">
+        <Link
+          to={`/produkti/`}
+          className="text-primary-black flex items-center py-2"
+        >
           <svg
-            className="h-10 pl-2"
+            className="h-10"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="#014D40"
+            fill="none"
+            viewBox="0 0 18 24"
+            stroke="currentColor"
           >
             <path
-              fillRule="evenodd"
-              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clipRule="evenodd"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1}
+              d="M11 19l-7-7 7-7"
             />
           </svg>
+          <span>Назад</span>
         </Link>
       </div>
 
       {/* Name of category */}
-      <div className="mb-1 ml-3 text-xl text-left">
+      <div className="text-primary-black pt-2 pb-3 text-xl">
         {data.allPrismicCategory.edges[0].node.data.name}
       </div>
       <hr className="hr-line"></hr>
 
       {/* Category list */}
-      <div className="flex flex-wrap px-1">
+      <div className="flex flex-wrap">
         {document.map(node => {
           return (
             // Container for item
@@ -67,7 +70,7 @@ const CategoryPage = ({ data }) => {
                     className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.featured_image.url}
                   />
-                  <div className="category-product-name px-2 py-1 text-sm">
+                  <div className="category-product-name text-primary-black px-2 py-1 text-sm">
                     {node.node.data.product_name.text}
                   </div>
                 </Link>

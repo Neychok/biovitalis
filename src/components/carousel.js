@@ -43,7 +43,7 @@ const Carousel = ({ images }) => {
               src={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}
               data-sizes="auto"
-              className="lazyload object-cover w-full h-20 p-1 mt-1 rounded-lg opacity-75"
+              className="lazyload object-cover w-full h-16 p-1 mt-1 rounded-lg opacity-75"
               alt={`${slide.image.url}`}
             />
           </SwiperSlide>

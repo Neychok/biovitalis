@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { m as motion } from "framer-motion"
 import { MotionConfig, AnimationFeature } from "framer-motion"
 import { Link } from "gatsby"
@@ -6,7 +6,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import "./hamburger-button.css"
 import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
-import InputBase from "@material-ui/core/InputBase"
+//import InputBase from "@material-ui/core/InputBase"
 
 import logo from "../images/logo.png"
 
@@ -20,14 +20,14 @@ const variantsOverlay = {
   closed: { opacity: 0 },
 }
 
-const variantsSearch = {
-  open: { opacity: 1 },
-  closed: { opacity: 0 },
-}
+// const variantsSearch = {
+//   open: { opacity: 1 },
+//   closed: { opacity: 0 },
+// }
 
 const Sidebar = () => {
   const [menuOpen, setMenu] = React.useState(false)
-  const [searchOpen, setSearch] = React.useState(false)
+  // const [searchOpen, setSearch] = React.useState(false)
 
   const OpenMenu = () => {
     setMenu(!menuOpen)
@@ -36,9 +36,9 @@ const Sidebar = () => {
       : disableBodyScroll("#navigation")
   }
 
-  const OpenSearch = () => {
-    setSearch(!searchOpen)
-  }
+  // const OpenSearch = () => {
+  //   setSearch(!searchOpen)
+  // }
 
   return (
     <>
@@ -48,7 +48,7 @@ const Sidebar = () => {
           {/* Top navbar */}
           <div className="h-14 fixed top-0 z-50 flex items-center w-full bg-white shadow-md">
             {/* Container for the hamburger button */}
-            <div className="flex justify-start w-1/3">
+            <div className="flex justify-start w-1/2">
               <button
                 className={`hamburger hamburger--collapse flex items-center no-outline p-3 ${
                   menuOpen ? "is-active" : ""
@@ -58,25 +58,18 @@ const Sidebar = () => {
                 <span className="hamburger-box">
                   <span className="hamburger-inner" />
                 </span>
-                <span className="primary-1000 pl-2 text-sm">
-                  {menuOpen ? "ЗАТВОРИ" : "МЕНЮ"}
-                </span>
               </button>
-            </div>
-
-            {/* Container for the LOGO */}
-            <div className=" w-1/3 mx-auto">
-              <Link to="/" className="h-14 flex items-center w-full">
+              <Link to="/" className="flex items-center w-full ml-2">
                 <img
                   src={logo}
                   alt="Biovitalis logo"
-                  className="lazyload w-24 mx-auto"
+                  className="lazyload w-24"
                 />
               </Link>
             </div>
 
             {/* Search Button */}
-            <div className="flex items-center justify-end w-1/3">
+            {/* <div className="flex items-center justify-end w-1/3">
               <button
                 onClick={OpenSearch}
                 className="no-outline flex items-center max-w-full p-3"
@@ -86,7 +79,7 @@ const Sidebar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="#014d40"
-                  className="w-8"
+                  className="w-6"
                 >
                   <path
                     fillRule="evenodd"
@@ -95,7 +88,7 @@ const Sidebar = () => {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Sidebar with menu items */}
@@ -128,7 +121,7 @@ const Sidebar = () => {
               </Link>
               <Link
                 partiallyActive={true}
-                to="/продукти/"
+                to="/produkti/"
                 className="mobile-menu-item block py-2 mb-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}
@@ -148,7 +141,7 @@ const Sidebar = () => {
                 Продукти
               </Link>
               <Link
-                to="/за-нас/"
+                to="/nashi-klienti/"
                 className="mobile-menu-item block py-2 mb-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}
@@ -161,10 +154,10 @@ const Sidebar = () => {
                 >
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                 </svg>
-                За нас
+                Наши клиенти
               </Link>
               <Link
-                to="/контакти/"
+                to="/kontakti/"
                 className="mobile-menu-item block py-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}
@@ -219,7 +212,7 @@ const Sidebar = () => {
           ></motion.div>
 
           {/* OVERLAY SEARCH*/}
-          <motion.div
+          {/* <motion.div
             animate={searchOpen ? "open" : "closed"}
             initial={"closed"}
             variants={variantsOverlay}
@@ -265,7 +258,7 @@ const Sidebar = () => {
                 className="border-search w-full px-3 py-1 border-2 rounded-lg"
               />
             </div>
-          </motion.div>
+          </motion.div> */}
         </nav>
       </MotionConfig>
     </>

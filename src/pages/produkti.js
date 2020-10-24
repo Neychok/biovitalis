@@ -20,7 +20,7 @@ const ProductsPage = ({ data }) => {
       <hr className="hr-line mx-auto mb-6"></hr>
 
       {/* Categories List */}
-      <div className="flex flex-wrap px-1">
+      <div className="flex flex-wrap">
         {document.map(node => {
           return (
             <div

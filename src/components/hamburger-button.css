@@ -33,8 +33,8 @@
 }
 
 .hamburger-box {
-  width: 35px;
-  height: 24px;
+  width: 30px;
+  height: 18px;
   display: inline-block;
   position: relative;
 }
@@ -47,8 +47,8 @@
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-  width: 35px;
-  height: 4px;
+  width: 30px;
+  height: 2px;
   background-color: #014d40;
   border-radius: 4px;
   position: absolute;
@@ -62,10 +62,10 @@
   display: block;
 }
 .hamburger-inner::before {
-  top: -10px;
+  top: -8px;
 }
 .hamburger-inner::after {
-  bottom: -10px;
+  bottom: -8px;
 }
 
 /*
@@ -79,7 +79,7 @@
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 .hamburger--collapse .hamburger-inner::after {
-  top: -20px;
+  top: -16px;
   transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
     opacity 0.1s linear;
 }
@@ -89,7 +89,7 @@
 }
 
 .hamburger--collapse.is-active .hamburger-inner {
-  transform: translate3d(0, -10px, 0) rotate(-45deg);
+  transform: translate3d(0, -8px, 0) rotate(-45deg);
   transition-delay: 0.22s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }

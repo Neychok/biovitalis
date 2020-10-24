@@ -91,50 +91,56 @@ const Product = ({ data }) => {
         <Breadcrumbs
           aria-label="breadcrumb"
           maxItems={3}
-          className="w-full h-5 px-2 mt-1 mb-3 list-none"
+          className="w-full h-5 mt-1 mb-3 list-none"
         >
-          <Link to="/продукти/" className="mb-0">
+          <Link to="/produkti/" className="mb-0">
             Продукти
           </Link>
-          <Link to={`/продукти/${document.category.uid}/`} className="mb-0">
+          <Link to={`/produkti/${document.category.uid}/`} className="mb-0">
             {document.category.uid}
           </Link>
           <p className="mb-0">{data.allPrismicProduct.edges[0].node.uid}</p>
         </Breadcrumbs>
 
         {/* Back Button */}
-        <div className="flex items-center justify-between py-1">
-          <Link to={`/продукти/${document.category.uid}/`} className="">
+        <div className="flex items-center justify-between py-2">
+          <Link
+            to={`/produkti/${document.category.uid}/`}
+            className="text-primary-black flex items-center"
+          >
             <svg
-              className="h-10 pl-2"
+              className="h-10"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="#014D40"
+              fill="none"
+              viewBox="0 0 18 24"
+              stroke="currentColor"
             >
               <path
-                fillRule="evenodd"
-                d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                clipRule="evenodd"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M11 19l-7-7 7-7"
               />
             </svg>
+            <span>Назад</span>
           </Link>
 
           <Link
             to="#contactForm"
-            className="scrollToContact px-4 py-2 mr-2 text-center bg-white rounded-md shadow"
+            className="scrollToContact px-4 py-2 text-center bg-white rounded-md shadow"
           >
             Изпрати запитване
           </Link>
         </div>
 
         {/* Product Name */}
-        <h1 className="px-2 pt-2 pb-3 text-xl">{document.product_name.text}</h1>
-        <div className="mx-2">
+        <h1 className="pt-2 pb-3 text-xl">{document.product_name.text}</h1>
+        <div className="">
           <Paper elevation={1} className="container-500 pb-1 mx-auto mb-4">
             <Carousel images={document.gallery}></Carousel>
           </Paper>
         </div>
-        <Paper className="mx-2">
+        <Paper className="">
           <ThemeProvider theme={theme}>
             <AppBar position="static" color="transparent" className="h-12">
               <Tabs
@@ -161,7 +167,7 @@ const Product = ({ data }) => {
               {document.specs.map(specs => {
                 return (
                   <>
-                    <div className="flex text-sm">
+                    <div className="text-primary-black flex text-sm">
                       <p className="w-1/2">{specs.spec_name}</p>
                       <p className="w-1/2">{specs.spec_value}</p>
                     </div>
@@ -187,13 +193,15 @@ const Product = ({ data }) => {
                   document.video.embed_url
                 )}`}
               />
-              <p className="text-sm">{document.description.text}</p>
+              <p className="text-primary-black text-sm">
+                {document.description.text}
+              </p>
             </TabPanel>
           </SwipeableViews>
         </Paper>
       </div>
 
-      <Paper className="pb-4 mx-2 mb-4" id="contactForm">
+      <Paper className="pb-4 mb-4" id="contactForm">
         <ContactForm
           message="Изпрати запитване за този продукт"
           product={document.product_name.text}

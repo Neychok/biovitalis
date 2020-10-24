@@ -22,8 +22,8 @@ const Marker = () => (
 class ContactPage extends Component {
   static defaultProps = {
     center: {
-      lat: 42.81995,
-      lng: 23.23017,
+      lat: 42.8201084,
+      lng: 23.2291607,
     },
     zoom: 15,
   }
@@ -37,7 +37,7 @@ class ContactPage extends Component {
         </div>
         <hr className="hr-line mx-auto mb-6"></hr>
 
-        <Paper className="pb-4 mx-2 mb-4">
+        <Paper className="pb-4 mb-4">
           <div className="py-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -52,9 +52,12 @@ class ContactPage extends Component {
               />
             </svg>
             <div className="primary-1000 text-xl text-center">Адрес</div>
-            <div className="secondary-700 pt-1 mb-2 text-base text-center">
+            <a
+              href="https://goo.gl/maps/Xr2BPVQKzUz3gdvB6"
+              className="secondary-700 block pt-1 mb-2 text-base text-center"
+            >
               ул. Първи Май 15, Костинброд 2230
-            </div>
+            </a>
             <div
               className="border-color-primary border-t"
               style={{ height: "300px", width: "100%" }}
@@ -66,7 +69,7 @@ class ContactPage extends Component {
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
               >
-                <Marker lat={42.81995} lng={23.23017}></Marker>
+                <Marker lat={42.8201084} lng={23.2291607}></Marker>
               </GoogleMapReact>
             </div>
           </div>
@@ -133,8 +136,8 @@ class ContactPage extends Component {
             </div>
           </div>
         </Paper>
-        <Paper className="py-4 mx-2 mb-4">
-          <ContactForm message="Свържете се с нас"></ContactForm>
+        <Paper className="py-4 mb-4">
+          <ContactForm message="Изпратете ни имейл и ние ще се свържим с вас!"></ContactForm>
         </Paper>
       </>
     )
