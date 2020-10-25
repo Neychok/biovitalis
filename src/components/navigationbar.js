@@ -20,7 +20,7 @@ function NavigationBar() {
             Начало
           </Link>
           <Link
-            to="/продукти/"
+            to="/sokoproizvodstvo/"
             partiallyActive={true}
             className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
@@ -28,14 +28,14 @@ function NavigationBar() {
             Продукти
           </Link>
           <Link
-            to="/за-нас/"
+            to="/nashi-klienti/"
             className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
           >
-            За нас
+            наши клиенти
           </Link>
           <Link
-            to="/контакти/"
+            to="/kontakti/"
             className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
           >

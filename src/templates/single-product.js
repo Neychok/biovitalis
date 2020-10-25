@@ -93,10 +93,13 @@ const Product = ({ data }) => {
           maxItems={3}
           className="w-full h-5 mt-1 mb-3 list-none"
         >
-          <Link to="/produkti/" className="mb-0">
-            Продукти
+          <Link to="/sokoproizvodstvo/" className="mb-0">
+            Машини
           </Link>
-          <Link to={`/produkti/${document.category.uid}/`} className="mb-0">
+          <Link
+            to={`/sokoproizvodstvo/${document.category.uid}/`}
+            className="mb-0"
+          >
             {document.category.uid}
           </Link>
           <p className="mb-0">{data.allPrismicProduct.edges[0].node.uid}</p>
@@ -105,7 +108,7 @@ const Product = ({ data }) => {
         {/* Back Button */}
         <div className="flex items-center justify-between py-2">
           <Link
-            to={`/produkti/${document.category.uid}/`}
+            to={`/sokoproizvodstvo/${document.category.uid}/`}
             className="text-primary-black flex items-center"
           >
             <svg
@@ -166,13 +169,13 @@ const Product = ({ data }) => {
             <TabPanel value={value} index={0}>
               {document.specs.map(specs => {
                 return (
-                  <>
+                  <div key={specs.spec_name}>
                     <div className="text-primary-black flex text-sm">
                       <p className="w-1/2">{specs.spec_name}</p>
                       <p className="w-1/2">{specs.spec_value}</p>
                     </div>
                     <hr className="hr-line-table border-gray-400"></hr>
-                  </>
+                  </div>
                 )
               })}
             </TabPanel>

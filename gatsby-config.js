@@ -163,12 +163,12 @@ module.exports = {
         linkResolver: ({ node, key, value }) => doc => {
           // URL for a category type
           if (doc.type === "category") {
-            return `/продукти/${doc.uid}/`
+            return `/sokoproizvodstvo/${doc.uid}/`
           }
 
           // URL for a product type
           if (doc.type === "product") {
-            return `/продукти/${doc.data.category.uid}/${doc.uid}/`
+            return `/sokoproizvodstvo/${doc.data.category.uid}/${doc.uid}/`
           }
 
           // URL for a page type

@@ -22,7 +22,7 @@ const Carousel = ({ images }) => {
         slidesPerView={1}
       >
         {images.map(slide => (
-          <SwiperSlide key={slide.src}>
+          <SwiperSlide key={slide.image.fluid.src}>
             <Lightbox image={slide.image.fluid.src}>
               <img
                 src={`${slide.image.fluid.base64}`}
@@ -38,7 +38,7 @@ const Carousel = ({ images }) => {
 
       <Swiper onSwiper={setThumbsSwiper} spaceBetween={2} slidesPerView={4}>
         {images.map(slide => (
-          <SwiperSlide key={slide.src} className="">
+          <SwiperSlide key={slide.image.fluid.base64} className="">
             <img
               src={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}

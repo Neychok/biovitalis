@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Creates a page for every product
   result.data.allPrismicProduct.edges.forEach(({ node }) => {
     createPage({
-      path: "/produkti/" + node.data.category.uid + "/" + node.uid,
+      path: "/sokoproizvodstvo/" + node.data.category.uid + "/" + node.uid,
       component: path.resolve(`./src/templates/single-product.js`),
       context: {
         // Data passed to context is available
@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create a page for every category
   result.data.allPrismicCategory.edges.forEach(({ node }) => {
     createPage({
-      path: "/produkti/" + node.uid,
+      path: "/sokoproizvodstvo/" + node.uid,
       component: path.resolve(`./src/templates/category.js`),
       context: {
         // Data passed to context is available
@@ -53,4 +53,17 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
+// Fixes "React-Hot-Loader: react-🔥-dom patch is not detected."
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    })
+  }
 }

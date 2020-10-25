@@ -16,7 +16,7 @@ const CategoryPage = ({ data }) => {
 
       {/* Breadcrumbs */}
       <Breadcrumbs aria-label="breadcrumb" className="w-full h-5 mt-1 mb-3">
-        <Link to="/produkti/" className="mb-0">
+        <Link to="/sokoproizvodstvo/" className="mb-0">
           Продукти
         </Link>
         <p className="mb-0">{data.allPrismicCategory.edges[0].node.uid}</p>
@@ -25,7 +25,7 @@ const CategoryPage = ({ data }) => {
       {/* Back Button */}
       <div className="flex">
         <Link
-          to={`/produkti/`}
+          to={`/sokoproizvodstvo/`}
           className="text-primary-black flex items-center py-2"
         >
           <svg

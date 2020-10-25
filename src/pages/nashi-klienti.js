@@ -85,7 +85,9 @@ const ClientsPage = ({ data }) => {
       <Paper className="px-2 py-2">
         <ul>
           {data.allPrismicClient.edges.map(node => (
-            <li className="py-2 my-1 border">Име: {node.node.data.name}</li>
+            <li key={node.node.id} className="py-2 my-1 border">
+              Име: {node.node.data.name}
+            </li>
           ))}
         </ul>
       </Paper>
@@ -98,6 +100,7 @@ export const query = graphql`
     allPrismicClient {
       edges {
         node {
+          id
           data {
             location {
               latitude
