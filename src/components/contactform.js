@@ -61,7 +61,6 @@ export default class Contact extends React.Component {
       phone: "",
       email: "",
       message: "",
-      phone: "",
       loading: false,
       error: false,
     })
