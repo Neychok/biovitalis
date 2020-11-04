@@ -14,13 +14,13 @@ const ProductsPage = ({ data }) => {
       <SEO title="Home" />
 
       {/* Categories Title */}
-      <div className="mt-8 mb-3 text-xl text-center">
+      <div className="px-3 mt-8 mb-3 text-xl text-center">
         <h1>Машини за сокопроизводство</h1>
       </div>
       <hr className="hr-line mx-auto mb-6"></hr>
 
       {/* Categories List */}
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap px-2">
         {document.map(node => {
           return (
             <div
@@ -48,7 +48,6 @@ const ProductsPage = ({ data }) => {
     </>
   )
 }
-
 export const query = graphql`
   {
     allPrismicCategory {
@@ -72,5 +71,4 @@ export const query = graphql`
     }
   }
 `
-
 export default ProductsPage

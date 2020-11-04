@@ -86,7 +86,7 @@ const Product = ({ data }) => {
     <>
       <SEO title="Home" />
       {/* Hides footer out of sight and makes product pages look more consistent*/}
-      <div className="">
+      <div className="px-3">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
         <Breadcrumbs
           aria-label="breadcrumb"
@@ -106,7 +106,7 @@ const Product = ({ data }) => {
         </Breadcrumbs>
 
         {/* Back Button */}
-        <div className="flex items-center justify-between py-2">
+        <div className="flex items-center justify-between py-1">
           <Link
             to={`/sokoproizvodstvo/${document.category.uid}/`}
             className="text-primary-black flex items-center"
@@ -115,14 +115,14 @@ const Product = ({ data }) => {
               className="h-10"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 18 24"
+              viewBox="0 0 15 24"
               stroke="currentColor"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={1}
-                d="M11 19l-7-7 7-7"
+                d="M9 19l-7-7 7-7"
               />
             </svg>
             <span>Назад</span>
@@ -202,15 +202,15 @@ const Product = ({ data }) => {
             </TabPanel>
           </SwipeableViews>
         </Paper>
-      </div>
 
-      <Paper className="pb-4 mb-4" id="contactForm">
-        <ContactForm
-          message="Изпрати запитване за този продукт"
-          product={document.product_name.text}
-          productUrl={data.allPrismicProduct.edges[0].node.url}
-        ></ContactForm>
-      </Paper>
+        <Paper className="pb-4 mb-4" id="contactForm">
+          <ContactForm
+            message="Изпрати запитване за този продукт"
+            product={document.product_name.text}
+            productUrl={data.allPrismicProduct.edges[0].node.url}
+          ></ContactForm>
+        </Paper>
+      </div>
     </>
   )
 }

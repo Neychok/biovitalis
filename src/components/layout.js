@@ -19,7 +19,7 @@ const Layout = ({ location, children }) => {
     <>
       <div className="xl:container xl:bg-white xl:shadow-xl mx-auto">
         <Header />
-        <main className="h-full min-h-screen px-3 mt-2">{children}</main>
+        <main className="h-full min-h-screen mt-2">{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

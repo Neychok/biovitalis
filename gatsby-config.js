@@ -32,6 +32,8 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
     `gatsby-plugin-material-ui`,
@@ -143,8 +145,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `BioVitalis`,
+        short_name: `BioVitalis`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

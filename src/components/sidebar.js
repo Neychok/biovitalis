@@ -46,7 +46,7 @@ const Sidebar = () => {
       <MotionConfig features={[AnimationFeature]}>
         <nav id="navigation" className="mb-12">
           {/* Top navbar */}
-          <div className="h-14 fixed top-0 z-50 flex items-center w-full bg-white shadow-md">
+          <div className="h-14 fixed top-0 z-50 flex items-center w-full bg-white shadow">
             {/* Container for the hamburger button */}
             <div className="flex justify-start w-1/2">
               <button

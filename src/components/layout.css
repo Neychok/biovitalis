@@ -10,7 +10,7 @@ html {
 /* purgecss ignore */
 body {
   margin: 0;
-  background: #f0f4f8;
+  background: #f9f9f9;
 }
 /* purgecss ignore */
 .h-14 {
@@ -294,4 +294,13 @@ button:focus {
 /* purgecss ignore */
 .border-search:hover {
   border-color: #3ebd93;
+}
+
+/* purgecss ignore */
+.absolute-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 }
