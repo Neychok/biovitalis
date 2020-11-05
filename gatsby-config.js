@@ -36,6 +36,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography`,
+    //   },
+    // },
     `gatsby-plugin-material-ui`,
     // {
     //   resolve: "gatsby-plugin-webpack-bundle-analyzer",

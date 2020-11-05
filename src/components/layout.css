@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Raleway";
+  src: url("../static/fonts/raleway/Raleway-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("../static/fonts/merriweather/Merriweather-Regular.woff")
+    format("woff");
+  font-display: swap;
+}
+
 /* purgecss ignore */
 html {
   overflow: auto;
@@ -11,6 +24,7 @@ html {
 body {
   margin: 0;
   background: #f9f9f9;
+  font-family: "Merriweather", "Raleway";
 }
 /* purgecss ignore */
 .h-14 {
