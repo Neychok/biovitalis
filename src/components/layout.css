@@ -9,11 +9,10 @@
 }
 
 @font-face {
-  font-family: "Lora";
-  src: url("../static/fonts/lora/Lora-Regular.woff") format("woff");
+  font-family: "Montserrat";
+  src: url("../static/fonts/montserrat/Montserrat-Regular.woff") format("woff");
   font-display: swap;
 }
-
 /* purgecss ignore */
 html {
   overflow: auto;
@@ -31,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lora", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* purgecss ignore */
@@ -258,6 +257,10 @@ button:focus {
   background-color: #014d40;
 }
 /* purgecss ignore */
+.bg-primary-900 {
+  background-color: #0c6b58;
+}
+/* purgecss ignore */
 .thumbnail {
   max-height: 80px;
 }
@@ -333,4 +336,7 @@ button:focus {
   left: 50%;
 
   transform: translate(-50%, -50%);
+}
+.landing-overlay {
+  background-color: rgba(72, 101, 129, 0.55);
 }

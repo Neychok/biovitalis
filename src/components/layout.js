@@ -25,6 +25,7 @@ const Layout = ({ location, children }) => {
           <a
             href="https://www.linkedin.com/in/neychok/"
             target="_blank"
+            rel="noreferrer"
             className=" text-xs underline"
           >
             Създадено от: Neycho
