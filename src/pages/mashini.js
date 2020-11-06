@@ -11,8 +11,11 @@ const ProductsPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      <div className="px-3 pt-4">
-        <h1 className="text-primary-black pb-6 text-xl">Видове машини</h1>
+      <div className="px-3">
+        <div className="px-3 mt-8 mb-3 text-xl text-center">
+          <h1>Машини</h1>
+        </div>
+        <hr className="hr-line mx-auto mb-6"></hr>
         <Link to="/sokoproizvodstvo" className="">
           <Paper className="menu-item-active flex items-center w-full p-2">
             <Img

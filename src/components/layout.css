@@ -3,15 +3,14 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Raleway";
-  src: url("../static/fonts/raleway/Raleway-Regular.woff") format("woff");
+  font-family: "Open Sans";
+  src: url("../static/fonts/opensans/OpenSans-Regular.woff") format("woff");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Merriweather";
-  src: url("../static/fonts/merriweather/Merriweather-Regular.woff")
-    format("woff");
+  font-family: "Lora";
+  src: url("../static/fonts/lora/Lora-Regular.woff") format("woff");
   font-display: swap;
 }
 
@@ -24,8 +23,17 @@ html {
 body {
   margin: 0;
   background: #f9f9f9;
-  font-family: "Merriweather", "Raleway";
+  font-family: "Open Sans", sans-serif;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", sans-serif;
+}
+
 /* purgecss ignore */
 .h-14 {
   height: 3.5rem;
@@ -246,6 +254,10 @@ button:focus {
   color: #014d40;
 }
 /* purgecss ignore */
+.bg-primary-1000 {
+  background-color: #014d40;
+}
+/* purgecss ignore */
 .thumbnail {
   max-height: 80px;
 }
@@ -308,6 +320,10 @@ button:focus {
 /* purgecss ignore */
 .border-search:hover {
   border-color: #3ebd93;
+}
+/* purgecss ignore */
+.footer-border {
+  border-top: 2px solid #65d6ad;
 }
 
 /* purgecss ignore */

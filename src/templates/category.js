@@ -48,9 +48,9 @@ const CategoryPage = ({ data }) => {
         </div>
 
         {/* Name of category */}
-        <div className="text-primary-black pt-2 pb-3 text-xl">
+        <h1 className="text-primary-black pt-2 pb-3 text-xl">
           {data.allPrismicCategory.edges[0].node.data.name}
-        </div>
+        </h1>
         <hr className="hr-line"></hr>
       </div>
 
@@ -72,7 +72,7 @@ const CategoryPage = ({ data }) => {
                     className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.featured_image.url}
                   />
-                  <div className="category-product-name text-primary-black px-2 py-1 text-sm">
+                  <div className="category-product-name text-primary-black px-2 pt-2 pb-1 text-sm">
                     {node.node.data.product_name.text}
                   </div>
                 </Link>

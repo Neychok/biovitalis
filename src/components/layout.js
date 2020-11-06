@@ -20,10 +20,15 @@ const Layout = ({ location, children }) => {
       <div className="xl:container xl:bg-white xl:shadow-xl mx-auto">
         <Header />
         <main className="h-full min-h-screen mt-2">{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <footer className="bg-primary-1000 footer-border pt-3 pb-3 text-sm text-center text-white">
+          <p>Всички права запазени © BioVitalis {new Date().getFullYear()}</p>
+          <a
+            href="https://www.linkedin.com/in/neychok/"
+            target="_blank"
+            className=" text-xs underline"
+          >
+            Създадено от: Neycho
+          </a>
         </footer>
       </div>
     </>

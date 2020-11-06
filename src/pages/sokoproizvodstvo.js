@@ -36,7 +36,7 @@ const ProductsPage = ({ data }) => {
                     className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.image.url}
                   />
-                  <div className="category-product-name px-2 py-1 text-sm">
+                  <div className="category-product-name px-2 pt-2 pb-1 text-sm">
                     {node.node.data.name}
                   </div>
                 </Link>
