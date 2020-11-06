@@ -8,7 +8,7 @@ import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
 //import InputBase from "@material-ui/core/InputBase"
 
-import logo from "../images/logo.png"
+import logo from "../images/logo.jpg"
 
 const variantsMenu = {
   open: { x: 0 },
@@ -48,7 +48,7 @@ const Sidebar = () => {
           {/* Top navbar */}
           <div className="h-14 fixed top-0 z-50 flex items-center w-full bg-white shadow">
             {/* Container for the hamburger button */}
-            <div className="flex justify-start w-1/2">
+            <div className="flex justify-start">
               <button
                 className={`hamburger hamburger--collapse flex items-center no-outline p-3 ${
                   menuOpen ? "is-active" : ""
@@ -63,7 +63,7 @@ const Sidebar = () => {
                 <img
                   src={logo}
                   alt="Biovitalis logo"
-                  className="lazyload w-24"
+                  className="lazyload w-auto h-8 pb-1"
                 />
               </Link>
             </div>

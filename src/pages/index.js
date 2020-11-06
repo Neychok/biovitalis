@@ -16,21 +16,21 @@ const IndexPage = ({ data }) => (
         fluid={data.landingimage.childImageSharp.fluid}
         className="w-full h-full"
       />
-      <div className="absolute-middle landing-overlay justify-evenly flex flex-col items-center w-full h-full text-white">
-        <h1 className="px-4 py-4 text-2xl font-semibold text-center">
+      <div className="absolute-middle landing-overlay flex flex-col items-center justify-end w-full h-full text-white">
+        <h1 className="px-4 text-3xl font-semibold text-center">Био Виталис</h1>
+        <h1 className="px-4 py-4 text-xl text-center">
           Машини за производство и пакетиране на сок от плодове и зеленчуци
         </h1>
-        <a
-          href="#aboutus"
-          className="bg-primary-1000 px-8 py-3 mt-8 border-l-2 border-r-2 rounded-md shadow-lg"
+        <Link
+          to="/sokoproizvostvo"
+          className="bg-primary-1000 px-6 py-3 mt-20 mb-16 border-l-2 border-r-2 rounded-md shadow-lg"
         >
           Разгледай
-        </a>
+        </Link>
       </div>
     </div>
 
-    <section id="aboutus" className="px-3 py-12">
-      <h2 className="text-primary-black mb-6 text-2xl text-center">За нас</h2>
+    <section id="whatweoffer" className="px-3 pt-6">
       <div className="justify-evenly flex mb-6">
         <Img
           className="w-24 rounded-full shadow-md"
@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => (
         />
       </div>
 
-      <div className="text-primary-black p-4 bg-white rounded-md shadow-md">
+      <div className="text-primary-black border-color-primary p-4 bg-white border-b-2 rounded-md shadow-md">
         <p>
           Bio Vitalis Ви предлага най-доброто решение в производството и
           пакетирането на сок от плодове и зеленчуци.
@@ -61,9 +61,38 @@ const IndexPage = ({ data }) => (
         </p>
       </div>
     </section>
+
+    <section id="info" className="px-3 pt-16">
+      <h2 className="text-primary-black mb-6 text-2xl text-center">
+        Ние знаем от какво се нуждае вашия бизнес
+      </h2>
+      <div className="text-primary-black border-color-primary p-4 bg-white border-b-2 rounded-md shadow-md">
+        <p>
+          Целта на всеки производител на напитки е те да са естествени и
+          вкусни,да имат дълъг живот и да се продават успешно.
+        </p>
+        <Img
+          fluid={data.juice.childImageSharp.fluid}
+          className="h-48 my-4 rounded-lg"
+        />
+        <p>
+          За да се постигне тази цел в дългосрочен план,трябва да бъдат взети
+          под внимание следните принципи:
+          <ul className="list-disc list-inside">
+            <li className="py-1 pl-2">
+              Познаване на процесите на преработка и качество
+            </li>
+            <li className="py-1 pl-2">
+              Хигиенни условия-чистота на изходните материали и машини
+            </li>
+            <li className="py-1 pl-2">Производство и технология на машините</li>
+            <li className="py-1 pl-2">Маркетинг</li>
+          </ul>
+        </p>
+      </div>
+    </section>
   </>
 )
-
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {
@@ -73,7 +102,6 @@ export const fluidImage = graphql`
     }
   }
 `
-
 export const query = graphql`
   query {
     landingimage: file(relativePath: { eq: "landingimage.jpg" }) {
@@ -89,6 +117,10 @@ export const query = graphql`
     }
 
     sram: file(relativePath: { eq: "sram.png" }) {
+      ...fluidImage
+    }
+
+    juice: file(relativePath: { eq: "juice.jpg" }) {
       ...fluidImage
     }
   }
