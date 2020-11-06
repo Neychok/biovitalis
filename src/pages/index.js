@@ -5,10 +5,9 @@ import Img from "gatsby-image/withIEPolyfill"
 
 const IndexPage = ({ data }) => (
   <>
-    {console.log(data)}
     <SEO title="Home" />
     <div
-      className="border-color-primary relative border-b-4 shadow-inner"
+      className="border-color-primary-1000 relative border-b-4 shadow-inner"
       style={{ height: 500 }}
     >
       <Img
@@ -21,12 +20,12 @@ const IndexPage = ({ data }) => (
         <h1 className="px-4 py-4 text-2xl font-semibold text-center">
           Машини за производство и пакетиране на сок от плодове и зеленчуци
         </h1>
-        <Link
-          to="#aboutus"
+        <a
+          href="#aboutus"
           className="bg-primary-1000 px-8 py-3 mt-8 border-l-2 border-r-2 rounded-md shadow-lg"
         >
           Разгледай
-        </Link>
+        </a>
       </div>
     </div>
 

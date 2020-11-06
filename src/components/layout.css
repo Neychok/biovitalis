@@ -317,6 +317,10 @@ button:focus {
   border-color: #65d6ad;
 }
 /* purgecss ignore */
+.border-color-primary-1000 {
+  border-color: #014d40;
+}
+/* purgecss ignore */
 .border-search {
   border-color: #d9e2ec;
 }
