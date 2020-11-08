@@ -65,7 +65,7 @@ class ContactPage extends Component {
               >
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: "AIzaSyCf4gZe2xVFObpOCeHTGkJa4hwd7s4wl3w",
+                    key: "AIzaSyCVENMwXzDgm-sQlZ5y51brUFB2Pc7tH5M",
                   }}
                   defaultCenter={this.props.center}
                   defaultZoom={this.props.zoom}
