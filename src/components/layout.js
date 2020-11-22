@@ -28,7 +28,7 @@ const Layout = ({ location, children }) => {
             rel="noreferrer"
             className=" text-xs underline"
           >
-            Създадено от: Neycho
+            Дизайн и изработка: Neycho
           </a>
         </footer>
       </div>
