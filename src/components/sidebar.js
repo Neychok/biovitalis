@@ -8,7 +8,7 @@ import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
 //import InputBase from "@material-ui/core/InputBase"
 
-import logo from "../images/logo.jpg"
+import logo from "../assets/images/logo.jpg"
 
 const variantsMenu = {
   open: { x: 0 },

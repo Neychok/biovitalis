@@ -4,6 +4,15 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
 import Paper from "@material-ui/core/Paper"
 
+import ConsultationIcon from "../assets/svgs/consultation.svg"
+import DevelopmentIcon from "../assets/svgs/development.svg"
+import SolutionIcon from "../assets/svgs/solution.svg"
+import StrategyIcon from "../assets/svgs/strategy.svg"
+import PromotionIcon from "../assets/svgs/promotion.svg"
+import MedalIcon from "../assets/svgs/medal.svg"
+import CleanIcon from "../assets/svgs/clean.svg"
+import ProductionIcon from "../assets/svgs/production.svg"
+
 const IndexPage = ({ data }) => (
   <>
     <SEO title="Home" />
@@ -26,23 +35,27 @@ const IndexPage = ({ data }) => (
         </h2>
         <Link
           to="/sokoproizvostvo"
-          className="bg-primary-900 px-6 py-3 mt-20 mb-16 border-l-2 border-r-2 rounded-md shadow-lg"
+          className="bg-primary-1000 px-6 py-3 mt-20 mb-16 border-l-2 border-r-2 rounded-md shadow-lg"
         >
           Разгледай
         </Link>
       </div>
     </div>
+
     {/* Who are we */}
     <Paper
       id="whoarewe"
       className="text-primary-black border-color-primary px-4 pt-6 pb-4 mt-20 bg-white"
     >
-      <h2 className="mb-6 text-2xl text-center">Кои сме ние</h2>
-      <p className="mb-4 text-center">
+      <h2 className="mb-6 text-2xl font-semibold text-center">Кои сме ние</h2>
+
+      <p className="mb-6 text-center">
         Bio Vitalis Ви предлага най-доброто решение в производството и
         пакетирането на сок от плодове и зеленчуци.
       </p>
-      <span className="text-center">Фирмата е официален представител на:</span>
+      <p className="mb-4 font-semibold text-center">
+        Фирмата е официален представител на:
+      </p>
 
       {/* VORAN */}
       <div className="border-color-primary flex items-center justify-between mt-2 mb-8">
@@ -94,41 +107,82 @@ const IndexPage = ({ data }) => (
       {/* See more about us */}
       <Link
         to="/za-nas/"
-        className="bg-secondary-900 flex justify-center px-6 py-3 text-white rounded-md shadow"
+        className="bg-secondary-800 flex justify-center px-6 py-3 text-white rounded-md shadow"
       >
         Виж повече за нас
       </Link>
     </Paper>
+
     {/* What we offer */}
     <Paper
       id="info"
-      className="text-primary-black border-color-primary p-4 my-20 bg-white border-b-2"
+      className="text-primary-black border-color-primary p-4 my-10 bg-white border-b-2"
     >
-      <h2 className="mb-6 text-2xl text-center">Какво предлагаме</h2>
-      <p>
+      <h2 className="Праmb-6 text-2xl font-semibold text-center">
+        Какво предлагаме
+      </h2>
+      <p className="mb-8 text-center">
         Благодарение на многогодишният ни опит ориентиран към клиента и анализ
         на пазара ние Ви предлагаме:
       </p>
-      - Консултация за процесите и услугите; - Технически съвети по
-      технологичния процес,при промяна или разширяване на системи; - Продуктова
-      гама,която съответства на най-съвременните технологии и буквално расте с
-      нашите клиенти; - Изработване и разпространение на специфичните за клиента
-      детайли,като например: · Планове и пространсвени изисквания; · Примери и
-      препоръки за нашите продукти; · Съвети,свързани с практическия опит; ·
-      Разнообразни възможности в областта на логистиката и технологията за
-      съхранение; Нашите партньори непрекъснато разработват и тестват нови
-      процеси и машини.На преден план е анализирането на новите тенденции за
-      осигуряване на конкурентно предимство.
+
+      {/* Consultation */}
+      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
+        <ConsultationIcon className="w-auto h-24 mb-6" />
+        <p>
+          Технически съвети по технологичния процес, при промяна или разширяване
+          на системи
+        </p>
+      </Paper>
+
+      {/* Development */}
+      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
+        <DevelopmentIcon className="w-auto h-24 mb-6" />
+        <ul className="list-disc list-inside">
+          <li>
+            Продуктова гама, която съответства на най-съвременните технологии и
+            буквално расте с нашите клиенти
+          </li>
+        </ul>
+      </Paper>
+
+      {/* Solution */}
+      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
+        <SolutionIcon className="w-auto h-24 mb-6" />
+        <p className="mb-2">
+          Изработване и разпространение на специфичните за клиента детайли, като
+          например:
+        </p>
+        <ul className="list-disc list-inside">
+          <li className="mb-1">Планове и пространствени изисквания</li>
+          <li className="mb-1">Примери и препоръки за нашите продукти</li>
+          <li className="mb-1">Съвети, свързани с практическия опит</li>
+          <li>
+            Разнообразни възможности в областта на логистиката и технологията за
+            съхранение
+          </li>
+        </ul>
+      </Paper>
+
+      {/* Strategy */}
+      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
+        <StrategyIcon className="w-auto h-24 mb-6" />
+        <p className="mb-2">
+          Нашите партньори непрекъснато разработват и тестват нови процеси и
+          машини. На преден план е анализирането на новите тенденции за
+          осигуряване на конкурентно предимство.
+        </p>
+      </Paper>
     </Paper>
+
     {/* What you need */}
     <Paper
       id="info"
-      className="text-primary-black border-color-primary p-4 mt-20 bg-white"
+      className="text-primary-black border-color-primary p-4 my-10 bg-white"
     >
-      <h2 className="mb-6 text-2xl text-center">
+      <h2 className="mb-6 text-2xl font-semibold text-center">
         Ние знаем от какво се нуждае вашия бизнес
       </h2>
-      {/* <Paper className="text-primary-black border-color-primary p-4 bg-white border-b-2 shadow-md"> */}
       <p>
         Целта на всеки производител на напитки е те да са естествени и вкусни,
         да имат дълъг живот и да се продават успешно.
@@ -141,17 +195,31 @@ const IndexPage = ({ data }) => (
         За да се постигне тази цел в дългосрочен план, трябва да бъдат взети под
         внимание следните принципи:
       </p>
-      <ul className="list-disc list-inside">
-        <li className="py-1 pl-2">
-          Познаване на процесите на преработка и качество
+      <ul className="my-4 list-none">
+        <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
+          <MedalIcon className="w-auto h-12 ml-1" />
+          <p className="w-4/5 pl-4">
+            Познаване на процесите на преработка и качество
+          </p>
         </li>
-        <li className="py-1 pl-2">
-          Хигиенни условия-чистота на изходните материали и машини
+
+        <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
+          <CleanIcon className="w-auto h-12 ml-1" />
+          <p className="w-4/5 pl-4">
+            Хигиенни условия-чистота на изходните материали и машини
+          </p>
         </li>
-        <li className="py-1 pl-2">Производство и технология на машините</li>
-        <li className="py-1 pl-2">Маркетинг</li>
+
+        <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
+          <ProductionIcon className="w-auto h-12 ml-1" />
+          <p className="w-4/5 pl-4">Производство и технология на машините</p>
+        </li>
+
+        <li className="border-color-primary-1000 flex items-center py-1 pl-2 border-l-2">
+          <PromotionIcon className="w-auto h-12 ml-1" />
+          <p className="w-4/5 pl-4">Маркетинг</p>
+        </li>
       </ul>
-      {/* </Paper> */}
     </Paper>
   </>
 )
