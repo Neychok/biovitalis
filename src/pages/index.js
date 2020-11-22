@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => (
     >
       <h2 className="mb-6 text-2xl font-semibold text-center">Кои сме ние</h2>
 
-      <p className="mb-6 text-center">
+      <p className="mb-10 text-center">
         Bio Vitalis Ви предлага най-доброто решение в производството и
         пакетирането на сок от плодове и зеленчуци.
       </p>
@@ -138,12 +138,10 @@ const IndexPage = ({ data }) => (
       {/* Development */}
       <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
         <DevelopmentIcon className="w-auto h-24 mb-6" />
-        <ul className="list-disc list-inside">
-          <li>
-            Продуктова гама, която съответства на най-съвременните технологии и
-            буквално расте с нашите клиенти
-          </li>
-        </ul>
+        <p>
+          Продуктова гама, която съответства на най-съвременните технологии и
+          буквално расте с нашите клиенти
+        </p>
       </Paper>
 
       {/* Solution */}
