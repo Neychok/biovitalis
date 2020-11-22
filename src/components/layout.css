@@ -261,6 +261,14 @@ button:focus {
   background-color: #0c6b58;
 }
 /* purgecss ignore */
+.bg-secondary-1000 {
+  background-color: #102a43;
+}
+/* purgecss ignore */
+.bg-secondary-900 {
+  background-color: #334e68;
+}
+/* purgecss ignore */
 .thumbnail {
   max-height: 80px;
 }

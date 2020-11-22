@@ -138,79 +138,80 @@ const Product = ({ data }) => {
 
         {/* Product Name */}
         <h1 className="pt-2 pb-3 text-xl">{document.product_name.text}</h1>
-        <div className="">
-          <Paper elevation={1} className="container-500 pb-1 mx-auto mb-4">
-            <Carousel images={document.gallery}></Carousel>
-          </Paper>
-        </div>
-        <Paper className="">
-          <ThemeProvider theme={theme}>
-            <AppBar position="static" color="transparent" className="h-12">
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor="primary"
-                textColor="secondary"
-                variant="fullWidth"
-                aria-label="информация"
-              >
-                <Tab label="Характеристики" {...a11yProps(0)} />
-                <Tab label="Описание" {...a11yProps(1)} />
-              </Tabs>
-            </AppBar>
-          </ThemeProvider>
-
-          <SwipeableViews
-            axis={"x"}
-            index={value}
-            onChangeIndex={handleChangeIndex}
-            className="mb-8 bg-white border-t border-b"
-          >
-            <TabPanel value={value} index={0}>
-              {document.specs.map(specs => {
-                return (
-                  <div key={specs.spec_name}>
-                    <div className="text-primary-black flex text-sm">
-                      <p className="w-1/2">{specs.spec_name}</p>
-                      <p className="w-1/2">{specs.spec_value}</p>
-                    </div>
-                    <hr className="hr-line-table border-gray-400"></hr>
-                  </div>
-                )
-              })}
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <iframe
-                title={document.video.title}
-                modestbranding="1"
-                showinfo="0"
-                rel="0"
-                iv_load_policy="3"
-                autohide="0"
-                frameborder="0"
-                allowFullScreen="1"
-                className={`lazyload w-full h-48 mt-2 mb-3 ${
-                  document.video.embed_url == null ? "hidden" : ""
-                }`}
-                data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
-                  document.video.embed_url
-                )}`}
-              />
-              <p className="text-primary-black text-sm">
-                {document.description.text}
-              </p>
-            </TabPanel>
-          </SwipeableViews>
-        </Paper>
-
-        <Paper className="pb-4 mb-4" id="contactForm">
-          <ContactForm
-            message="Изпрати запитване за този продукт"
-            product={document.product_name.text}
-            productUrl={data.allPrismicProduct.edges[0].node.url}
-          ></ContactForm>
-        </Paper>
       </div>
+
+      {/* Slider Images */}
+      <Paper elevation={1} className="container-500 pb-1 mx-auto mb-4">
+        <Carousel images={document.gallery}></Carousel>
+      </Paper>
+
+      <Paper className="">
+        <ThemeProvider theme={theme}>
+          <AppBar position="static" color="transparent" className="h-12">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="secondary"
+              variant="fullWidth"
+              aria-label="информация"
+            >
+              <Tab label="Характеристики" {...a11yProps(0)} />
+              <Tab label="Описание" {...a11yProps(1)} />
+            </Tabs>
+          </AppBar>
+        </ThemeProvider>
+
+        <SwipeableViews
+          axis={"x"}
+          index={value}
+          onChangeIndex={handleChangeIndex}
+          className="mb-8 bg-white border-t border-b"
+        >
+          <TabPanel value={value} index={0}>
+            {document.specs.map(specs => {
+              return (
+                <div key={specs.spec_name}>
+                  <div className="text-primary-black flex text-sm">
+                    <p className="w-1/2">{specs.spec_name}</p>
+                    <p className="w-1/2">{specs.spec_value}</p>
+                  </div>
+                  <hr className="hr-line-table border-gray-400"></hr>
+                </div>
+              )
+            })}
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <iframe
+              title={document.video.title}
+              modestbranding="1"
+              showinfo="0"
+              rel="0"
+              iv_load_policy="3"
+              autohide="0"
+              frameBorder="0"
+              allowFullScreen="1"
+              className={`lazyload w-full h-48 mt-2 mb-3 ${
+                document.video.embed_url == null ? "hidden" : ""
+              }`}
+              data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
+                document.video.embed_url
+              )}`}
+            />
+            <p className="text-primary-black text-sm">
+              {document.description.text}
+            </p>
+          </TabPanel>
+        </SwipeableViews>
+      </Paper>
+
+      <Paper className="pb-4 mb-4" id="contactForm">
+        <ContactForm
+          message="Изпрати запитване за този продукт"
+          product={document.product_name.text}
+          productUrl={data.allPrismicProduct.edges[0].node.url}
+        ></ContactForm>
+      </Paper>
     </>
   )
 }
