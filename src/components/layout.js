@@ -17,21 +17,19 @@ const Layout = ({ location, children }) => {
 
   return (
     <>
-      <div className="xl:container xl:bg-white xl:shadow-xl mx-auto">
-        <Header />
-        <main className="h-full min-h-screen mt-2">{children}</main>
-        <footer className="bg-primary-1000 footer-border pt-3 pb-3 text-sm text-center text-white">
-          <p>Всички права запазени © BioVitalis {new Date().getFullYear()}</p>
-          <a
-            href="https://www.linkedin.com/in/neychok/"
-            target="_blank"
-            rel="noreferrer"
-            className=" text-xs underline"
-          >
-            Дизайн и изработка: Neycho
-          </a>
-        </footer>
-      </div>
+      <Header />
+      <main className="md:mt-0 h-full min-h-screen mt-2">{children}</main>
+      <footer className="bg-primary-1000 footer-border pt-3 pb-3 text-sm text-center text-white">
+        <p>Всички права запазени © BioVitalis {new Date().getFullYear()}</p>
+        <a
+          href="https://www.linkedin.com/in/neychok/"
+          target="_blank"
+          rel="noreferrer"
+          className=" text-xs underline"
+        >
+          Дизайн и изработка: Neycho
+        </a>
+      </footer>
     </>
   )
 }

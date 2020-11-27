@@ -1,15 +1,20 @@
 import { Link } from "gatsby"
 import React from "react"
-function NavigationBar() {
+import logo from "../assets/images/logo.jpg"
+
+const NavigationBar = () => {
   return (
     <>
-      <nav className="z-50 flex items-center justify-between h-20 px-2 bg-white">
+      <nav className="container z-50 flex items-center justify-between h-16 bg-white">
         {/* Container for Logo*/}
-        <div className="">
-          <Link to="/" className="menulogo p-4 text-2xl">
-            BioVitalis
-          </Link>
-        </div>
+        <Link to="/" className="flex items-center w-full ml-2">
+          <img
+            src={logo}
+            alt="Biovitalis logo"
+            className="lazyload w-auto h-8 pb-1"
+          />
+        </Link>
+
         {/* Container for Menu Links */}
         <div className=" text-lg text-gray-900">
           <Link
@@ -27,13 +32,13 @@ function NavigationBar() {
           >
             Продукти
           </Link>
-          <Link
+          {/* <Link
             to="/nashi-klienti/"
             className="hover:opacity-100 menu-item px-5 py-4 ml-4"
             activeClassName="opacity-100 menu-item-active"
           >
             наши клиенти
-          </Link>
+          </Link> */}
           <Link
             to="/kontakti/"
             className="hover:opacity-100 menu-item px-5 py-4 ml-4"

@@ -16,12 +16,8 @@ import ProductionIcon from "../assets/svgs/production.svg"
 const IndexPage = ({ data }) => (
   <>
     <SEO title="Home" />
-
     {/* Hero */}
-    <div
-      className="border-color-primary-1000 relative border-b-4 shadow-inner"
-      style={{ height: 500 }}
-    >
+    <div className="border-color-primary-1000 md:h-full relative border-b-4 shadow-inner">
       <Img
         objectFit="cover"
         objectPosition="85%"
@@ -34,7 +30,7 @@ const IndexPage = ({ data }) => (
           Машини за производство и пакетиране на сок от плодове и зеленчуци
         </h2>
         <Link
-          to="/sokoproizvostvo"
+          to="/sokoproizvodstvo"
           className="bg-primary-1000 px-6 py-3 mt-20 mb-16 border-l-2 border-r-2 rounded-md shadow-lg"
         >
           Разгледай
@@ -45,9 +41,9 @@ const IndexPage = ({ data }) => (
     {/* Who are we */}
     <Paper
       id="whoarewe"
-      className="text-primary-black border-color-primary px-4 pt-6 pb-4 mt-20 bg-white"
+      className="text-primary-black border-color-primary md:px-4 sm:px-10 md:pb-8 container px-4 pb-4 mx-auto mt-20 bg-white"
     >
-      <h2 className="mb-6 text-2xl font-semibold text-center">Кои сме ние</h2>
+      <h2 className="py-6 text-2xl font-semibold text-center">Кои сме ние</h2>
 
       <p className="mb-10 text-center">
         Bio Vitalis Ви предлага най-доброто решение в производството и
@@ -57,171 +53,208 @@ const IndexPage = ({ data }) => (
         Фирмата е официален представител на:
       </p>
 
-      {/* VORAN */}
-      <div className="border-color-primary flex items-center justify-between mt-2 mb-8">
-        <div>
-          <Img
-            className="w-24 rounded-full shadow-md"
-            fluid={data.voran.childImageSharp.fluid}
-          />
+      <div className="flex flex-wrap">
+        {/* VORAN */}
+        <div className="border-color-primary md:w-1/3 md:justify-start md:flex-col md:text-center md:m-0 flex items-center justify-between w-full mt-2 mb-4">
+          <div className="md:w-1/2 w-1/4 p-1">
+            <Img
+              className="w-full rounded-full shadow-md"
+              fluid={data.voran.childImageSharp.fluid}
+            />
+          </div>
+          <div className="md:w-full md:p-0 md:mt-4 justify-evenly flex flex-col w-3/4 pl-4">
+            <p className="lg:px-8 md:mb-2 md:text-center md:px-4">
+              Лидерът в изработване на машини за преработка на директни сокове.
+            </p>
+            <hr className="hr-line md:self-center mt-2 mb-0" />
+          </div>
         </div>
-        <div className="flex flex-col justify-center pl-4">
-          <p>
-            Лидерът в изработване на машини за преработка на директни сокове.
-          </p>
-          <hr className="hr-line mt-2 mb-0" />
+
+        {/* SRAML */}
+        <div className="border-color-primary md:w-1/3 md:justify-start md:flex-col md:m-0 flex items-center justify-between w-full my-4">
+          <div className="md:w-1/2 w-1/4 p-1">
+            <Img
+              className="w-full rounded-full shadow-md"
+              fluid={data.sram.childImageSharp.fluid}
+            />
+          </div>
+          <div className="md:p-0 md:w-full md:mt-4 justify-evenly flex flex-col w-3/4 h-full pl-4">
+            <p className="lg:px-8 md:mb-2 md:text-center md:px-4">
+              Произвеждат широка гама от машини с различни капацитети за
+              производство на вино, сокове, нектари и пюрета.
+            </p>
+            <hr className="hr-line md:self-center mt-2 mb-0" />
+          </div>
+        </div>
+
+        {/* MARCHISIO */}
+        <div className="border-color-primary md:w-1/3 md:justify-start md:flex-col md:m-0 flex items-center justify-between w-full my-4">
+          <div className="md:w-1/2 w-1/4 p-1">
+            <Img
+              className="w-full rounded-full shadow-md"
+              fluid={data.marchisio.childImageSharp.fluid}
+            />
+          </div>
+          <div className="md:p-0 md:w-full md:mt-4 justify-evenly flex flex-col w-3/4 pl-4">
+            <p className="lg:px-8 md:mb-2 md:text-center md:px-4 w-full">
+              Водещ производител на машини за винопроизводството.
+            </p>
+            <hr className="hr-line md:self-center mt-2 mb-0" />
+          </div>
         </div>
       </div>
 
-      {/* SRAML */}
-      <div className="border-color-primary flex items-center justify-between my-8">
-        <div>
-          <Img
-            className="w-24 rounded-full shadow-md"
-            fluid={data.sram.childImageSharp.fluid}
-          />
-        </div>
-        <div className="pl-4">
-          <p>
-            Произвеждащи широка гама от машини с различни капацитети за
-            производство на вино, сокове, нектари и пюрета.
-          </p>
-          <hr className="hr-line mt-2 mb-0" />
-        </div>
-      </div>
-
-      {/* MARCHISIO */}
-      <div className="border-color-primary flex items-center justify-between my-8">
-        <div>
-          <Img
-            className="w-24 rounded-full shadow-md"
-            fluid={data.marchisio.childImageSharp.fluid}
-          />
-        </div>
-        <div className="pl-4">
-          <p>Водещ производител на машини за винопроизводството.</p>
-          <hr className="hr-line mt-2 mb-0" />
-        </div>
-      </div>
-
-      {/* See more about us */}
-      <Link
-        to="/za-nas/"
-        className="bg-secondary-800 flex justify-center px-6 py-3 text-white rounded-md shadow"
-      >
-        Виж повече за нас
-      </Link>
+      {/* Client Map
+      <h2 className="mt-8 mb-4 font-semibold text-center">
+        Имаме клиенти из цяла България
+      </h2>
+      <ClientMap /> */}
     </Paper>
 
     {/* What we offer */}
     <Paper
       id="info"
-      className="text-primary-black border-color-primary p-4 my-10 bg-white border-b-2"
+      className="text-primary-black border-color-primary lg:px-12 md:px-8 sm:px-10 container px-4 pb-4 mx-auto my-10 bg-white border-b-2"
     >
-      <h2 className="Праmb-6 text-2xl font-semibold text-center">
+      <h2 className="py-6 text-2xl font-semibold text-center">
         Какво предлагаме
       </h2>
       <p className="mb-8 text-center">
         Благодарение на многогодишният ни опит ориентиран към клиента и анализ
         на пазара ние Ви предлагаме:
       </p>
+      <div className="flex flex-wrap">
+        {/* Consultation */}
+        <div className="lg:pr-4 md:w-1/2 md:pr-2">
+          <Paper
+            elevation={2}
+            className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+          >
+            <ConsultationIcon className="w-auto h-24 mb-6" />
+            <p>
+              Технически съвети по технологичния процес, при промяна или
+              разширяване на системи
+            </p>
+          </Paper>
+        </div>
+        {/* Development */}
+        <div className="lg:pl-4 md:w-1/2 md:pl-2">
+          <Paper
+            elevation={2}
+            className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+          >
+            <DevelopmentIcon className="w-auto h-24 mb-6" />
+            <p>
+              Продуктова гама, която съответства на най-съвременните технологии
+              и буквално расте с нашите клиенти
+            </p>
+          </Paper>
+        </div>
 
-      {/* Consultation */}
-      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
-        <ConsultationIcon className="w-auto h-24 mb-6" />
-        <p>
-          Технически съвети по технологичния процес, при промяна или разширяване
-          на системи
-        </p>
-      </Paper>
-
-      {/* Development */}
-      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
-        <DevelopmentIcon className="w-auto h-24 mb-6" />
-        <p>
-          Продуктова гама, която съответства на най-съвременните технологии и
-          буквално расте с нашите клиенти
-        </p>
-      </Paper>
-
-      {/* Solution */}
-      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
-        <SolutionIcon className="w-auto h-24 mb-6" />
-        <p className="mb-2">
-          Изработване и разпространение на специфичните за клиента детайли, като
-          например:
-        </p>
-        <ul className="list-disc list-inside">
-          <li className="mb-1">Планове и пространствени изисквания</li>
-          <li className="mb-1">Примери и препоръки за нашите продукти</li>
-          <li className="mb-1">Съвети, свързани с практическия опит</li>
-          <li>
-            Разнообразни възможности в областта на логистиката и технологията за
-            съхранение
-          </li>
-        </ul>
-      </Paper>
-
-      {/* Strategy */}
-      <Paper elevation={2} className="flex flex-col justify-center p-4 mb-8">
-        <StrategyIcon className="w-auto h-24 mb-6" />
-        <p className="mb-2">
-          Нашите партньори непрекъснато разработват и тестват нови процеси и
-          машини. На преден план е анализирането на новите тенденции за
-          осигуряване на конкурентно предимство.
-        </p>
-      </Paper>
+        {/* Solution */}
+        <div className="lg:pr-4 md:w-1/2 md:pr-2">
+          <Paper
+            elevation={2}
+            className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+          >
+            <SolutionIcon className="w-auto h-24 mb-6" />
+            <p className="mb-2">
+              Изработване и разпространение на специфичните за клиента детайли,
+              като например:
+            </p>
+            <ul className="md:text-sm list-disc list-inside">
+              <li className="mb-1">Планове и пространствени изисквания</li>
+              <li className="mb-1">Примери и препоръки за нашите продукти</li>
+              <li className="mb-1">Съвети, свързани с практическия опит</li>
+              <li>
+                Разнообразни възможности в областта на логистиката и
+                технологията за съхранение
+              </li>
+            </ul>
+          </Paper>
+        </div>
+        {/* Strategy */}
+        <div className="lg:pl-4 md:w-1/2 md:pl-2">
+          <Paper
+            elevation={2}
+            className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+          >
+            <StrategyIcon className="w-auto h-24 mb-6" />
+            <p className="mb-2">
+              Нашите партньори непрекъснато разработват и тестват нови процеси и
+              машини. На преден план е анализирането на новите тенденции за
+              осигуряване на конкурентно предимство.
+            </p>
+          </Paper>
+        </div>
+      </div>
     </Paper>
 
     {/* What you need */}
     <Paper
       id="info"
-      className="text-primary-black border-color-primary p-4 my-10 bg-white"
+      className="text-primary-black border-color-primary md:px-8 sm:px-10 container px-4 pb-4 mx-auto my-10 bg-white"
     >
-      <h2 className="mb-6 text-2xl font-semibold text-center">
+      <h2 className="py-6 text-2xl font-semibold text-center">
         Ние знаем от какво се нуждае вашия бизнес
       </h2>
-      <p>
+      <p className="mb-8 text-center">
         Целта на всеки производител на напитки е те да са естествени и вкусни,
         да имат дълъг живот и да се продават успешно.
       </p>
-      <Img
-        fluid={data.juice.childImageSharp.fluid}
-        className="h-48 my-4 rounded-lg"
-      />
-      <p>
-        За да се постигне тази цел в дългосрочен план, трябва да бъдат взети под
-        внимание следните принципи:
-      </p>
-      <ul className="my-4 list-none">
-        <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
-          <MedalIcon className="w-auto h-12 ml-1" />
-          <p className="w-4/5 pl-4">
-            Познаване на процесите на преработка и качество
+
+      <div className="flex flex-row-reverse flex-wrap justify-center">
+        <div className="md:w-1/2 md:pl-2 w-4/5 my-4 rounded-lg">
+          <Img
+            fluid={data.juice.childImageSharp.fluid}
+            className="w-auto h-full rounded-lg"
+          />
+        </div>
+
+        <div className="md:w-1/2 w-full">
+          <p className="">
+            За да се постигне тази цел в дългосрочен план, трябва да бъдат взети
+            под внимание следните принципи:
           </p>
-        </li>
+          <ul className=" my-4 list-none">
+            <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
+              <MedalIcon className="w-auto h-12 ml-1" />
+              <p className="w-4/5 pl-4">
+                Познаване на процесите на преработка и качество
+              </p>
+            </li>
 
-        <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
-          <CleanIcon className="w-auto h-12 ml-1" />
-          <p className="w-4/5 pl-4">
-            Хигиенни условия-чистота на изходните материали и машини
-          </p>
-        </li>
+            <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
+              <CleanIcon className="w-auto h-12 ml-1" />
+              <p className="w-4/5 pl-4">
+                Хигиенни условия-чистота на изходните материали и машини
+              </p>
+            </li>
 
-        <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
-          <ProductionIcon className="w-auto h-12 ml-1" />
-          <p className="w-4/5 pl-4">Производство и технология на машините</p>
-        </li>
+            <li className="border-color-primary-1000 flex items-center py-1 pl-2 mb-3 border-l-2">
+              <ProductionIcon className="w-auto h-12 ml-1" />
+              <p className="w-4/5 pl-4">
+                Производство и технология на машините
+              </p>
+            </li>
 
-        <li className="border-color-primary-1000 flex items-center py-1 pl-2 border-l-2">
-          <PromotionIcon className="w-auto h-12 ml-1" />
-          <p className="w-4/5 pl-4">Маркетинг</p>
-        </li>
-      </ul>
+            <li className="border-color-primary-1000 flex items-center py-1 pl-2 border-l-2">
+              <PromotionIcon className="w-auto h-12 ml-1" />
+              <p className="w-4/5 pl-4">Маркетинг</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <Link
+        to="/kontakti/"
+        className="bg-secondary-800 md:mt-4 flex justify-center px-6 py-3 text-white rounded-md shadow"
+      >
+        Свържи се с нас
+      </Link>
     </Paper>
   </>
 )
-
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {
@@ -234,26 +267,50 @@ export const fluidImage = graphql`
 export const query = graphql`
   query {
     landingimage: file(relativePath: { eq: "landingimage.jpg" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
     }
 
     voran: file(relativePath: { eq: "voran.png" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
     }
 
     marchisio: file(relativePath: { eq: "marchisio.png" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
     }
 
     sram: file(relativePath: { eq: "sram.png" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
     }
 
     juice: file(relativePath: { eq: "juice.jpg" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
     }
     logo: file(relativePath: { eq: "logo.jpg" }) {
-      ...fluidImage
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
     }
   }
 `
