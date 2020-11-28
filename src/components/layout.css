@@ -48,6 +48,10 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+nav {
+  font-family: "Montserrat", sans-serif;
+}
+
 /* purgecss ignore */
 .h-14 {
   height: 3.5rem;
@@ -364,6 +368,11 @@ button:focus {
 
   transform: translate(-50%, -50%);
 }
+/* purgecss ignore */
 .landing-overlay {
   background-color: rgba(72, 101, 129, 0.55);
+}
+/* purgecss ignore */
+.hero-image {
+  height: 50vh;
 }

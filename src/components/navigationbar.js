@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.jpg"
 const NavigationBar = () => {
   return (
     <>
-      <nav className="container z-50 flex items-center justify-between h-16 bg-white">
+      <nav className="container z-50 flex items-center justify-between h-16 mx-auto bg-white">
         {/* Container for Logo*/}
         <Link to="/" className="flex items-center w-full ml-2">
           <img

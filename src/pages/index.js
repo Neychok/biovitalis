@@ -17,21 +17,25 @@ const IndexPage = ({ data }) => (
   <>
     <SEO title="Home" />
     {/* Hero */}
-    <div className="border-color-primary-1000 md:h-full relative border-b-4 shadow-inner">
+    <div className="border-color-primary-1000 hero-image container relative mx-auto border-b-4 shadow-inner">
       <Img
         objectFit="cover"
         objectPosition="85%"
         fluid={data.landingimage.childImageSharp.fluid}
-        className="w-full h-full"
+        className="absolute top-0 left-0 z-0 w-full h-full"
       />
-      <div className="absolute-middle landing-overlay flex flex-col items-center justify-end w-full h-full text-white">
-        <h1 className="px-4 text-3xl font-semibold text-center">Био Виталис</h1>
-        <h2 className="px-4 py-4 text-xl text-center">
-          Машини за производство и пакетиране на сок от плодове и зеленчуци
-        </h2>
+      <div className="absolute-middle landing-overlay z-10 flex flex-col items-center justify-center w-full h-full text-center text-white">
+        <div>
+          <h1 className="px-4 text-3xl font-semibold text-center">
+            Био Виталис
+          </h1>
+          <h2 className="px-4 py-4 text-xl text-center">
+            Машини за производство и пакетиране на сок от плодове и зеленчуци
+          </h2>
+        </div>
         <Link
           to="/sokoproizvodstvo"
-          className="bg-primary-1000 px-6 py-3 mt-20 mb-16 border-l-2 border-r-2 rounded-md shadow-lg"
+          className="bg-primary-1000 px-6 py-3 mt-20 border-l-2 border-r-2 rounded-md shadow-lg"
         >
           Разгледай
         </Link>
