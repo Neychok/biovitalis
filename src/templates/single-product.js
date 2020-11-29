@@ -109,10 +109,10 @@ const Product = ({ data }) => {
         <div className="flex items-center justify-between py-1">
           <Link
             to={`/sokoproizvodstvo/${document.category.uid}/`}
-            className="text-primary-black flex items-center"
+            className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 inline-flex items-center py-1 pl-3 pr-4 text-center bg-white border-b-0 rounded-md shadow"
           >
             <svg
-              className="h-10"
+              className="h-8"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 15 24"
@@ -130,7 +130,7 @@ const Product = ({ data }) => {
 
           <Link
             to="#contactForm"
-            className="scrollToContact px-4 py-2 text-center bg-white rounded-md shadow"
+            className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 px-4 py-2 text-center bg-white rounded-md shadow"
           >
             Изпрати запитване
           </Link>

@@ -100,10 +100,10 @@ button:focus {
   color: #27ab83;
 }
 /* purgecss ignore */
-.menu-item {
+/* .menu-item {
   opacity: 0.7;
   color: #627d98;
-}
+} */
 /* purgecss ignore */
 .menu-item-active {
   border-bottom: 2px solid #27ab83;
@@ -112,6 +112,10 @@ button:focus {
 /* purgecss ignore */
 .menu-item:hover {
   border-bottom: 3px solid #27ab83;
+}
+/* purgecss ignore */
+.menu-item-top:hover {
+  border-bottom: 3px solid #fff !important;
 }
 /* purgecss ignore */
 .tl-edges {

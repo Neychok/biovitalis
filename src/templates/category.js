@@ -24,29 +24,26 @@ const CategoryPage = ({ data }) => {
         </Breadcrumbs>
 
         {/* Back Button */}
-        <div className="flex">
-          <Link
-            to={`/sokoproizvodstvo/`}
-            className="text-primary-black flex items-center py-1"
+        <Link
+          to={`/sokoproizvodstvo/`}
+          className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 inline-flex items-center py-1 pl-3 pr-4 my-1 text-center bg-white border-b-0 rounded-md shadow"
+        >
+          <svg
+            className="h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 15 24"
+            stroke="currentColor"
           >
-            <svg
-              className="h-10"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 15 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M9 19l-7-7 7-7"
-              />
-            </svg>
-            <span>Назад</span>
-          </Link>
-        </div>
-
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1}
+              d="M9 19l-7-7 7-7"
+            />
+          </svg>
+          <p>Назад</p>
+        </Link>
         {/* Name of category */}
         <h1 className="text-primary-black pt-2 pb-3 text-xl">
           {data.allPrismicCategory.edges[0].node.data.name}
