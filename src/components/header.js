@@ -11,8 +11,12 @@ const Header = () => {
       </div>
 
       {/* Default: Invisible / Makes visible if screensize > 768px */}
-
-      <NavigationBar />
+      <div
+        id="desktop-nav"
+        className={`sm:block z-50 hidden overflow-visible w-full`}
+      >
+        <NavigationBar />
+      </div>
     </>
   )
 }

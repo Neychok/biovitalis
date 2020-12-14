@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
     <>
       <SEO title="Home" />
       {/* Hero */}
-      <div className="border-color-primary-1000 hero-image xl:h-screen relative mx-auto border-b-4 shadow-inner">
+      <div className="border-color-primary-1000 hero-image relative mx-auto border-b-4 shadow-inner">
         <Img
           objectFit="cover"
           objectPosition="85%"
@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
         <div className="absolute-middle landing-overlay flex flex-col items-center justify-center w-full h-full text-center text-white">
           <div>
             <h1 className="xl:text-6xl lg:text-5xl xl:mb-2 px-4 text-3xl font-semibold text-center">
-              Био Виталис
+              БиоВиталис
             </h1>
             <p className="lg:text-2xl px-4 py-4 text-xl font-semibold text-center">
               Машини за производство и пакетиране на сок от плодове и зеленчуци
@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => {
           </div>
           <Link
             to="/sokoproizvodstvo"
-            className="bg-primary-1000 hover:bg-green-700 lg:px-10 xl:text-xl xl:mt-48 lg:mt-32 md:mt-20 px-6 py-3 mt-10 border-l-2 border-r-2 rounded-md shadow-lg"
+            className="bg-primary-1000 hover:bg-green-700 lg:px-10 xl:text-xl lg:mt-32 md:mt-20 px-6 py-3 mt-10 border-l-2 border-r-2 rounded-full shadow-lg"
           >
             Разгледай
           </Link>
@@ -46,9 +46,11 @@ const IndexPage = ({ data }) => {
       {/* Who are we */}
       <Paper
         id="whoarewe"
-        className="text-primary-black border-color-primary lg:px-10 md:px-4 sm:px-10 md:pb-8 md:mt-10 container px-4 pb-4 mx-auto mt-20 bg-white"
+        className="text-primary-black border-color-primary lg:pb-12 lg:px-10 md:px-4 sm:px-10 md:pb-8 md:mt-10 container px-4 pb-4 mx-auto mt-16 bg-white"
       >
-        <h2 className="py-6 text-2xl font-semibold text-center">Кои сме ние</h2>
+        <h2 className="xl:text-3xl py-6 text-2xl font-semibold text-center">
+          Кои сме ние
+        </h2>
 
         <p className="md:px-20 mb-10 text-center">
           Bio Vitalis Ви предлага най-доброто решение в производството и
@@ -61,13 +63,16 @@ const IndexPage = ({ data }) => {
         <div className="flex flex-wrap">
           {/* VORAN */}
           <div className="border-color-primary md:w-1/3 md:justify-start md:flex-col md:text-center md:m-0 flex items-center justify-between w-full mt-2 mb-4">
-            <div className="md:w-1/2 w-1/4 p-1">
+            <div className="xl:w-2/5 md:w-1/2 w-1/4 p-1">
               <Img
                 className="w-full rounded-full shadow-md"
                 fluid={data.voran.childImageSharp.fluid}
               />
             </div>
             <div className="md:w-full md:p-0 md:mt-4 justify-evenly flex flex-col w-3/4 pl-4">
+              <h2 className="md:text-center text-xl font-semibold text-left">
+                Voran
+              </h2>
               <p className="lg:px-6 md:mb-2 md:text-center md:px-4">
                 Лидерът в изработване на машини за преработка на директни
                 сокове.
@@ -78,14 +83,17 @@ const IndexPage = ({ data }) => {
 
           {/* SRAML */}
           <div className="border-color-primary md:w-1/3 md:justify-start md:flex-col md:m-0 flex items-center justify-between w-full my-4">
-            <div className="md:w-1/2 w-1/4 p-1">
+            <div className="xl:w-2/5 md:w-1/2 w-1/4 p-1">
               <Img
                 className="w-full rounded-full shadow-md"
                 fluid={data.sram.childImageSharp.fluid}
               />
             </div>
-            <div className="md:p-0 md:w-full md:mt-4 justify-evenly flex flex-col w-3/4 h-full pl-4">
-              <p className="lg:px-6 md:mb-2 md:text-center md:px-4">
+            <div className="md:p-0 md:w-full md:mt-4 justify-evenly flex flex-col w-3/4 pl-4">
+              <h2 className="md:text-center text-xl font-semibold text-left">
+                Sraml
+              </h2>
+              <p className="lg:px-6 md:mb-2 md:text-center md:px-4 ">
                 Произвеждат широка гама от машини с различни капацитети за
                 производство на вино, сокове, нектари и пюрета.
               </p>
@@ -95,14 +103,17 @@ const IndexPage = ({ data }) => {
 
           {/* MARCHISIO */}
           <div className="border-color-primary md:w-1/3 md:justify-start md:flex-col md:m-0 flex items-center justify-between w-full my-4">
-            <div className="md:w-1/2 w-1/4 p-1">
+            <div className="xl:w-2/5 md:w-1/2 w-1/4 p-1">
               <Img
                 className="w-full rounded-full shadow-md"
                 fluid={data.marchisio.childImageSharp.fluid}
               />
             </div>
             <div className="md:p-0 md:w-full md:mt-4 justify-evenly flex flex-col w-3/4 pl-4">
-              <p className="lg:px-6 md:mb-2 md:text-center md:px-4 w-full">
+              <h2 className="md:text-center text-xl font-semibold text-left">
+                Marchisio
+              </h2>
+              <p className="lg:px-6 md:mb-2 md:text-center md:px-4">
                 Водещ производител на машини за винопроизводството.
               </p>
               <hr className="hr-line md:self-center mt-2 mb-0" />
@@ -120,37 +131,37 @@ const IndexPage = ({ data }) => {
       {/* What we offer */}
       <Paper
         id="info"
-        className="text-primary-black border-color-primary lg:px-12 md:px-8 md:mt-10 sm:px-10 container px-4 pb-4 mx-auto my-10 bg-white border-b-2"
+        className="text-primary-black border-color-primary lg:pb-12 lg:px-12 md:px-8 md:mt-10 sm:px-10 container px-4 pb-4 mx-auto my-10 bg-white border-b-2"
       >
-        <h2 className="py-6 text-2xl font-semibold text-center">
+        <h2 className="xl:text-3xl py-6 text-2xl font-semibold text-center">
           Какво предлагаме
         </h2>
-        <p className="md:px-20 mb-8 text-center">
+        <p className="md:px-20 md:text-lg mb-8 text-center">
           Благодарение на многогодишният ни опит ориентиран към клиента и анализ
           на пазара ние Ви предлагаме:
         </p>
         <div className="lg:px-8 flex flex-wrap">
           {/* Consultation */}
-          <div className="lg:pr-4 md:w-1/2 md:pr-2">
+          <div className="lg:pr-4 xl:pr-6 md:w-1/2 md:pr-2">
             <Paper
-              elevation={2}
-              className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+              elevation={3}
+              className="md:justify-start xl:p-8 flex flex-col justify-center w-full p-4 mb-8"
             >
               <ConsultationIcon className="w-auto h-24 mb-6" />
-              <p>
+              <p className="lg:text-lg">
                 Технически съвети по технологичния процес, при промяна или
                 разширяване на системи
               </p>
             </Paper>
           </div>
           {/* Development */}
-          <div className="lg:pl-4 md:w-1/2 md:pl-2">
+          <div className="lg:pl-4 xl:pl-6 md:w-1/2 md:pl-2">
             <Paper
-              elevation={2}
-              className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+              elevation={3}
+              className="md:justify-start xl:p-8 flex flex-col justify-center w-full p-4 mb-8"
             >
               <DevelopmentIcon className="w-auto h-24 mb-6" />
-              <p>
+              <p className="lg:text-lg">
                 Продуктова гама, която съответства на най-съвременните
                 технологии и буквално расте с нашите клиенти
               </p>
@@ -158,17 +169,17 @@ const IndexPage = ({ data }) => {
           </div>
 
           {/* Solution */}
-          <div className="lg:pr-4 md:w-1/2 md:pr-2">
+          <div className="lg:pr-4 xl:pr-6 md:w-1/2 md:pr-2">
             <Paper
-              elevation={2}
-              className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+              elevation={3}
+              className="md:justify-start lg:text-lg xl:p-8 flex flex-col justify-center w-full p-4 mb-8"
             >
               <SolutionIcon className="w-auto h-24 mb-6" />
               <p className="mb-2">
                 Изработване и разпространение на специфичните за клиента
                 детайли, като например:
               </p>
-              <ul className="md:text-sm list-disc list-inside">
+              <ul className="lg:text-base md:text-sm list-disc list-inside">
                 <li className="mb-1">Планове и пространствени изисквания</li>
                 <li className="mb-1">Примери и препоръки за нашите продукти</li>
                 <li className="mb-1">Съвети, свързани с практическия опит</li>
@@ -180,10 +191,10 @@ const IndexPage = ({ data }) => {
             </Paper>
           </div>
           {/* Strategy */}
-          <div className="lg:pl-4 md:w-1/2 md:pl-2">
+          <div className="lg:pl-4 xl:pl-6 md:w-1/2 md:pl-2">
             <Paper
-              elevation={2}
-              className="md:justify-start flex flex-col justify-center w-full p-4 mb-8"
+              elevation={3}
+              className="md:justify-start xl:p-8 flex flex-col justify-center w-full p-4 mb-8"
             >
               <StrategyIcon className="w-auto h-24 mb-6" />
               <p className="mb-2">
@@ -199,12 +210,12 @@ const IndexPage = ({ data }) => {
       {/* What you need */}
       <Paper
         id="info"
-        className="text-primary-black border-color-primary lg:px-16 md:mt-10 md:px-8 sm:px-10 container px-4 pb-4 mx-auto my-10 bg-white"
+        className="text-primary-black border-color-primary lg:pb-12 lg:px-16 md:mt-10 md:px-8 sm:px-10 container px-4 pb-4 mx-auto my-10 bg-white"
       >
-        <h2 className="py-6 text-2xl font-semibold text-center">
+        <h2 className="xl:text-3xl py-6 text-2xl font-semibold text-center">
           Ние знаем от какво се нуждае вашия бизнес
         </h2>
-        <p className="md:px-20 mb-8 text-center">
+        <p className="md:px-20 xl:text-lg mb-8 text-center">
           Целта на всеки производител на напитки е те да са естествени и вкусни,
           да имат дълъг живот и да се продават успешно.
         </p>
@@ -254,7 +265,7 @@ const IndexPage = ({ data }) => {
 
         <Link
           to="/kontakti/"
-          className="bg-secondary-800 md:mt-4 flex justify-center px-6 py-3 text-white rounded-md shadow"
+          className="bg-secondary-800 md:mt-4 lg:py-4 lg:w-1/2 lg:mx-auto lg:text-xl flex justify-center w-full px-6 py-3 text-white rounded-md shadow"
         >
           Свържи се с нас
         </Link>
@@ -273,9 +284,9 @@ export const fluidImage = graphql`
 `
 export const query = graphql`
   query {
-    landingimage: file(relativePath: { eq: "landingimage.jpg" }) {
+    landingimage: file(relativePath: { eq: "landing-image.jpg" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
