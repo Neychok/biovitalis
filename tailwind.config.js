@@ -1,12 +1,13 @@
+// tailwind.config.js
 module.exports = {
   important: true,
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
-  purge: false,
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
   },
-  variants: {},
+  variants: {
+    extend: {},
+  },
   plugins: [],
 }

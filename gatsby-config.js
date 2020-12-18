@@ -44,12 +44,6 @@ module.exports = {
     },
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography`,
-    //   },
-    // },
     `gatsby-plugin-material-ui`,
     // {
     //   resolve: "gatsby-plugin-webpack-bundle-analyzer",
@@ -236,20 +230,6 @@ module.exports = {
     },
 
     // Plugin that purges all unused CSS from TailwindCSS
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        whitelist: [],
-        printRejected: false,
-        develop: false,
-        tailwind: true,
-        ignore: [
-          "gatsby-plugin-transition-link/style.css",
-          "swiper/swiper-bundle.min.css",
-        ],
-      },
-    },
-
     {
       resolve: `gatsby-plugin-netlify`,
       options: {

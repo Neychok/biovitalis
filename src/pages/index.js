@@ -13,6 +13,12 @@ import MedalIcon from "../assets/svgs/medal.svg"
 import CleanIcon from "../assets/svgs/clean.svg"
 import ProductionIcon from "../assets/svgs/production.svg"
 
+/**
+ *
+ * @param data
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const IndexPage = ({ data }) => {
   return (
     <>
