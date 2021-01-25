@@ -36,14 +36,19 @@ const Carousel = ({ images }) => {
         ))}
       </Swiper>
 
-      <Swiper onSwiper={setThumbsSwiper} spaceBetween={2} slidesPerView={4}>
+      <Swiper
+        className="md:pb-2"
+        onSwiper={setThumbsSwiper}
+        spaceBetween={2}
+        slidesPerView={4}
+      >
         {images.map(slide => (
           <SwiperSlide key={slide.image.fluid.base64} className="">
             <img
               src={`${slide.image.fluid.base64}`}
               data-srcset={`${slide.image.fluid.srcSet}`}
               data-sizes="auto"
-              className="lazyload object-cover w-full h-16 p-1 mt-1 rounded-lg opacity-75"
+              className="lazyload lg:h-20 object-cover w-full h-16 p-1 mt-1 rounded-lg opacity-75"
               alt={`${slide.image.url}`}
             />
           </SwiperSlide>

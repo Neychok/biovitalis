@@ -15,18 +15,18 @@ const ProductsPage = ({ data }) => {
 
       {/* Categories Title */}
       <div className="md:text-2xl md:mb-4 px-3 mt-8 mb-2 text-xl text-center">
-        <h1 className="mb-1 font-semibold">Машини за сокопроизводство</h1>
-        <h3 className="md:text-xl text-base">Категории:</h3>
+        <h1 className="mb-1 font-normal">Машини за сокопроизводство</h1>
+        <h3 className="md:text-xl">Категории:</h3>
       </div>
       <hr className="hr-line md:mb-8 mx-auto mb-3"></hr>
 
       {/* Categories List */}
-      <div className="md:px-4 flex flex-wrap px-2">
+      <div className="xl:max-w-7xl container flex flex-wrap px-2 mx-auto">
         {document.map(node => {
           return (
             <div
               key={node.node.id}
-              className="md:w-1/3 lg:w-1/4 w-1/2 px-1 py-0 mb-4"
+              className="xl:w-1/5 lg:w-1/4 md:w-1/3 md:px-2 w-1/2 px-1 py-0 mb-4"
             >
               <Paper elevation={1}>
                 <Link to={node.node.url} className="">
@@ -37,13 +37,8 @@ const ProductsPage = ({ data }) => {
                     className="lazyload block w-full mb-0 rounded-t"
                     alt={node.node.data.image.url}
                   />
-                  <div className="category-product-name lg:text-lg sm:text-base px-2 pt-2 pb-1 text-sm text-center">
+                  <div className="category-product-name lg:text-lg sm:text-base flex items-center justify-center px-2 my-auto text-center">
                     {node.node.data.name}
-                  </div>
-                  <div className="sm:flex items-center justify-center hidden w-full pb-2">
-                    <button className="border-color-primary-1000 primary-1000 w-1/4 border rounded-full">
-                      Виж
-                    </button>
                   </div>
                 </Link>
               </Paper>

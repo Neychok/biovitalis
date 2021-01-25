@@ -24,14 +24,14 @@ const NavigationBar = () => {
 
   return (
     <>
-      <div className="bg-secondary-1000 w-full h-10 text-white">
+      <div className="bg-secondary-1000 w-full h-8 text-white">
         <div className="container flex items-center justify-end h-full px-4 mx-auto">
-          <a className="flex" href="tel:0878909322">
-            <PhoneIcon className="h-6 mr-3"></PhoneIcon>
+          <a className="flex items-center" href="tel:0878909322">
+            <PhoneIcon className="h-5 mr-3"></PhoneIcon>
             <div className="italic">0878 909 322</div>
           </a>
-          <a className="flex ml-8" href="tel:0885172150">
-            <PhoneIcon className="h-6 mr-3"></PhoneIcon>
+          <a className="flex items-center ml-8" href="tel:0885172150">
+            <PhoneIcon className="h-5 mr-3"></PhoneIcon>
             <div className="italic">0885 172 150</div>
           </a>
         </div>
@@ -61,7 +61,7 @@ const NavigationBar = () => {
             <div className="flex items-center text-lg">
               <Link
                 to="/"
-                className={`hover:opacity-100 px-4 flex items-center rounded-full secondary-900 menu-item duration-500 ${
+                className={`hover:opacity-100 px-5 flex items-center rounded-full secondary-900 menu-item duration-100 ${
                   yPos ? "h-12" : "h-14"
                 }`}
                 activeClassName={`opacity-100 menu-item-active`}
@@ -71,7 +71,7 @@ const NavigationBar = () => {
               <Link
                 to="/sokoproizvodstvo/"
                 partiallyActive={true}
-                className={`hover:opacity-100 px-5 flex items-center ml-4 rounded-full secondary-900 menu-item duration-500 ${
+                className={`hover:opacity-100 px-5 flex items-center ml-4 rounded-full secondary-900 menu-item duration-100 ${
                   yPos ? "h-12" : "h-14"
                 }`}
                 activeClassName={`opacity-100 menu-item-active`}
@@ -80,7 +80,7 @@ const NavigationBar = () => {
               </Link>
               <Link
                 to="/kontakti/"
-                className={`hover:opacity-100 px-5 flex items-center ml-4 rounded-full secondary-900 menu-item duration-500 ${
+                className={`hover:opacity-100 px-5 flex items-center ml-4 rounded-full secondary-900 menu-item duration-100 ${
                   yPos ? "h-12" : "h-14"
                 }`}
                 activeClassName={`opacity-100 menu-item-active`}

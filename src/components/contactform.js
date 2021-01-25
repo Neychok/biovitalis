@@ -78,7 +78,7 @@ export default class Contact extends React.Component {
     return (
       <>
         <div>
-          <div className="text-primary-black px-3 pt-2 pb-2 text-lg text-center">
+          <div className="xl:text-2xl xl:pt-6 xl:pb-4 text-primary-black px-3 pt-2 pb-2 text-lg text-center">
             {this.props.message}
           </div>
           <ThemeProvider theme={theme}>
@@ -144,7 +144,7 @@ export default class Contact extends React.Component {
                 variant="contained"
                 color="primary"
                 type="submit"
-                className="block px-6 py-2 mt-3 ml-auto mr-0 text-white"
+                className="xl:text-base block px-6 py-2 mt-3 ml-auto mr-0 text-white"
               >
                 Изпрати
               </Button>
