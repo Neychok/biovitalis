@@ -56,91 +56,6 @@ module.exports = {
     // Adds Sitemap
     //TODO Configure Sitemap
     `gatsby-plugin-advanced-sitemap`,
-    // {
-    //   resolve: `gatsby-plugin-advanced-sitemap`,
-    //   options: {
-    //     // 1 query for each data type
-    //     query: `
-    //       {
-    //           allGhostPost {
-    //               edges {
-    //                   node {
-    //                       id
-    //                       slug
-    //                       updated_at
-    //                       feature_image
-    //                   }
-    //               }
-    //           }
-    //           allGhostPage {
-    //               edges {
-    //                   node {
-    //                       id
-    //                       slug
-    //                       updated_at
-    //                       feature_image
-    //                   }
-    //               }
-    //           }
-    //           allGhostTag {
-    //               edges {
-    //                   node {
-    //                       id
-    //                       slug
-    //                       feature_image
-    //                   }
-    //               }
-    //           }
-    //           allGhostAuthor {
-    //               edges {
-    //                   node {
-    //                       id
-    //                       slug
-    //                       profile_image
-    //                   }
-    //               }
-    //           }
-    //       }`,
-    //     mapping: {
-    //       // Each data type can be mapped to a predefined sitemap
-    //       // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
-    //       // The default sitemap - if none is passed - will be pages
-    //       allGhostPost: {
-    //         sitemap: `posts`,
-    //       },
-    //       allGhostTag: {
-    //         sitemap: `tags`,
-    //       },
-    //       allGhostAuthor: {
-    //         sitemap: `authors`,
-    //       },
-    //       allGhostPage: {
-    //         sitemap: `pages`,
-    //       },
-    //     },
-    //     exclude: [
-    //       `/dev-404-page`,
-    //       `/404`,
-    //       `/404.html`,
-    //       `/offline-plugin-app-shell-fallback`,
-    //       `/my-excluded-page`,
-    //       /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
-    //     ],
-    //     createLinkInHead: true, // optional: create a link in the `<head>` of your site
-    //     addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
-    //     additionalSitemaps: [
-    //       // optional: add additional sitemaps, which are e. g. generated somewhere else, but need to be indexed for this domain
-    //       {
-    //         name: `my-other-posts`,
-    //         url: `/blog/sitemap-posts.xml`,
-    //       },
-    //       {
-    //         url: `https://example.com/sitemap.xml`,
-    //       },
-    //     ],
-    //   },
-    // },
-
     // Plugin that makes the menu persistent when browsing through the site
     {
       resolve: "gatsby-plugin-transition-link",
@@ -255,6 +170,5 @@ module.exports = {
     // Plugin that adds offline support
     `gatsby-plugin-offline`,
     //"gatsby-plugin-remove-serviceworker",
-    //`gatsby-plugin-preact`,
   ],
 }
