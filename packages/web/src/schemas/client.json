@@ -1,0 +1,17 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Име",
+        "placeholder": "Име"
+      }
+    },
+    "location": {
+      "type": "GeoPoint",
+      "config": {
+        "label": "Локация"
+      }
+    }
+  }
+}
