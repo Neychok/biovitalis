@@ -40,12 +40,12 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-swipeable-views": "^0.13.9",
-    "swiper": "^6.4.15"
-  },
-  "devDependencies": {
+    "swiper": "^6.4.15",
     "tailwindcss": "^2.0.3",
     "gatsby-plugin-postcss": "^3.7.0",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.2.4"
+  },
+  "devDependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "prettier": "2.2.1",
