@@ -14,7 +14,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "dark-theme-blue",
-    "tabs"
+    "tabs",
+    "autocomplete-tags"
   ],
   "env": {
     "development": {

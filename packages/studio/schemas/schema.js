@@ -12,16 +12,15 @@ import specification from "./documents/specification"
 // Objects
 import specificationObject from "./objects/specificationObject"
 import imageObject from "./objects/imageObject"
+import relatedProductObject from "./objects/relatedProductObject"
 
 export default createSchema({
-  // We name our schema
   name: "default",
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     //Objects
     specificationObject,
     imageObject,
+    relatedProductObject,
 
     //Documents
     juicePressingProduct,

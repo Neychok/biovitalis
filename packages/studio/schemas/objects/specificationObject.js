@@ -4,9 +4,9 @@ export default {
   title: "Характеристика",
   fields: [
     {
+      type: "reference",
       title: "Име",
       name: "spec_name",
-      type: "reference",
       to: [{ type: "specification" }],
       options: {
         filter: ({ document }) => {

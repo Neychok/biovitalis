@@ -92,6 +92,7 @@ export default {
           options: {
             layout: "grid",
           },
+          validation: Rule => Rule.unique(),
         },
 
         //* Youtube link
@@ -99,14 +100,15 @@ export default {
           type: "url",
           title: "Youtube Линк",
           name: "YoutubeUrl",
+          fieldset: "media",
           validation: Rule =>
             Rule.uri({
               scheme: ["https"],
             }),
-          fieldset: "media",
         },
 
         //* SEO TAB
+        //* SLUG
         {
           type: "slug",
           title: "Slug",
@@ -116,10 +118,28 @@ export default {
             Rule.required().warning(`Това поле е задължително.`),
           options: {
             source: "name",
-            maxLength: 200, // will be ignored if slugify is set
-            //isUnique: isUniqueAcrossAllDocuments,
+            maxLength: 200,
             slugify: input =>
               input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+          },
+        },
+
+        //* Тагове
+        {
+          type: "tags",
+          title: "Тагове",
+          name: "tags",
+          fieldset: "seo",
+        },
+        //* Свързани продукти
+        {
+          type: "array",
+          title: "Свързани продукти",
+          name: "relatedProducts",
+          fieldset: "seo",
+          of: [{ type: "relatedProductObject" }],
+          options: {
+            layout: "grid",
           },
         },
       ],
