@@ -5,8 +5,7 @@
     "dataset": "biovitalis"
   },
   "project": {
-    "name": "BioVitalis",
-    "basePath": "studio"
+    "name": "BioVitalis"
   },
   "plugins": [
     "@sanity/base",
