@@ -8,7 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "build": "SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN sanity graphql deploy --no-playground && sanity build"
+    "build": "sanity build"
   },
   "keywords": [
     "sanity"
