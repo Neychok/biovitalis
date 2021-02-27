@@ -307,7 +307,7 @@ button:focus {
 }
 
 .box-section {
-  @apply container bg-white max-w-6xl mx-auto text-primary-black border-color-primary mt-16 border-b-2 p-4 xl:py-6;
+  @apply text-primary-black border-color-primary xl:py-6 container max-w-6xl p-4 mx-auto mt-16 bg-white border-b-2;
 }
 
 .represent-section {
@@ -338,6 +338,11 @@ button:focus {
 .carousel-image {
   max-height: 400px !important;
   object-position: center;
+}
+@media (min-width: 768px) {
+  .carousel-image {
+    max-height: 600px !important;
+  }
 }
 .slick-current {
   opacity: 1 !important;

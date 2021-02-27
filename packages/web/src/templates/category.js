@@ -1,15 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
 import Paper from "@material-ui/core/Paper"
-import "lazysizes"
-import "lazysizes/plugins/parent-fit/ls.parent-fit"
 
 const CategoryPage = ({ data }) => {
-  const document = data.allPrismicProduct.edges
+  const products = data.allSanityJuicePressingProduct.edges
   return (
     <>
       <SEO title="Home" />
@@ -36,20 +35,21 @@ const CategoryPage = ({ data }) => {
             Обратно към списък
           </Link>
           <p className="p-3 mb-5 text-2xl border-t border-b">Категории</p>
-          {data.allCategories.edges.map(node => {
+          {data.allCategories.edges.map(category => {
             return (
               <Link
-                to={node.node.url}
+                to={"/sokoproizvodstvo/" + category.node.slug.current}
+                key={category.node.slug.current}
                 className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 border-opacity-25 pl-5 py-2.5 border-b border-green-500"
                 activeClassName="bg-green-500 bg-opacity-25 hover:bg-opacity-25"
               >
-                {node.node.data.name}
+                {category.node.name}
               </Link>
             )
           })}
         </div>
         <div className="xl:col-end-7 lg:col-end-6 md:col-end-5 col-start-2">
-          <div className="px-3 mb-5">
+          <div className="md:ml-4 px-3 mb-5">
             <div className="md:flex-row-reverse md:flex">
               {/* Breadcrumbs */}
               <Breadcrumbs
@@ -59,7 +59,7 @@ const CategoryPage = ({ data }) => {
                 <Link to="/sokoproizvodstvo/" className="mb-0">
                   Продукти
                 </Link>
-                <p className="mb-0">{data.category.edges[0].node.uid}</p>
+                <p className="mb-0">{data.category.slug.current}</p>
               </Breadcrumbs>
 
               {/* Back Button */}
@@ -85,29 +85,41 @@ const CategoryPage = ({ data }) => {
               </Link>
             </div>
             {/* Name of category */}
-            <h1 className="text-primary-black pt-2 pb-3 text-xl">
-              {data.category.edges[0].node.data.name}
+            <h1 className="text-primary-black md:text-2xl pt-2 pb-3 text-xl font-normal">
+              {data.category.name}
             </h1>
             <hr className="hr-line"></hr>
           </div>
 
-          {/* Category list */}
-          <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid grid-cols-2 px-2">
-            {document.map(node => {
+          {/* Product list */}
+          <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:ml-4 grid grid-cols-2 px-2">
+            {products.map(product => {
               return (
                 // Container for item
-                <div key={node.node.id} className="grid-span-1 px-1 py-0 mb-4">
+                <div
+                  key={product.node.id}
+                  className="grid-span-1 px-1 py-0 mb-4"
+                >
                   <Paper className="hover:shadow-lg">
-                    <Link to={node.node.url} className="">
-                      <img
-                        src={node.node.data.featured_image.fluid.base64}
-                        data-srcset={node.node.data.featured_image.fluid.srcSet}
-                        data-sizes="auto"
-                        className="lazyload block w-full mb-0 rounded-t"
-                        alt={node.node.data.featured_image.url}
+                    <Link
+                      to={
+                        "/sokoproizvodstvo/" +
+                        data.category.slug.current +
+                        "/" +
+                        product.node.tabs.slug.current
+                      }
+                      className=""
+                    >
+                      <Img
+                        fluid={
+                          product.node.tabs.gallery.length > 0
+                            ? product.node.tabs.gallery[0].image.asset.fluid
+                            : data.file.childImageSharp.fluid
+                        }
+                        className="block w-full mb-0 rounded-t"
                       />
                       <div className="category-product-name text-primary-black px-2 pt-2 pb-1">
-                        {node.node.data.product_name.text}
+                        {product.node.name}
                       </div>
                     </Link>
                   </Paper>
@@ -124,44 +136,52 @@ const CategoryPage = ({ data }) => {
 //! QUERY that gets product ID, URL, Name, URL of image and category name
 export const query = graphql`
   query($slug: String!) {
-    allPrismicProduct(filter: { data: { category: { uid: { eq: $slug } } } }) {
+    allSanityJuicePressingProduct(
+      filter: { category: { slug: { current: { eq: $slug } } } }
+    ) {
       edges {
         node {
           id
-          url
-          data {
-            product_name {
-              text
+          name
+          tabs {
+            slug {
+              current
             }
-            featured_image {
-              url(imgixParams: { height: 250 })
-              fluid {
-                base64
-                src
-                srcSet
+            gallery {
+              image {
+                asset {
+                  fluid(maxHeight: 550) {
+                    ...GatsbySanityImageFluid
+                  }
+                }
               }
             }
           }
         }
       }
     }
-    category: allPrismicCategory(filter: { uid: { eq: $slug } }) {
+
+    category: sanityJuicePressingCategory(slug: { current: { eq: $slug } }) {
+      slug {
+        current
+      }
+      name
+    }
+    allCategories: allSanityJuicePressingCategory {
       edges {
         node {
-          uid
-          data {
-            name
+          name
+          slug {
+            current
           }
         }
       }
     }
-    allCategories: allPrismicCategory {
-      edges {
-        node {
-          url
-          data {
-            name
-          }
+
+    file(relativePath: { eq: "placeholder.jpg" }) {
+      childImageSharp {
+        fluid(maxHeight: 550) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

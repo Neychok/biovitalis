@@ -77,80 +77,78 @@ export default class Contact extends React.Component {
   render() {
     return (
       <>
-        <div>
-          <div className="xl:text-2xl xl:pt-6 xl:pb-4 text-primary-black px-3 pt-2 pb-2 text-lg text-center">
-            {this.props.message}
-          </div>
-          <ThemeProvider theme={theme}>
-            <form
-              noValidate
-              autoComplete="off"
-              className="flex-col px-2"
-              onSubmit={this.handleSubmit}
-            >
-              <TextField
-                name="name"
-                id="standard-name"
-                label="Вашето име"
-                variant="filled"
-                size="small"
-                className="w-full mt-2"
-                // error
-                // helperText="Моля попълнете полето."
-                required
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-              <TextField
-                name="phone"
-                id="standard-phone"
-                label="Телефон за обратна връзка"
-                variant="filled"
-                size="small"
-                className="w-full mt-2"
-                // error
-                // helperText="Моля попълнете полето."
-                required
-                value={this.state.phone}
-                onChange={this.handleChange}
-              />
-              <TextField
-                name="email"
-                id="standard-email"
-                label="Вашият И-мейл"
-                variant="filled"
-                size="small"
-                className="w-full mt-2"
-                // error
-                // helperText="Моля попълнете полето."
-                required
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <TextField
-                name="message"
-                id="standard-message"
-                label="Съобщение"
-                variant="filled"
-                className="w-full mt-2"
-                // error
-                // helperText="Моля попълнете полето."
-                required
-                multiline
-                value={this.state.message}
-                onChange={this.handleChange}
-              />
-              <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                className="xl:text-base block px-6 py-2 mt-3 ml-auto mr-0 text-white"
-              >
-                Изпрати
-              </Button>
-            </form>
-          </ThemeProvider>
+        <div className="xl:text-2xl xl:py-6 md:py-4 md:text-xl text-primary-black px-3 py-2 text-lg text-center">
+          {this.props.message}
         </div>
+        <ThemeProvider theme={theme}>
+          <form
+            noValidate
+            autoComplete="off"
+            className="flex-col px-2"
+            onSubmit={this.handleSubmit}
+          >
+            <TextField
+              name="name"
+              id="standard-name"
+              label="Вашето име"
+              variant="filled"
+              size="small"
+              className="w-full mt-2"
+              // error
+              // helperText="Моля попълнете полето."
+              required
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <TextField
+              name="phone"
+              id="standard-phone"
+              label="Телефон за обратна връзка"
+              variant="filled"
+              size="small"
+              className="w-full mt-2"
+              // error
+              // helperText="Моля попълнете полето."
+              required
+              value={this.state.phone}
+              onChange={this.handleChange}
+            />
+            <TextField
+              name="email"
+              id="standard-email"
+              label="Вашият И-мейл"
+              variant="filled"
+              size="small"
+              className="w-full mt-2"
+              // error
+              // helperText="Моля попълнете полето."
+              required
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <TextField
+              name="message"
+              id="standard-message"
+              label="Съобщение"
+              variant="filled"
+              className="w-full mt-2"
+              // error
+              // helperText="Моля попълнете полето."
+              required
+              multiline
+              value={this.state.message}
+              onChange={this.handleChange}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              className="xl:text-base block px-6 py-2 mt-3 ml-auto mr-0 text-white"
+            >
+              Изпрати
+            </Button>
+          </form>
+        </ThemeProvider>
       </>
     )
   }

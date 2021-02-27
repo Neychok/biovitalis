@@ -9,15 +9,15 @@ S.list()
         .title("Продукти")
         .id("products")
         .child(
-            S.list()
-            .title("Раздел")
-            .id("section")
-            .items([
-                S.listItem()
-                .title('Сокопроизводство')
-                .id("juicePressing")
-                .schemaType('juicePressingCategory')
-                .child(
+            // S.list()
+            // .title("Раздел")
+            // .id("section")
+            // .items([
+            //     S.listItem()
+            //     .title('Сокопроизводство')
+            //     .id("juicePressing")
+            //     .schemaType('juicePressingCategory')
+            //     .child(
                     S.documentList()
                     .title('Категории')
                     .id("juicePressingCategory")
@@ -30,26 +30,26 @@ S.list()
                         .params({id})
                         .filter('_type == "juicePressingProduct" && $id == category._ref' )
                         )
-                    )
-            ])           
+            //         )
+            // ])           
         ),
         S.listItem()
             .title("Категории")
             .id("categories")
             .child(
-                S.list()
-                .title("Раздел")
-                .id("section")
-                .items([
-                    S.listItem()
-                    .title('Сокопроизводство')
-                    .id("juicePressing")
-                    .child(
+                // S.list()
+                // .title("Раздел")
+                // .id("section")
+                // .items([
+                //     S.listItem()
+                //     .title('Сокопроизводство')
+                //     .id("juicePressing")
+                //     .child(
                         S.documentTypeList('juicePressingCategory')
                         .title("Редактиране на категории")
                         .id("juicePressingCategory_edit")
-                    )
-                ])
+                //     )
+                // ])
             ),
         S.listItem()
             .title("Характеристики")

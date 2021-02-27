@@ -8,7 +8,6 @@
  * 7. Мета тагове, ключови думи
  * 8. Свързани продукти
  */
-import Tabs from "sanity-plugin-tabs"
 
 export default {
   type: "document",
@@ -23,6 +22,7 @@ export default {
       type: "string",
       title: "Име на продукт",
       name: "name",
+      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
     },
 
     //* Категория
@@ -35,6 +35,7 @@ export default {
           type: "juicePressingCategory",
         },
       ],
+      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
     },
 
     //* Секция
@@ -46,103 +47,8 @@ export default {
 
     //* Табове
     {
-      type: "object",
+      type: "juicePressingProductsTabs",
       name: "tabs",
-      inputComponent: Tabs,
-
-      fieldsets: [
-        { name: "main", title: "Main", options: { sortOrder: 10 } },
-        { name: "media", title: "Медия", options: { sortOrder: 20 } },
-        { name: "seo", title: "SEO", options: { sortOrder: 30 } },
-      ],
-
-      options: {
-        layout: "object",
-      },
-
-      fields: [
-        //* MAIN TAB
-        {
-          type: "text",
-          title: "Описание",
-          name: "description",
-          fieldset: "main",
-        },
-
-        {
-          type: "array",
-          title: "Характеристики",
-          name: "specifications",
-          fieldset: "main",
-          of: [{ type: "specificationObject" }],
-          options: {
-            editModal: "popover",
-          },
-        },
-
-        //* MEDIA TAB
-
-        //* Снимки
-        {
-          type: "array",
-          title: "Галерия",
-          name: "gallery",
-          fieldset: "media",
-          of: [{ type: "imageObject" }],
-          options: {
-            layout: "grid",
-          },
-          validation: Rule => Rule.unique(),
-        },
-
-        //* Youtube link
-        {
-          type: "url",
-          title: "Youtube Линк",
-          name: "YoutubeUrl",
-          fieldset: "media",
-          validation: Rule =>
-            Rule.uri({
-              scheme: ["https"],
-            }),
-        },
-
-        //* SEO TAB
-        //* SLUG
-        {
-          type: "slug",
-          title: "Slug",
-          name: "slug",
-          fieldset: "seo",
-          validation: Rule =>
-            Rule.required().warning(`Това поле е задължително.`),
-          options: {
-            source: "name",
-            maxLength: 200,
-            slugify: input =>
-              input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
-          },
-        },
-
-        //* Тагове
-        {
-          type: "tags",
-          title: "Тагове",
-          name: "tags",
-          fieldset: "seo",
-        },
-        //* Свързани продукти
-        {
-          type: "array",
-          title: "Свързани продукти",
-          name: "relatedProducts",
-          fieldset: "seo",
-          of: [{ type: "relatedProductObject" }],
-          options: {
-            layout: "grid",
-          },
-        },
-      ],
     },
   ],
 }

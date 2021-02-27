@@ -3,24 +3,29 @@ const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
-    query {
-      allPrismicCategory {
+    query CreatePageQuery {
+      allSanityJuicePressingCategory {
         edges {
           node {
-            uid
-            id
+            slug {
+              current
+            }
           }
         }
       }
-      allPrismicProduct {
+      allSanityJuicePressingProduct {
         edges {
           node {
-            data {
-              category {
-                uid
+            tabs {
+              slug {
+                current
               }
             }
-            uid
+            category {
+              slug {
+                current
+              }
+            }
           }
         }
       }
@@ -28,28 +33,31 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // Creates a page for every product
-  result.data.allPrismicProduct.edges.forEach(({ node }) => {
+  result.data.allSanityJuicePressingProduct.edges.forEach(({ node }) => {
     createPage({
-      path: "/sokoproizvodstvo/" + node.data.category.uid + "/" + node.uid,
+      path:
+        "/sokoproizvodstvo/" +
+        node.category.slug.current +
+        "/" +
+        node.tabs.slug.current,
       component: path.resolve(`./src/templates/single-product.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.uid,
+        slug: node.tabs.slug.current,
       },
     })
   })
 
   // Create a page for every category
-  result.data.allPrismicCategory.edges.forEach(({ node }) => {
+  result.data.allSanityJuicePressingCategory.edges.forEach(({ node }) => {
     createPage({
-      path: "/sokoproizvodstvo/" + node.uid,
+      path: "/sokoproizvodstvo/" + node.slug.current,
       component: path.resolve(`./src/templates/category.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.uid,
-        categoryName: node.name,
+        slug: node.slug.current,
       },
     })
   })

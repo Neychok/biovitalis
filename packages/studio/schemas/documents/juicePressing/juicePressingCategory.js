@@ -19,9 +19,9 @@ export default {
   fields: [
     //* Име на продукт
     {
-      name: "name",
-      title: "Name",
       type: "string",
+      title: "Име на категория",
+      name: "name",
     },
 
     //* Slug
@@ -37,6 +37,11 @@ export default {
         slugify: input =>
           input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
+    },
+    {
+      type: "image",
+      title: "Изображение",
+      name: "image",
     },
   ],
 }

@@ -12,6 +12,8 @@ import AppBar from "@material-ui/core/AppBar"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
+import "lazysizes"
+import getYoutubeID from "get-youtube-id"
 
 import ContactForm from "../components/contactform"
 
@@ -44,17 +46,6 @@ function a11yProps(index) {
   }
 }
 
-function youtubeLinkCutter(link) {
-  if (link == null) {
-    return null
-  }
-  if (link.substring(0, 17) === "https://youtu.be/") {
-    return link.substring(17)
-  } else if (link.substring(0, 24) === "https://www.youtube.com/") {
-    return link.substring(24)
-  }
-}
-
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -70,8 +61,7 @@ const theme = createMuiTheme({
 })
 
 const Product = ({ data }) => {
-  const document = data.allPrismicProduct.edges[0].node.data
-
+  const product = data.sanityJuicePressingProduct
   const [value, setValue] = React.useState(0)
 
   const handleChange = (event, newValue) => {
@@ -85,7 +75,6 @@ const Product = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      {/* Hides footer out of sight and makes product pages look more consistent*/}
       <div className="md:px-4 max-w-6xl px-3 mx-auto">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
         <Breadcrumbs
@@ -97,18 +86,18 @@ const Product = ({ data }) => {
             Машини
           </Link>
           <Link
-            to={`/sokoproizvodstvo/${document.category.uid}/`}
+            to={`/sokoproizvodstvo/${product.category.slug.current}/`}
             className="mb-0"
           >
-            {document.category.uid}
+            {product.category.slug.current}
           </Link>
-          <p className="mb-0">{data.allPrismicProduct.edges[0].node.uid}</p>
+          <p className="mb-0">{product.tabs.slug.current}</p>
         </Breadcrumbs>
 
         {/* Back Button */}
         <div className="flex items-center justify-between py-1">
           <Link
-            to={`/sokoproizvodstvo/${document.category.uid}/`}
+            to={`/sokoproizvodstvo/${product.category.slug.current}/`}
             className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 xl:px-5 xl:py-2 xl:text-lg inline-flex items-center py-1 pl-3 pr-4 text-center bg-white border-b-0 rounded-md shadow"
           >
             <svg
@@ -128,6 +117,7 @@ const Product = ({ data }) => {
             <span>Назад</span>
           </Link>
 
+          {/* Изпрати запитване */}
           <Link
             to="#contactForm"
             className="scrollToContact xl:px-5 xl:py-3 xl:text-lg focus:bg-gray-200 hover:bg-gray-200 px-4 py-2 text-center bg-white rounded-md shadow"
@@ -138,20 +128,24 @@ const Product = ({ data }) => {
 
         {/* Product Name */}
         <h1 className="xl:text-3xl xl:pt-5 pt-2 pb-1 mb-3 text-xl border-b-2 border-gray-300 border-opacity-75">
-          {document.product_name.text}
+          {product.name}
         </h1>
       </div>
 
-      <div className="md:flex md:px-4 max-w-6xl mx-auto">
-        {/* Slider Images */}
+      <div className="md:flex md:px-4 md:mb-8 max-w-6xl mx-auto mb-4">
+        {/*Slider Images */}
         <Paper
           elevation={1}
-          className="md:w-1/2 md:p-0 md:self-start pb-1 mx-auto mb-4"
+          className="md:w-1/2 lg:w-3/5 md:p-0 md:self-start md:mb-0 pb-1 mx-auto mb-4"
         >
-          <Carousel images={document.gallery}></Carousel>
+          <Carousel
+            images={product.tabs.gallery}
+            placeholder={data.file.childImageSharp.fluid}
+          ></Carousel>
         </Paper>
 
-        <Paper className="md:w-1/2 md:mb-4 md:ml-4">
+        {/* Табове */}
+        <Paper className="md:w-1/2 md:ml-4">
           <ThemeProvider theme={theme}>
             <AppBar
               position="static"
@@ -178,12 +172,13 @@ const Product = ({ data }) => {
             onChangeIndex={handleChangeIndex}
             className="md:hidden mb-8 bg-white border-t border-b"
           >
+            {/* ТАБ 1 Характеристики */}
             <TabPanel value={value} index={0}>
-              {document.specs.map(specs => {
+              {product.tabs.specifications.map(specs => {
                 return (
-                  <div key={specs.spec_name} className="md:mb-2">
-                    <div className="text-primary-black flex text-sm">
-                      <p className="w-1/2">{specs.spec_name}</p>
+                  <div key={specs.spec_name.id} className="md:mb-2">
+                    <div className="text-primary-black flex py-2 text-sm">
+                      <p className="w-1/2">{specs.spec_name.spec_name} :</p>
                       <p className="w-1/2">{specs.spec_value}</p>
                     </div>
                     <hr className="hr-line-table border-gray-400"></hr>
@@ -191,9 +186,10 @@ const Product = ({ data }) => {
                 )
               })}
             </TabPanel>
+            {/* ТАБ 2 Описание */}
             <TabPanel value={value} index={1}>
               <iframe
-                title={document.video.title}
+                title={product.tabs.YoutubeUrl}
                 modestbranding="1"
                 showinfo="0"
                 rel="0"
@@ -202,29 +198,32 @@ const Product = ({ data }) => {
                 frameBorder="0"
                 allowFullScreen="1"
                 className={`lazyload w-full h-48 mt-2 mb-3 ${
-                  document.video.embed_url == null ? "hidden" : ""
+                  product.tabs.YoutubeUrl == null ? "hidden" : ""
                 }`}
-                data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
-                  document.video.embed_url
+                data-src={`https://www.youtube.com/embed/${getYoutubeID(
+                  product.tabs.YoutubeUrl
                 )}`}
               />
               <p className="text-primary-black text-sm">
-                {document.description.text}
+                {product.tabs.description}
               </p>
             </TabPanel>
           </SwipeableViews>
 
-          {/* BIGGER SCREEN */}
+          {/* BIGGER SCREEN THAN PHONES */}
+          {/* Характеристики */}
           <div className="md:block hidden">
             <div className="border-color-primary-500 py-3 text-center border-b">
               <p className="text-lg">Характеристики</p>
             </div>
             <div className="xl:px-6 p-3">
-              {document.specs.map(specs => {
+              {product.tabs.specifications.map(specs => {
                 return (
-                  <div key={specs.spec_name} className="md:mb-2">
-                    <div className="text-primary-black flex">
-                      <p className="w-1/2 px-1">{specs.spec_name}</p>
+                  <div key={specs.spec_name.id} className="md:mb-2">
+                    <div className="text-primary-black lg:py-1 py-0.5 flex">
+                      <p className="w-1/2 px-1">
+                        {specs.spec_name.spec_name} :
+                      </p>
                       <p className="w-1/2 px-1">{specs.spec_value}</p>
                     </div>
                     <hr className="hr-line-table border-gray-400"></hr>
@@ -236,78 +235,84 @@ const Product = ({ data }) => {
         </Paper>
       </div>
 
-      {/* DESKTOP INFO */}
-      <Paper className="md:block md:mb-4 hidden max-w-3xl mx-auto">
-        <div className="border-color-primary-500 py-3 mb-6 text-center border-b">
-          <p className="text-lg">Описание</p>
-        </div>
-        <iframe
-          title={document.video.title}
-          modestbranding="1"
-          showinfo="0"
-          rel="0"
-          iv_load_policy="3"
-          autohide="0"
-          frameBorder="0"
-          allowFullScreen="1"
-          className={`lazyload w-full mx-auto h-80 mb-4 pb-6 px-6 ${
-            document.video.embed_url == null ? "hidden" : ""
-          }`}
-          data-src={`https://www.youtube.com/embed/${youtubeLinkCutter(
-            document.video.embed_url
-          )}`}
-        />
-        <p className="text-primary-black px-6 pb-6">
-          {document.description.text}
-        </p>
-      </Paper>
+      {/* Описание */}
+      <div className="md:px-4 max-w-6xl mx-auto">
+        <Paper className="md:block md:mb-4 hidden">
+          <div className="border-color-primary-500 py-3 mb-6 text-center border-b">
+            <p className="text-lg">Описание</p>
+          </div>
+          <iframe
+            title={product.tabs.YoutubeUrl}
+            modestbranding="1"
+            showinfo="0"
+            rel="0"
+            iv_load_policy="3"
+            autohide="0"
+            frameBorder="0"
+            allowFullScreen="1"
+            className={`lazyload w-full max-w-3xl mx-auto h-80 mb-8 px-6 ${
+              product.tabs.YoutubeUrl == null ? "hidden" : ""
+            }`}
+            data-src={`https://www.youtube.com/embed/${getYoutubeID(
+              product.tabs.YoutubeUrl
+            )}`}
+          />
+          <p className="text-primary-black max-w-3xl px-6 pb-8 mx-auto text-lg">
+            {product.tabs.description}
+          </p>
+        </Paper>
 
-      <Paper className="md:px-4 max-w-3xl pb-4 mx-auto mb-4" id="contactForm">
-        <ContactForm
-          message="Изпрати запитване за този продукт"
-          product={document.product_name.text}
-          productUrl={data.allPrismicProduct.edges[0].node.url}
-        ></ContactForm>
-      </Paper>
+        <Paper className="max-w-6xl pb-4 mx-auto mb-4" id="contactForm">
+          <div className="max-w-3xl mx-auto">
+            <ContactForm
+              message="Изпрати запитване за този продукт"
+              product={product.name}
+              productUrl={product.tabs.slug.current}
+            ></ContactForm>
+          </div>
+        </Paper>
+      </div>
     </>
   )
 }
 export const query = graphql`
   query($slug: String!) {
-    allPrismicProduct(filter: { uid: { eq: $slug } }) {
-      edges {
-        node {
-          uid
-          url
-          data {
-            gallery {
-              image {
-                alt
-                fluid {
-                  base64
-                  src
-                  srcSet
-                }
+    sanityJuicePressingProduct(tabs: { slug: { current: { eq: $slug } } }) {
+      name
+      category {
+        slug {
+          current
+        }
+      }
+      tabs {
+        specifications {
+          spec_value
+          spec_name {
+            spec_name
+            id
+          }
+        }
+        slug {
+          current
+        }
+        YoutubeUrl
+        gallery {
+          image {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
               }
             }
-            product_name {
-              text
-            }
-            description {
-              text
-            }
-            specs {
-              spec_name
-              spec_value
-            }
-            video {
-              embed_url
-              title
-            }
-            category {
-              uid
-            }
           }
+        }
+        description
+      }
+    }
+
+    file(relativePath: { eq: "placeholder.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

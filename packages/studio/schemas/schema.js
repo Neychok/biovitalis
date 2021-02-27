@@ -10,6 +10,7 @@ import juicePressingCategory from "./documents/juicePressing/juicePressingCatego
 import specification from "./documents/specification"
 
 // Objects
+import juicePressingProductsTabs from "./objects/juicePressingProductsTabs"
 import specificationObject from "./objects/specificationObject"
 import imageObject from "./objects/imageObject"
 import relatedProductObject from "./objects/relatedProductObject"
@@ -21,6 +22,7 @@ export default createSchema({
     specificationObject,
     imageObject,
     relatedProductObject,
+    juicePressingProductsTabs,
 
     //Documents
     juicePressingProduct,
