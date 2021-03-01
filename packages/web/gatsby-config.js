@@ -22,7 +22,7 @@ module.exports = {
       })
     )
   },
-
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     // Plugin for SEO
     `gatsby-plugin-react-helmet`,
@@ -67,7 +67,7 @@ module.exports = {
         watchMode: true,
       },
     },
-    `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-sitemap`,
 
     // Plugin that makes the menu persistent when browsing through the site
     {
