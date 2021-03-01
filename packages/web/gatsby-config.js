@@ -48,13 +48,6 @@ module.exports = {
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
     `gatsby-plugin-material-ui`,
-    // {
-    //   resolve: "gatsby-plugin-webpack-bundle-analyzer",
-    //   options: {
-    //     analyzerPort: 3000,
-    //     production: false,
-    //   },
-    // },
 
     {
       resolve: "gatsby-source-sanity",
