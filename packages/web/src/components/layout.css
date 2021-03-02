@@ -374,6 +374,13 @@ button:focus {
   color: #627d98;
   border-bottom: 2px solid #27ab83;
 }
+
+.insidescroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 15px;
+}
 /* CONTACT PAGE */
 .marker {
   position: absolute;

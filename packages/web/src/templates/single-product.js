@@ -101,10 +101,6 @@ const Product = ({ data }) => {
       )
     }
 
-    if (style === "blockquote") {
-      return <blockquote>- {props.children}</blockquote>
-    }
-
     // Fall back to default handling
     return BlockContent.defaultSerializers.types.block(props)
   }
@@ -114,22 +110,24 @@ const Product = ({ data }) => {
       <SEO title="Home" />
       <div className="md:px-4 max-w-6xl px-3 mx-auto">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
-        <Breadcrumbs
-          aria-label="breadcrumb"
-          maxItems={3}
-          className="w-full h-5 mt-1 mb-3 list-none"
-        >
-          <Link to="/sokoproizvodstvo/" className="mb-0">
-            Машини
-          </Link>
-          <Link
-            to={`/sokoproizvodstvo/${product.category.slug.current}/`}
-            className="mb-0"
+        <div className="w-full h-6 mt-1 mb-3">
+          <Breadcrumbs
+            aria-label="breadcrumb"
+            maxItems={3}
+            className="whitespace-nowrap overflow-x-auto list-none"
           >
-            {product.category.slug.current}
-          </Link>
-          <p className="mb-0">{product.tabs.slug.current}</p>
-        </Breadcrumbs>
+            <Link to="/sokoproizvodstvo/" className="mb-0">
+              Машини
+            </Link>
+            <Link
+              to={`/sokoproizvodstvo/${product.category.slug.current}/`}
+              className="mb-0"
+            >
+              {product.category.slug.current}
+            </Link>
+            <p className="mb-0">{product.tabs.slug.current}</p>
+          </Breadcrumbs>
+        </div>
 
         {/* Back Button */}
         <div className="xl:py-1 flex items-center justify-between py-2">
@@ -258,9 +256,7 @@ const Product = ({ data }) => {
                 return (
                   <div key={specs.spec_name.id} className="md:mb-2">
                     <div className="text-primary-black lg:py-1 py-0.5 flex">
-                      <p className="w-1/2 px-1">
-                        {specs.spec_name.spec_name} :
-                      </p>
+                      <p className="w-1/2 px-1">{specs.spec_name.spec_name}:</p>
                       <p className="w-1/2 px-1">{specs.spec_value}</p>
                     </div>
                     <hr className="hr-line-table border-gray-400"></hr>

@@ -22,7 +22,7 @@ export default {
       type: "string",
       title: "Име на продукт",
       name: "name",
-      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
+      validation: Rule => Rule.required().error(`Това поле е задължително.`),
     },
 
     //* Категория
@@ -35,7 +35,7 @@ export default {
           type: "juicePressingCategory",
         },
       ],
-      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
+      validation: Rule => Rule.required().error(`Това поле е задължително.`),
     },
 
     //* Секция

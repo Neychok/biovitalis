@@ -22,14 +22,15 @@ export default {
           }
         },
       },
+      validation: Rule => Rule.required().error("Избери име на характеристика"),
     },
     {
       title: "Стойност",
       name: "spec_value",
       type: "string",
+      validation: Rule => Rule.required().warning("Липсва стойност"),
     },
   ],
-
   preview: {
     select: {
       title: "spec_name.spec_name",

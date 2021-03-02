@@ -21,6 +21,7 @@ export default {
       title: "Описание",
       name: "description",
       fieldset: "main",
+      validation: Rule => Rule.required().warning("Липсва описание"),
     },
 
     {
@@ -32,6 +33,7 @@ export default {
       options: {
         editModal: "modal",
       },
+      validation: Rule => Rule.unique().warning("Повтарят се характеристики"),
     },
 
     //* MEDIA TAB
@@ -46,7 +48,7 @@ export default {
       options: {
         layout: "grid",
       },
-      validation: Rule => Rule.unique(),
+      validation: Rule => Rule.unique().warning("Има повтарящи се изображения"),
     },
 
     //* Youtube link
@@ -68,7 +70,7 @@ export default {
       title: "Slug",
       name: "slug",
       fieldset: "seo",
-      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
+      validation: Rule => Rule.required().error(`Това поле е задължително.`),
       options: {
         source: "name",
         maxLength: 200,
@@ -83,6 +85,7 @@ export default {
       title: "Тагове",
       name: "tags",
       fieldset: "seo",
+      validation: Rule => Rule.unique().error("Премахни повтарящите се тагове"),
     },
     //* Свързани продукти
     {
@@ -94,6 +97,7 @@ export default {
       options: {
         layout: "grid",
       },
+      validation: Rule => Rule.unique().error("Този продукт е вече избран"),
     },
   ],
 }
