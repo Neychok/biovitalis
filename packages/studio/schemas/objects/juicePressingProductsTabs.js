@@ -30,7 +30,7 @@ export default {
       fieldset: "main",
       of: [{ type: "specificationObject" }],
       options: {
-        editModal: "popover",
+        editModal: "modal",
       },
     },
 
