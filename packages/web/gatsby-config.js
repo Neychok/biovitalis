@@ -57,7 +57,7 @@ module.exports = {
         // To enable preview of drafts, copy .env-example into .env,
         // and add a token with read permissions
         token: process.env.SANITY_TOKEN,
-        watchMode: true,
+        watchMode: false,
       },
     },
     `gatsby-plugin-sitemap`,
