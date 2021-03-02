@@ -3,6 +3,7 @@ import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
 import Paper from "@material-ui/core/Paper"
+import Layout from "../components/layout"
 
 import ConsultationIcon from "../assets/svgs/consultation.svg"
 import DevelopmentIcon from "../assets/svgs/development.svg"
@@ -15,7 +16,7 @@ import ProductionIcon from "../assets/svgs/production.svg"
 
 const IndexPage = ({ data }) => {
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
       {/* Hero */}
       <div className="border-color-primary-1000 hero-image relative mx-auto border-b-4 shadow-inner">
@@ -247,7 +248,7 @@ const IndexPage = ({ data }) => {
           Свържи се с нас
         </Link>
       </Paper>
-    </>
+    </Layout>
   )
 }
 export const fluidImage = graphql`

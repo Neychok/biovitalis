@@ -6,10 +6,10 @@ import Paper from "@material-ui/core/Paper"
 import Img from "gatsby-image"
 import "lazysizes"
 import "lazysizes/plugins/parent-fit/ls.parent-fit"
-
+import Layout from "../components/layout"
 const ProductsPage = ({ data }) => {
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
       <div className="px-3">
         <div className="px-3 mt-8 mb-3 text-xl text-center">
@@ -28,7 +28,7 @@ const ProductsPage = ({ data }) => {
           </Paper>
         </Link>
       </div>
-    </>
+    </Layout>
   )
 }
 export const query = graphql`

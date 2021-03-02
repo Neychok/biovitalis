@@ -3,7 +3,7 @@ import SEO from "../components/seo"
 import ContactForm from "../components/contactform"
 import Paper from "@material-ui/core/Paper"
 import GoogleMapReact from "google-map-react"
-
+import Layout from "../components/layout"
 const Marker = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ class ContactPage extends Component {
   }
   render() {
     return (
-      <>
+      <Layout>
         <div className="max-w-6xl px-2 mx-auto">
           <SEO title="Home" />
           {/* Page Title */}
@@ -153,7 +153,7 @@ class ContactPage extends Component {
             </div>
           </Paper>
         </div>
-      </>
+      </Layout>
     )
   }
 }

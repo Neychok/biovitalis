@@ -62,14 +62,6 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
 
-    // Plugin that makes the menu persistent when browsing through the site
-    {
-      resolve: "gatsby-plugin-transition-link",
-      options: {
-        layout: require.resolve(`./src/components/layout.js`),
-      },
-    },
-
     // Plugin needed for PWA support
     {
       resolve: `gatsby-plugin-manifest`,

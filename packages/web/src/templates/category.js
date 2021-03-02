@@ -3,14 +3,14 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
-
+import Layout from "../components/layout"
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
 import Paper from "@material-ui/core/Paper"
 
 const CategoryPage = ({ data }) => {
   const products = data.allSanityJuicePressingProduct.edges
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
       <div className="md:grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4">
         <div className="md:h-screen md:flex md:flex-col hidden col-start-1 col-end-1 bg-white shadow">
@@ -129,7 +129,7 @@ const CategoryPage = ({ data }) => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

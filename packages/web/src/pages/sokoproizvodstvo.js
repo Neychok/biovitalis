@@ -4,11 +4,11 @@ import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Paper from "@material-ui/core/Paper"
 import Img from "gatsby-image"
-
+import Layout from "../components/layout"
 const ProductsPage = ({ data }) => {
   const categories = data.allSanityJuicePressingCategory.edges
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
 
       {/* Categories Title */}
@@ -45,7 +45,7 @@ const ProductsPage = ({ data }) => {
           )
         })}
       </div>
-    </>
+    </Layout>
   )
 }
 export const query = graphql`

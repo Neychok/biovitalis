@@ -7,6 +7,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
 import Paper from "@material-ui/core/Paper"
 import Carousel from "../components/carousel"
+import Layout from "../components/layout"
 
 import AppBar from "@material-ui/core/AppBar"
 import Tabs from "@material-ui/core/Tabs"
@@ -109,7 +110,7 @@ const Product = ({ data }) => {
   }
 
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
       <div className="md:px-4 max-w-6xl px-3 mx-auto">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
@@ -311,7 +312,7 @@ const Product = ({ data }) => {
           </div>
         </Paper>
       </div>
-    </>
+    </Layout>
   )
 }
 export const query = graphql`
