@@ -44,6 +44,15 @@ const Paragraph = props => (
     {props.children}
   </span>
 )
+const Center = props => (
+  <p
+    style={{
+      textAlign: "center",
+    }}
+  >
+    {props.children}
+  </p>
+)
 export default {
   title: "Portable Text",
   name: "portableText",
@@ -88,6 +97,14 @@ export default {
           { title: "Удебеляване", value: "strong" },
           { title: "Курсив", value: "em" },
           { title: "Подчертване", value: "underline" },
+          {
+            title: "Центриране",
+            value: "center",
+            blockEditor: {
+              icon: () => "C",
+              render: Center,
+            },
+          },
         ],
         annotations: [
           {
