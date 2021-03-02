@@ -5,7 +5,7 @@ export default {
   inputComponent: Tabs,
 
   fieldsets: [
-    { name: "main", title: "Main", options: { sortOrder: 10 } },
+    { name: "main", title: "Информация", options: { sortOrder: 10 } },
     { name: "media", title: "Медия", options: { sortOrder: 20 } },
     { name: "seo", title: "SEO", options: { sortOrder: 30 } },
   ],
