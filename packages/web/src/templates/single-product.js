@@ -95,7 +95,7 @@ const Product = ({ data }) => {
         </Breadcrumbs>
 
         {/* Back Button */}
-        <div className="flex items-center justify-between py-1">
+        <div className="xl:py-1 flex items-center justify-between py-2">
           <Link
             to={`/sokoproizvodstvo/${product.category.slug.current}/`}
             className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 xl:px-5 xl:py-2 xl:text-lg inline-flex items-center py-1 pl-3 pr-4 text-center bg-white border-b-0 rounded-md shadow"
@@ -127,7 +127,7 @@ const Product = ({ data }) => {
         </div>
 
         {/* Product Name */}
-        <h1 className="xl:text-3xl xl:pt-5 pt-2 pb-1 mb-3 text-xl border-b-2 border-gray-300 border-opacity-75">
+        <h1 className="2xl:text-3xl lg:text-2xl xl:pt-5 py-2 mb-3 text-xl font-normal border-b-2 border-gray-300 border-opacity-75">
           {product.name}
         </h1>
       </div>

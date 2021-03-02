@@ -34,7 +34,7 @@ const ProductsPage = ({ data }) => {
                         ? category.node.image.asset.fluid
                         : data.file.childImageSharp.fluid
                     }
-                    className="max-h-40 block w-full mb-0 rounded-t"
+                    className="max-h-48 block object-center w-full mb-0 rounded-t"
                   />
                   <div className="category-product-name lg:text-lg sm:text-base flex items-center justify-center px-2 my-auto text-center">
                     {category.node.name}

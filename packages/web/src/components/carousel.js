@@ -34,16 +34,18 @@ const Carousel = ({ images, placeholder }) => {
         </Swiper>
 
         <Swiper
-          className="md:pb-2 px-2"
+          className="md:pb-2 px-1"
           onSwiper={setThumbsSwiper}
-          spaceBetween={2}
+          spaceBetween={12}
           slidesPerView={4}
+          watchSlidesVisibility
+          watchSlidesProgress
         >
           {images.map(slide => (
             <SwiperSlide key={slide.image.asset.fluid.base64} className="">
               <Img
                 fluid={slide.image.asset.fluid}
-                className="lg:h-20 object-cover w-full h-16 p-1 mt-1 rounded-lg opacity-75"
+                className="lg:h-20 object-cover w-full h-16 p-1 mt-1 rounded-lg"
               />
             </SwiperSlide>
           ))}

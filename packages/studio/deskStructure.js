@@ -62,7 +62,4 @@ S.list()
         S.listItem()
             .title("Страници")
             .id("pages"),
-        S.listItem()
-            .title("Настройки")
-            .id("settings"),
     ])

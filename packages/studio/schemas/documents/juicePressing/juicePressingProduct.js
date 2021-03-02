@@ -51,4 +51,10 @@ export default {
       name: "tabs",
     },
   ],
+  preview: {
+    select: {
+      media: "tabs.gallery[0].image",
+      title: "name",
+    },
+  },
 }

@@ -344,12 +344,6 @@ button:focus {
     max-height: 600px !important;
   }
 }
-.slick-current {
-  opacity: 1 !important;
-}
-.slick-slide {
-  opacity: 0.5;
-}
 .hr-line-table {
   border: 1px solid #627d98;
   opacity: 0.2;
@@ -369,7 +363,10 @@ button:focus {
 .container-thumb {
   min-height: 60px;
 }
-.thumb-is-active img {
+.swiper-container-thumbs .swiper-slide img {
+  opacity: 0.3 !important;
+}
+.swiper-container-thumbs .thumb-is-active img {
   opacity: 1 !important;
   border-bottom: 3px solid #3ebd93;
 }
