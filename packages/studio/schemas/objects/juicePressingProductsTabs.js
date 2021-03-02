@@ -17,7 +17,7 @@ export default {
   fields: [
     //* MAIN TAB
     {
-      type: "text",
+      type: "portableText",
       title: "Описание",
       name: "description",
       fieldset: "main",

@@ -12,11 +12,11 @@ const ProductsPage = ({ data }) => {
       <SEO title="Home" />
 
       {/* Categories Title */}
-      <div className="md:text-2xl md:mb-4 px-3 mt-8 mb-2 text-xl text-center">
+      <div className="md:text-2xl md:mb-4 px-3 mt-8 mb-3 text-xl text-center">
         <h1 className="mb-1 font-normal">Машини за сокопроизводство</h1>
         <h3 className="md:text-xl">Категории:</h3>
       </div>
-      <hr className="hr-line md:mb-8 mx-auto mb-3"></hr>
+      <hr className="hr-line md:mb-8 mx-auto mb-5" />
 
       {/* Categories List */}
       <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container grid grid-cols-2 px-2 mx-auto">

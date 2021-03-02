@@ -14,7 +14,7 @@ import Tab from "@material-ui/core/Tab"
 import SwipeableViews from "react-swipeable-views"
 import "lazysizes"
 import getYoutubeID from "get-youtube-id"
-
+import BlockContent from "@sanity/block-content-to-react"
 import ContactForm from "../components/contactform"
 
 function TabPanel(props) {
@@ -70,6 +70,42 @@ const Product = ({ data }) => {
 
   const handleChangeIndex = index => {
     setValue(index)
+  }
+
+  const BlockRenderer = props => {
+    const { style = "normal" } = props.node
+    if (style === "h1") {
+      return React.createElement(
+        style,
+        { className: `text-3xl mb-3` },
+        props.children
+      )
+    } else if (style === "h2") {
+      return React.createElement(
+        style,
+        { className: `text-2xl mb-2` },
+        props.children
+      )
+    } else if (style === "h3") {
+      return React.createElement(
+        style,
+        { className: `text-xl mb-2` },
+        props.children
+      )
+    } else if (style === "normal") {
+      return React.createElement(
+        "p",
+        { className: `text-lg mb-1` },
+        props.children
+      )
+    }
+
+    if (style === "blockquote") {
+      return <blockquote>- {props.children}</blockquote>
+    }
+
+    // Fall back to default handling
+    return BlockContent.defaultSerializers.types.block(props)
   }
 
   return (
@@ -204,8 +240,8 @@ const Product = ({ data }) => {
                   product.tabs.YoutubeUrl
                 )}`}
               />
-              <p className="text-primary-black text-sm">
-                {product.tabs.description}
+              <p className="text-primary-black">
+                <BlockContent blocks={product.tabs._rawDescription} />
               </p>
             </TabPanel>
           </SwipeableViews>
@@ -257,8 +293,11 @@ const Product = ({ data }) => {
               product.tabs.YoutubeUrl
             )}`}
           />
-          <p className="text-primary-black max-w-3xl px-6 pb-8 mx-auto text-lg">
-            {product.tabs.description}
+          <p className="text-primary-black max-w-3xl px-6 pb-8 mx-auto">
+            <BlockContent
+              blocks={product.tabs._rawDescription}
+              serializers={{ types: { block: BlockRenderer } }}
+            />
           </p>
         </Paper>
 
@@ -305,7 +344,7 @@ export const query = graphql`
             }
           }
         }
-        description
+        _rawDescription
       }
     }
 

@@ -14,6 +14,7 @@ import juicePressingProductsTabs from "./objects/juicePressingProductsTabs"
 import specificationObject from "./objects/specificationObject"
 import imageObject from "./objects/imageObject"
 import relatedProductObject from "./objects/relatedProductObject"
+import portableText from "./objects/portableText"
 
 export default createSchema({
   name: "default",
@@ -23,6 +24,7 @@ export default createSchema({
     imageObject,
     relatedProductObject,
     juicePressingProductsTabs,
+    portableText,
 
     //Documents
     juicePressingProduct,
