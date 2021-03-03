@@ -20,7 +20,6 @@ export default {
         list: [
           { title: "Всички", value: "all" },
           { title: "Сокопроизводство", value: "juicePressing" },
-          { title: "Винопроизвоство", value: "Wine" },
         ],
         layout: "radio", // <-- defaults to 'dropdown'
       },

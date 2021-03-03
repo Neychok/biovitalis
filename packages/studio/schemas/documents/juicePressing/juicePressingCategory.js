@@ -1,17 +1,3 @@
-/* Машина Scheme
- * 1. Име на продукт
- * 2. Slug (Скрито)
- * 3. Галерия
- * 4. Описание
- * 5. Youtube URL
- * 6. Характеристики (Повтарящо се)
- * 7. Мета тагове, ключови думи
- * 8. Свързани продукти
- */
-
-// Checks Slug uniqueness accross all documents
-//import { isUniqueAcrossAllDocuments } from "../lib/isUniqueAcrossAllDocuments";
-
 export default {
   type: "document",
   title: "Категория - Сокопроизводство",
@@ -22,6 +8,7 @@ export default {
       type: "string",
       title: "Име на категория",
       name: "name",
+      validation: Rule => Rule.required().error("Това поле е задължително."),
     },
 
     //* Slug
@@ -29,7 +16,7 @@ export default {
       type: "slug",
       title: "Slug",
       name: "slug",
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required().error("Това поле е задължително."),
       options: {
         source: "name",
         maxLength: 200, // will be ignored if slugify is set
@@ -43,6 +30,17 @@ export default {
       type: "image",
       title: "Изображение",
       name: "image",
+      validation: Rule => Rule.required().warning("Липсва заглавна снимка."),
     },
+    // {
+    //   type: "array",
+    //   title: "Предварително зададени характеристики",
+    //   name: "initialSpecifications",
+    //   of: [{ type: "specificationObject" }],
+    //   options: {
+    //     editModal: "modal",
+    //   },
+    //   validation: Rule => Rule.unique().warning("Повтарят се характеристики"),
+    // },
   ],
 }
