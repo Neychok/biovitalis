@@ -138,6 +138,7 @@ export const query = graphql`
   query($slug: String!) {
     allSanityJuicePressingProduct(
       filter: { category: { slug: { current: { eq: $slug } } } }
+      sort: { order: ASC, fields: tabs___slug___current }
     ) {
       edges {
         node {

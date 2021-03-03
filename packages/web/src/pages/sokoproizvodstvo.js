@@ -50,7 +50,9 @@ const ProductsPage = ({ data }) => {
 }
 export const query = graphql`
   query AllCategories {
-    allSanityJuicePressingCategory {
+    allSanityJuicePressingCategory(
+      sort: { fields: slug___current, order: ASC }
+    ) {
       edges {
         node {
           name

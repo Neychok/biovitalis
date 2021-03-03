@@ -16,8 +16,7 @@
     "tabs",
     "autocomplete-tags",
     "@sanity/dashboard",
-    "dashboard-widget-netlify",
-    "dark-theme-blue"
+    "dashboard-widget-netlify"
   ],
   "env": {
     "development": {}

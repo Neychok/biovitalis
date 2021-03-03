@@ -7625,10 +7625,6 @@ sanity-plugin-autocomplete-tags@^1.0.1:
     react-select "^3.1.0"
     webpack "^5.1.0"
 
-sanity-plugin-dark-theme-blue@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/sanity-plugin-dark-theme-blue/-/sanity-plugin-dark-theme-blue-1.0.1.tgz#74804676323b49d05df383ec5c6d72458d3e8679"
-
 sanity-plugin-dashboard-widget-netlify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/sanity-plugin-dashboard-widget-netlify/-/sanity-plugin-dashboard-widget-netlify-1.0.1.tgz#e510e40e05b9bcfdf11a4a2affed590e191bb93b"
