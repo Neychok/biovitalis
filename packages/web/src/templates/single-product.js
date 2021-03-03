@@ -105,29 +105,35 @@ const Product = ({ data }) => {
     return BlockContent.defaultSerializers.types.block(props)
   }
 
+  function cutLongText(text) {
+    if (text.length > 25) {
+      return text.substring(0, 24) + "..."
+    } else return text
+  }
+
   return (
     <Layout>
       <SEO title="Home" />
       <div className="md:px-4 max-w-6xl px-3 mx-auto">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
-        <div className="w-full h-6 mt-1 mb-3">
-          <Breadcrumbs
-            aria-label="breadcrumb"
-            maxItems={3}
-            className="whitespace-nowrap overflow-x-auto list-none"
+        <Breadcrumbs
+          aria-label="breadcrumb"
+          maxItems={3}
+          className="list-none w-full py-1.5 mb-1"
+        >
+          <Link to="/sokoproizvodstvo/" className="mb-0">
+            Машини
+          </Link>
+          <Link
+            to={`/sokoproizvodstvo/${cutLongText(
+              product.category.slug.current
+            )}`}
+            className="mb-0"
           >
-            <Link to="/sokoproizvodstvo/" className="mb-0">
-              Машини
-            </Link>
-            <Link
-              to={`/sokoproizvodstvo/${product.category.slug.current}/`}
-              className="mb-0"
-            >
-              {product.category.slug.current}
-            </Link>
-            <p className="mb-0">{product.tabs.slug.current}</p>
-          </Breadcrumbs>
-        </div>
+            {product.category.slug.current}
+          </Link>
+          <p className="mb-0">{cutLongText(product.tabs.slug.current)}</p>
+        </Breadcrumbs>
 
         {/* Back Button */}
         <div className="xl:py-1 flex items-center justify-between py-2">

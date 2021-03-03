@@ -54,7 +54,7 @@ const CategoryPage = ({ data }) => {
               {/* Breadcrumbs */}
               <Breadcrumbs
                 aria-label="breadcrumb"
-                className="w-full h-5 mt-1 mb-3"
+                className="w-full py-1.5 mb-1"
               >
                 <Link to="/sokoproizvodstvo/" className="mb-0">
                   Продукти
