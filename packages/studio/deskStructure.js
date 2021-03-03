@@ -36,10 +36,6 @@ S.list()
                         .initialValueTemplates([
                             S.initialValueTemplateItem('product-by-category', {id})
                           ])
-                          .menuItems([
-                            S.orderingMenuItem({title: 'Име (възходящо)', by: [{field: 'name', direction: 'asc'}]}),
-                            S.orderingMenuItem({title: 'Име (низходящо)', by: [{field: 'name', direction: 'desc'}]})
-                          ])
                         )
             //         )
             // ])           
