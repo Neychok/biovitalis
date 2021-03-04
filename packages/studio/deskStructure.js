@@ -22,10 +22,6 @@ S.list()
                     .title('Категории')
                     .id("juicePressingCategory")
                     .schemaType('juicePressingCategory')
-                    .menuItems([
-                        S.orderingMenuItem({title: 'Име (възходящо)', by: [{field: 'name', direction: 'asc'}]}),
-                        S.orderingMenuItem({title: 'Име (низходящо)', by: [{field: 'name', direction: 'desc'}]})
-                      ])
                     .filter('_type == "juicePressingCategory"')
                     .child( id =>
                         S.documentList()
@@ -33,9 +29,6 @@ S.list()
                         .id("juicePressingProducts")
                         .filter('_type == "juicePressingProduct" && $id == category._ref')
                         .params({id})
-                        .initialValueTemplates([
-                            S.initialValueTemplateItem('product-by-category', {id})
-                          ])
                         )
             //         )
             // ])           

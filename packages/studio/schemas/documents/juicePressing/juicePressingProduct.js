@@ -13,9 +13,6 @@ export default {
   type: "document",
   title: "Продукт - Сокопроизводство",
   name: "juicePressingProduct",
-  initialValue: {
-    section: "juicePressing",
-  },
   fields: [
     //* Име на продукт
     {
