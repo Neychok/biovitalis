@@ -219,7 +219,7 @@ const Product = ({ data }) => {
                 return (
                   <div key={specs.spec_name.id} className="md:mb-2">
                     <div className="text-primary-black flex py-2 text-sm">
-                      <p className="w-1/2">{specs.spec_name.spec_name} :</p>
+                      <p className="w-1/2">{specs.spec_name.spec_name}:</p>
                       <p className="w-1/2">{specs.spec_value}</p>
                     </div>
                     <hr className="hr-line-table border-gray-400"></hr>
