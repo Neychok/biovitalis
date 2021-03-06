@@ -10,7 +10,10 @@ export default {
       type: "string",
       title: "Име",
       name: "spec_name",
-      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
+      validation: Rule => [
+        Rule.required().warning(`Това поле е задължително.`),
+        Rule.unique().error("Вече съществува такава характеристика."),
+      ],
     },
     {
       type: "string",
