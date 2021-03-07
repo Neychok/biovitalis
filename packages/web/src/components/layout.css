@@ -311,7 +311,7 @@ button:focus {
 }
 
 .represent-section {
-  @apply border-color-primary md:w-1/3 md:justify-start md:flex-col md:m-0 md:text-center flex items-center justify-between w-full mb-6;
+  @apply border-color-primary md:w-1/2 md:justify-start md:flex-col md:m-0 md:text-center flex items-center justify-between w-full mb-6;
 }
 
 .represent-inner-section {

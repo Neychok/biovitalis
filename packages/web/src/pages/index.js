@@ -28,10 +28,10 @@ const IndexPage = ({ data }) => {
         />
         <div className="absolute-middle landing-overlay flex flex-col items-center justify-center w-full h-full text-center text-white">
           <div className=" text-center">
-            <h1 className="xl:text-6xl lg:text-4xl xl:mb-2 xl:font-normal px-4 text-4xl font-semibold">
+            <h1 className="xl:text-6xl lg:text-4xl xl:font-normal px-4 mb-2 text-3xl font-bold">
               БиоВиталис
             </h1>
-            <h3 className="xl:text-2xl lg:text-xl font-rubik xl:font-light px-4 py-4 text-xl font-normal">
+            <h3 className="xl:text-2xl font-rubik xl:font-light px-4 py-4 text-xl font-normal">
               Машини за производство и пакетиране на сок от плодове и зеленчуци
             </h3>
           </div>
@@ -90,23 +90,6 @@ const IndexPage = ({ data }) => {
               <p className="lg:px-6 md:mb-2 md:text-center md:px-4">
                 Произвеждат широка гама от машини с различни капацитети за
                 производство на вино, сокове, нектари и пюрета.
-              </p>
-              <hr className="hr-line md:self-center md:mt-auto mt-4" />
-            </div>
-          </div>
-
-          {/* MARCHISIO */}
-          <div className="represent-section">
-            <div className="xl:w-2/5 md:w-1/2 w-1/4 p-1">
-              <Img
-                className="w-full rounded-full shadow-md"
-                fluid={data.marchisio.childImageSharp.fluid}
-              />
-            </div>
-            <div className="represent-inner-section">
-              <h2 className="represent-title">Marchisio</h2>
-              <p className="lg:px-6 md:mb-2 md:text-center md:px-4">
-                Водещ производител на машини за винопроизводството.
               </p>
               <hr className="hr-line md:self-center md:mt-auto mt-4" />
             </div>
@@ -272,15 +255,7 @@ export const query = graphql`
 
     voran: file(relativePath: { eq: "voran.png" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-
-    marchisio: file(relativePath: { eq: "marchisio.png" }) {
-      childImageSharp {
-        fluid {
+        fluid(maxWidth: 150) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
@@ -288,7 +263,7 @@ export const query = graphql`
 
     sram: file(relativePath: { eq: "sram.png" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 150) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }

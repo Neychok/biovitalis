@@ -98,7 +98,7 @@ const CategoryPage = ({ data }) => {
                 // Container for item
                 <div
                   key={product.node.id}
-                  className="grid-span-1 px-1 py-0 mb-4"
+                  className="grid-span-1 md:mb-8 px-1 py-0 mb-4"
                 >
                   <Paper className="hover:shadow-lg">
                     <Link
@@ -116,9 +116,9 @@ const CategoryPage = ({ data }) => {
                             ? product.node.tabs.gallery[0].image.asset.fluid
                             : data.file.childImageSharp.fluid
                         }
-                        className="block w-full mb-0 rounded-t"
+                        className="xl:h-40 md:h-40 h-36 block w-full mb-0 rounded-t"
                       />
-                      <div className="category-product-name text-primary-black px-2 pt-2 pb-1">
+                      <div className="category-product-name text-primary-black h-20 px-3 pt-3 text-sm">
                         {product.node.name}
                       </div>
                     </Link>
