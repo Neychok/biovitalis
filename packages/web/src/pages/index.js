@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
         />
         <div className="absolute-middle landing-overlay flex flex-col items-center justify-center w-full h-full text-center text-white">
           <div className=" text-center">
-            <h1 className="xl:text-6xl lg:text-4xl xl:mb-2 xl:font-normal px-4 text-3xl font-semibold">
+            <h1 className="xl:text-6xl lg:text-4xl xl:mb-2 xl:font-normal px-4 text-4xl font-semibold">
               БиоВиталис
             </h1>
             <h3 className="xl:text-2xl lg:text-xl font-rubik xl:font-light px-4 py-4 text-xl font-normal">
