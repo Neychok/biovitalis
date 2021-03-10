@@ -40,7 +40,7 @@ const CategoryPage = ({ data }) => {
               <Link
                 to={"/sokoproizvodstvo/" + category.node.slug.current}
                 key={category.node.slug.current}
-                className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 border-opacity-25 pl-5 py-2.5 border-b border-green-500"
+                className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 py-3 pl-5 border-b border-green-500 border-opacity-25"
                 activeClassName="bg-green-500 bg-opacity-25 hover:bg-opacity-25"
               >
                 {category.node.name}

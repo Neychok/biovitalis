@@ -19,15 +19,12 @@ const ProductsPage = ({ data }) => {
       <hr className="hr-line md:mb-8 mx-auto mb-5" />
 
       {/* Categories List */}
-      <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container grid grid-cols-2 px-2 mx-auto">
+      <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container grid grid-cols-2 gap-6 px-2 mx-auto">
         {categories.map(category => {
           return (
-            <div key={category.node.slug.current} className="px-2 py-0 mb-4">
+            <div key={category.node.slug.current}>
               <Paper elevation={1} className="hover:shadow-lg">
-                <Link
-                  to={"/sokoproizvodstvo/" + category.node.slug.current}
-                  className=""
-                >
+                <Link to={"/sokoproizvodstvo/" + category.node.slug.current}>
                   <Img
                     fluid={
                       category.node.image
@@ -36,7 +33,7 @@ const ProductsPage = ({ data }) => {
                     }
                     className="max-h-48 block object-center w-full mb-0 rounded-t"
                   />
-                  <div className="category-product-name lg:text-lg sm:text-base flex items-center justify-center px-2 my-auto text-center">
+                  <div className="category-product-name flex items-center justify-center px-2 my-auto text-center">
                     {category.node.name}
                   </div>
                 </Link>

@@ -7,8 +7,8 @@ import PhoneIcon from "../assets/svgs/smartphone.svg"
 const NavigationBar = () => {
   return (
     <>
-      <div className="bg-secondary-1000 w-full h-8 text-white">
-        <div className="container flex items-center justify-end h-full px-4 mx-auto">
+      <div className="bg-secondary-1000 w-full h-10 text-white">
+        <div className="container flex items-center justify-start h-full px-4 mx-auto">
           <a className="flex items-center" href="tel:0878909322">
             <PhoneIcon className="h-5 mr-3"></PhoneIcon>
             <div className="italic">0878 909 322</div>
