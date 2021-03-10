@@ -1,8 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 import logo from "../assets/images/logo.jpg"
-import { m as motion } from "framer-motion"
-import { MotionConfig, AnimationFeature } from "framer-motion"
 
 import PhoneIcon from "../assets/svgs/smartphone.svg"
 
@@ -21,46 +19,44 @@ const NavigationBar = () => {
           </a>
         </div>
       </div>
-      <MotionConfig features={[AnimationFeature]}>
-        <nav className="flex items-center w-full h-20 bg-white shadow">
-          <div className="container flex items-center justify-between h-full px-4 mx-auto">
-            {/* Container for Logo*/}
-            <Link to="/" className="flex items-center h-full ml-2">
-              <img
-                src={logo}
-                alt="Biovitalis logo"
-                className="lazyload lg:h-10 w-auto h-8 pb-1"
-              />
-            </Link>
+      <nav className="flex items-center w-full h-20 bg-white shadow">
+        <div className="container flex items-center justify-between h-full px-4 mx-auto">
+          {/* Container for Logo*/}
+          <Link to="/" className="flex items-center h-full ml-2">
+            <img
+              src={logo}
+              alt="Biovitalis logo"
+              className="lazyload lg:h-10 w-auto h-8 pb-1"
+            />
+          </Link>
 
-            {/* Container for Menu Links */}
-            <div className="flex items-center text-lg">
-              <Link
-                to="/"
-                className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 duration-100 rounded-full"
-                activeClassName={`opacity-100 menu-item-active`}
-              >
-                Начало
-              </Link>
-              <Link
-                to="/sokoproizvodstvo/"
-                partiallyActive={true}
-                className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 ml-4 duration-100 rounded-full"
-                activeClassName={`opacity-100 menu-item-active`}
-              >
-                Продукти
-              </Link>
-              <Link
-                to="/kontakti/"
-                className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 ml-4 duration-100 rounded-full"
-                activeClassName={`opacity-100 menu-item-active`}
-              >
-                Контакти
-              </Link>
-            </div>
+          {/* Container for Menu Links */}
+          <div className="flex items-center text-lg">
+            <Link
+              to="/"
+              className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 duration-100 rounded-full"
+              activeClassName={`opacity-100 menu-item-active`}
+            >
+              Начало
+            </Link>
+            <Link
+              to="/sokoproizvodstvo/"
+              partiallyActive={true}
+              className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 ml-4 duration-100 rounded-full"
+              activeClassName={`opacity-100 menu-item-active`}
+            >
+              Продукти
+            </Link>
+            <Link
+              to="/kontakti/"
+              className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 ml-4 duration-100 rounded-full"
+              activeClassName={`opacity-100 menu-item-active`}
+            >
+              Контакти
+            </Link>
           </div>
-        </nav>
-      </MotionConfig>
+        </div>
+      </nav>
     </>
   )
 }

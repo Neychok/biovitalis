@@ -123,7 +123,7 @@ const CategoryPage = ({ data }) => {
                           .slice(0, 3)
                           .map(spec => {
                             return (
-                              <span className="row-span-1 text-sm">
+                              <span className="md:text-sm row-span-1 text-xs truncate">
                                 {spec.spec_name.spec_name}: {spec.spec_value}
                               </span>
                             )
