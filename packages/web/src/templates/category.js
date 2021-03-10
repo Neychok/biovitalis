@@ -92,15 +92,15 @@ const CategoryPage = ({ data }) => {
           </div>
 
           {/* Product list */}
-          <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:ml-4 grid grid-cols-2 px-2">
+          <div className="lg:grid-cols-2 md:ml-4 grid grid-cols-1 px-2">
             {products.map(product => {
               return (
                 // Container for item
                 <div
                   key={product.node.id}
-                  className="grid-span-1 md:mb-8 px-1 py-0 mb-4"
+                  className="grid-span-1 md:mb-6 md:mr-4 px-1 py-0 mb-2"
                 >
-                  <Paper className="hover:shadow-lg">
+                  <Paper className="hover:shadow-lg h-36">
                     <Link
                       to={
                         "/sokoproizvodstvo/" +
@@ -108,7 +108,7 @@ const CategoryPage = ({ data }) => {
                         "/" +
                         product.node.tabs.slug.current
                       }
-                      className=""
+                      className="flex w-full h-full"
                     >
                       <Img
                         fluid={
@@ -116,10 +116,23 @@ const CategoryPage = ({ data }) => {
                             ? product.node.tabs.gallery[0].image.asset.fluid
                             : data.file.childImageSharp.fluid
                         }
-                        className="xl:h-40 md:h-40 h-36 block w-full mb-0 rounded-t"
+                        className="w-3/12 h-full rounded-l"
                       />
-                      <div className="category-product-name text-primary-black h-20 px-3 pt-3 text-sm">
-                        {product.node.name}
+                      <div className="flex flex-col justify-between w-9/12 pl-2">
+                        <div className="md:text-lg max-h-14 w-full p-2 pb-1 overflow-hidden font-normal border-b">
+                          {product.node.name}
+                        </div>
+                        <div className="2xl:text-base flex flex-col justify-center p-2 pt-0 text-sm">
+                          {product.node.tabs.specifications
+                            .slice(0, 3)
+                            .map(spec => {
+                              return (
+                                <div>
+                                  {spec.spec_name.spec_name}: {spec.spec_value}
+                                </div>
+                              )
+                            })}
+                        </div>
                       </div>
                     </Link>
                   </Paper>
@@ -155,6 +168,12 @@ export const query = graphql`
                     ...GatsbySanityImageFluid
                   }
                 }
+              }
+            }
+            specifications {
+              spec_value
+              spec_name {
+                spec_name
               }
             }
           }

@@ -13,7 +13,7 @@
   font-family: "Rubik";
   src: url("../assets/fonts/rubik/Rubik-Regular.woff2") format("woff2");
   font-display: swap;
-  font-weight: normal;
+  font-weight: 400;
 }
 @font-face {
   font-family: "Rubik";
