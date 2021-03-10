@@ -115,7 +115,7 @@ const CategoryPage = ({ data }) => {
                         }
                         className="2xl:col-span-2 xl:col-span-3 h-full col-span-4 rounded-l"
                       />
-                      <div className="2xl:col-span-8 xl:col-span-7 grid grid-cols-1 col-span-6 grid-rows-5 py-2 pl-2">
+                      <div className="2xl:col-span-8 xl:col-span-7 grid grid-cols-1 col-span-6 grid-rows-5 pt-2 pl-2">
                         <div className="md:text-base max-h-12 row-span-2 overflow-hidden font-normal border-b">
                           {product.node.name}
                         </div>

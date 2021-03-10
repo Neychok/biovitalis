@@ -22,7 +22,7 @@ const NavigationBar = () => {
         </div>
       </div>
       <MotionConfig features={[AnimationFeature]}>
-        <nav className="sticky top-0 z-50 flex items-center w-full h-20 bg-white shadow">
+        <nav className="flex items-center w-full h-20 bg-white shadow">
           <div className="container flex items-center justify-between h-full px-4 mx-auto">
             {/* Container for Logo*/}
             <Link to="/" className="flex items-center h-full ml-2">
