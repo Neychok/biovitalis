@@ -13,7 +13,7 @@ const CategoryPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <div className="md:grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4">
-        <div className="md:h-screen md:flex md:flex-col hidden col-start-1 col-end-1 bg-white shadow">
+        <div className="md:h-full md:flex md:flex-col hidden col-start-1 col-end-1 bg-white shadow">
           <Link
             to="/sokoproizvodstvo"
             className="hover:opacity-100 opacity-70 flex items-center py-1 pl-4 my-2"
@@ -96,10 +96,7 @@ const CategoryPage = ({ data }) => {
             {products.map(product => {
               return (
                 // Container for item
-                <div
-                  key={product.node.id}
-                  className="grid-span-1 md:mb-6 md:mr-4 px-1 py-0 mb-2"
-                >
+                <div key={product.node.id} className="grid-span-1 md:mr-4 mb-4">
                   <Paper className="hover:shadow-lg h-36">
                     <Link
                       to={
@@ -108,7 +105,7 @@ const CategoryPage = ({ data }) => {
                         "/" +
                         product.node.tabs.slug.current
                       }
-                      className="flex w-full h-full"
+                      className="grid w-full h-full grid-cols-10"
                     >
                       <Img
                         fluid={
@@ -116,23 +113,21 @@ const CategoryPage = ({ data }) => {
                             ? product.node.tabs.gallery[0].image.asset.fluid
                             : data.file.childImageSharp.fluid
                         }
-                        className="w-3/12 h-full rounded-l"
+                        className="2xl:col-span-2 xl:col-span-3 h-full col-span-4 rounded-l"
                       />
-                      <div className="flex flex-col justify-between w-9/12 pl-2">
-                        <div className="md:text-lg max-h-14 w-full p-2 pb-1 overflow-hidden font-normal border-b">
+                      <div className="2xl:col-span-8 xl:col-span-7 grid grid-cols-1 col-span-6 grid-rows-5 py-2 pl-2">
+                        <div className="md:text-base max-h-12 row-span-2 overflow-hidden font-normal border-b">
                           {product.node.name}
                         </div>
-                        <div className="2xl:text-base flex flex-col justify-center p-2 pt-0 text-sm">
-                          {product.node.tabs.specifications
-                            .slice(0, 3)
-                            .map(spec => {
-                              return (
-                                <div>
-                                  {spec.spec_name.spec_name}: {spec.spec_value}
-                                </div>
-                              )
-                            })}
-                        </div>
+                        {product.node.tabs.specifications
+                          .slice(0, 3)
+                          .map(spec => {
+                            return (
+                              <span className="row-span-1 text-sm">
+                                {spec.spec_name.spec_name}: {spec.spec_value}
+                              </span>
+                            )
+                          })}
                       </div>
                     </Link>
                   </Paper>
