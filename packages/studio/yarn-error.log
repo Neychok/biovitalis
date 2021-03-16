@@ -1,0 +1,66 @@
+Arguments: 
+  D:\Programs\NodeJS\node.exe C:\Users\nkala\AppData\Local\Yarn\Data\global\node_modules\@sanity\cli\vendor\yarn install --json --non-interactive --ignore-engines --registry https://registry.npmjs.org
+
+PATH: 
+  D:\Work\BioVitalis\biovitalis\packages\studio\node_modules\.bin;D:\Work\BioVitalis\biovitalis\packages\node_modules\.bin;D:\Work\BioVitalis\biovitalis\node_modules\.bin;D:\Work\BioVitalis\node_modules\.bin;D:\Work\node_modules\.bin;D:\node_modules\.bin;D:\Programs\NodeJS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;D:\Programs\Git\cmd;D:\Programs\NodeJS\;D:\Programs\Yarn\bin\;C:\Users\nkala\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\nkala\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Programs\Calibre\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;D:\Programs\Git\cmd;D:\Programs\NodeJS\;C:\Program Files\PuTTY\;C:\Users\nkala\AppData\Local\Microsoft\WindowsApps;C:\Users\nkala\.dotnet\tools;C:\Users\nkala\AppData\Local\Microsoft\WindowsApps;C:\Users\nkala\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\nkala\AppData\Local\Programs\Python\Python38-32\Scripts;C:\Program Files\JetBrains\PyCharm 2020.3\bin;;C:\Users\nkala\.jdks\openjdk-14.0.1\bin;C:\Users\nkala\AppData\Local\Yarn\bin;C:\Users\nkala\AppData\Roaming\npm;C:\Program Files\JetBrains\WebStorm 2020.3\bin;;D:\Programs\flutter\bin;
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  14.15.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.npmjs.org/date-fns/-/date-fns-2.19.0.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Users\nkala\AppData\Local\Yarn\Data\global\node_modules\@sanity\cli\vendor\yarn:133816:19)
+      at Object.onceWrapper (events.js:421:28)
+      at ClientRequest.emit (events.js:315:20)
+      at TLSSocket.emitRequestTimeout (_http_client.js:784:9)
+      at Object.onceWrapper (events.js:421:28)
+      at TLSSocket.emit (events.js:327:22)
+      at TLSSocket.Socket._onTimeout (net.js:483:8)
+      at listOnTimeout (internal/timers.js:554:17)
+      at processTimers (internal/timers.js:497:7)
+
+npm manifest: 
+  {
+    "name": "@root/studio",
+    "private": true,
+    "version": "0.0.0",
+    "description": "",
+    "main": "package.json",
+    "author": "Neycho Kalaydzhiev <n.kalaidjiev@gmail.com>",
+    "license": "UNLICENSED",
+    "scripts": {
+      "start": "sanity start",
+      "build": "sanity build"
+    },
+    "keywords": [
+      "sanity"
+    ],
+    "dependencies": {
+      "@sanity/base": "^2.6.0",
+      "@sanity/cli": "^2.6.0",
+      "@sanity/components": "^2.2.6",
+      "@sanity/core": "^2.6.1",
+      "@sanity/dashboard": "^2.2.6",
+      "@sanity/default-layout": "^2.6.0",
+      "@sanity/default-login": "^2.2.6",
+      "@sanity/desk-tool": "^2.6.1",
+      "prop-types": "^15.7",
+      "react": "^17.0",
+      "react-dom": "^17.0",
+      "sanity-plugin-autocomplete-tags": "^1.0.1",
+      "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
+      "sanity-plugin-tabs": "^2.0.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
