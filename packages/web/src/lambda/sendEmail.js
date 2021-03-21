@@ -1,7 +1,5 @@
-// Gatsby settings for the environment variables
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+import mailgun from "mailgun-js"
+
 const headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
@@ -10,7 +8,6 @@ const successCode = 200
 const errorCode = 400
 
 // Connect to our Mailgun API
-const mailgun = require("mailgun-js")
 const mg = mailgun({
   apiKey: process.env.MAILGUN_API_KEY,
   domain: process.env.MAILGUN_DOMAIN,

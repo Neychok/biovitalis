@@ -48,8 +48,7 @@ export default class Contact extends React.Component {
 
     axios.post(endpoints.contact, JSON.stringify(data)).then(response => {
       console.log(response)
-      if (response.status !== 200) {
-        console.log(response.status)
+      if (response.status !== 200 && response.data.statusCode != null) {
         this.handleError()
       } else {
         console.log(response.status)
@@ -61,6 +60,7 @@ export default class Contact extends React.Component {
   }
 
   handleSuccess = () => {
+    console.log("success")
     this.setState({
       name: "",
       phone: "",
@@ -72,6 +72,7 @@ export default class Contact extends React.Component {
   }
 
   handleError = msg => {
+    console.log("error")
     this.setState({
       loading: false,
       error: true,
