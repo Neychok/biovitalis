@@ -51,6 +51,7 @@ export function handler(event, context, callback) {
 
   // Our MailGun code
   mg.messages().send(mailOptions, function (error, body) {
+    console.log(error)
     if (error) {
       callback(null, {
         errorCode,
