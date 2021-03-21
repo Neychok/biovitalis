@@ -48,7 +48,7 @@ export default class Contact extends React.Component {
 
     axios.post(endpoints.contact, JSON.stringify(data)).then(response => {
       console.log(response)
-      if (response.status !== 200 && response.data.statusCode != null) {
+      if (response.status !== 200 || response.data.statusCode != null) {
         this.handleError()
       } else {
         console.log(response.status)
