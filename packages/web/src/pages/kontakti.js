@@ -33,9 +33,9 @@ class ContactPage extends Component {
         <div className="max-w-6xl px-2 mx-auto">
           <SEO title="Home" />
           {/* Page Title */}
-          <div className="mt-8 mb-3 text-xl text-center">
-            <h1>Контакти</h1>
-          </div>
+          <h1 className="md:text-2xl mt-8 mb-3 text-xl font-normal text-center">
+            Контакти
+          </h1>
           <hr className="hr-line mx-auto mb-6"></hr>
 
           <Paper className="pb-4 mb-4">
@@ -101,13 +101,13 @@ class ContactPage extends Component {
                 <div className="border-color-primary md:items-start md:px-8 flex flex-col items-center justify-center w-3/5 h-20 border-l-2">
                   <a
                     href="tel:+359878909322"
-                    className="secondary-700 xl:text-xl block pb-2 text-lg"
+                    className="secondary-700 xl:text-xl hover:underline block pb-2 text-lg"
                   >
                     +359 878 909 322
                   </a>
                   <a
                     href="tel:+359885172150"
-                    className="secondary-700 xl:text-xl block pt-2 text-lg"
+                    className="secondary-700 xl:text-xl hover:underline block pt-2 text-lg"
                   >
                     +359 885 172 150
                   </a>
@@ -138,7 +138,7 @@ class ContactPage extends Component {
                 <div className="border-color-primary md:justify-start md:px-8 flex items-center justify-center w-3/5 h-20 align-middle border-l-2">
                   <a
                     href="mailto:biovitalis.bulgaria@gmail.com"
-                    className="secondary-700 xl:text-xl block text-lg text-center"
+                    className="secondary-700 xl:text-xl hover:underline block text-lg text-center"
                   >
                     <span className="block">biovitalis.bulgaria</span>
                     <span className="block">@gmail.com</span>

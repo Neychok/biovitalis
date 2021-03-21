@@ -19,7 +19,7 @@ const NavigationBar = () => {
           </a>
         </div>
       </div>
-      <nav className="flex items-center w-full h-20 bg-white shadow">
+      <nav className="flex items-center w-full h-20 font-normal bg-white shadow">
         <div className="container flex items-center justify-between h-full px-4 mx-auto">
           {/* Container for Logo*/}
           <Link to="/" className="flex items-center h-full ml-2">

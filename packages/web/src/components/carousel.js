@@ -22,7 +22,7 @@ const Carousel = ({ images, productName, placeholder }) => {
           slidesPerView={1}
         >
           {images.map((slide, index) => {
-            if (slide.alt == undefined) {
+            if (slide.alt === null) {
               slide.alt = productName + "-" + (index + 1)
             }
             return (

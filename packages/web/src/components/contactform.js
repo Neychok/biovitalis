@@ -2,11 +2,11 @@ import React from "react"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+import axios from "axios"
 
 const endpoints = {
   contact: "/.netlify/functions/sendEmail",
 }
-const axios = require("axios")
 
 const theme = createMuiTheme({
   palette: {
@@ -45,13 +45,18 @@ export default class Contact extends React.Component {
   handleSubmit = e => {
     let { name, phone, email, message, product, productUrl } = this.state
     let data = { name, phone, email, message, product, productUrl }
+
     axios.post(endpoints.contact, JSON.stringify(data)).then(response => {
+      console.log(response)
       if (response.status !== 200) {
+        console.log(response.status)
         this.handleError()
       } else {
+        console.log(response.status)
         this.handleSuccess()
       }
     })
+
     e.preventDefault()
   }
 
@@ -91,9 +96,9 @@ export default class Contact extends React.Component {
               name="name"
               id="standard-name"
               label="Вашето име"
-              variant="filled"
-              size="small"
-              className="w-full mt-2"
+              variant="outlined"
+              size="medium"
+              className="w-full mb-3"
               // error
               // helperText="Моля попълнете полето."
               required
@@ -104,12 +109,11 @@ export default class Contact extends React.Component {
               name="phone"
               id="standard-phone"
               label="Телефон за обратна връзка"
-              variant="filled"
-              size="small"
-              className="w-full mt-2"
+              variant="outlined"
+              size="medium"
+              className="md:w-1/2 w-full pr-1 mb-3"
               // error
               // helperText="Моля попълнете полето."
-              required
               value={this.state.phone}
               onChange={this.handleChange}
             />
@@ -117,9 +121,9 @@ export default class Contact extends React.Component {
               name="email"
               id="standard-email"
               label="Вашият И-мейл"
-              variant="filled"
-              size="small"
-              className="w-full mt-2"
+              variant="outlined"
+              size="medium"
+              className="md:w-1/2 w-full pl-1 mb-3"
               // error
               // helperText="Моля попълнете полето."
               required
@@ -130,10 +134,12 @@ export default class Contact extends React.Component {
               name="message"
               id="standard-message"
               label="Съобщение"
-              variant="filled"
-              className="w-full mt-2"
+              variant="outlined"
+              rows="4"
+              size="medium"
               // error
               // helperText="Моля попълнете полето."
+              className="w-full"
               required
               multiline
               value={this.state.message}
@@ -143,7 +149,7 @@ export default class Contact extends React.Component {
               variant="contained"
               color="primary"
               type="submit"
-              className="xl:text-base block px-6 py-2 mt-3 ml-auto mr-0 text-white"
+              className="xl:text-base md:w-1/4 block w-full px-6 py-2 mt-3 ml-auto mr-0 text-white"
             >
               Изпрати
             </Button>

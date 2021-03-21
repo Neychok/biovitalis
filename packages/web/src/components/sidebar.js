@@ -97,7 +97,7 @@ const Sidebar = () => {
             initial={"closed"} // Initial state of the m
             variants={variantsMenu}
             transition="easeIn"
-            className="mt-14 fixed top-0 left-0 z-50 flex flex-col justify-between w-56 h-full pb-24 overflow-hidden bg-white border-t"
+            className="mt-14 fixed top-0 left-0 z-50 flex flex-col justify-between w-56 h-full pb-24 overflow-hidden font-normal bg-white border-t"
           >
             <div>
               {/* Background pattern */}
