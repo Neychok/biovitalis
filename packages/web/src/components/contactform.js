@@ -51,7 +51,6 @@ export default class Contact extends React.Component {
       if (response.status !== 200 || response.data.statusCode != null) {
         this.handleError()
       } else {
-        console.log(response.status)
         this.handleSuccess()
       }
     })
