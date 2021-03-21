@@ -111,6 +111,6 @@ module.exports = {
     },
     // Plugin that adds offline support
     `gatsby-plugin-offline`,
-    //"gatsby-plugin-remove-serviceworker",
+    "gatsby-plugin-remove-serviceworker",
   ],
 }
