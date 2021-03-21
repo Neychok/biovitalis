@@ -7,6 +7,10 @@ export default {
       title: "Изображение",
       name: "image",
     },
+    {
+      type: "string",
+      name: "alt",
+    },
   ],
   preview: {
     select: {

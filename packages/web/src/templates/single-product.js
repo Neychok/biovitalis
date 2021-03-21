@@ -40,13 +40,7 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 }
 
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
-  }
-}
-
+// Material UI Theme
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -62,7 +56,10 @@ const theme = createMuiTheme({
 })
 
 const Product = ({ data }) => {
+  // Semantic variable
   const product = data.sanityJuicePressingProduct
+
+  // Handles state for the swipeable tabs
   const [value, setValue] = React.useState(0)
 
   const handleChange = (event, newValue) => {
@@ -73,6 +70,15 @@ const Product = ({ data }) => {
     setValue(index)
   }
 
+  // Needed for the tabs
+  function a11yProps(index) {
+    return {
+      id: `full-width-tab-${index}`,
+      "aria-controls": `full-width-tabpanel-${index}`,
+    }
+  }
+
+  // Renders the description
   const BlockRenderer = props => {
     const { style = "normal" } = props.node
     if (style === "h1") {
@@ -105,15 +111,40 @@ const Product = ({ data }) => {
     return BlockContent.defaultSerializers.types.block(props)
   }
 
+  // Cuts long text, used for the breadcrumbs
   function cutLongText(text) {
     if (text.length > 25) {
       return text.substring(0, 24) + "..."
     } else return text
   }
 
+  // Converts Sanity's Portable Text Blocks to plain text, used for the SEO description
+  const description = blocks =>
+    blocks
+      // loop through each block
+      .map(block => {
+        // if it's not a text block with children,
+        // return nothing
+        if (block._type !== "block" || !block.children) {
+          return ""
+        }
+        // loop through the children spans, and join the
+        // text strings
+        return block.children.map(child => child.text).join("")
+      })
+      // join the paragraphs leaving split by two linebreaks
+      .join("\n\n")
+      .substr(0, 159)
+
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title={product.name}
+        description={
+          product.tabs.metaDescription ||
+          description(product.tabs._rawDescription)
+        }
+      />
       <div className="md:px-4 max-w-6xl px-3 mx-auto">
         {/* Wrapper for the Breadcrumbs, back button, Slider, Title */}
         <Breadcrumbs
@@ -181,6 +212,7 @@ const Product = ({ data }) => {
         >
           <Carousel
             images={product.tabs.gallery}
+            productName={product.name}
             placeholder={data.file.childImageSharp.fluid}
           ></Carousel>
         </Paper>
@@ -340,8 +372,10 @@ export const query = graphql`
         slug {
           current
         }
+        metaDescription
         YoutubeUrl
         gallery {
+          alt
           image {
             asset {
               fluid {

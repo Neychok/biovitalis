@@ -7,7 +7,7 @@ import Lightbox from "./lightbox"
 
 SwiperCore.use([Thumbs])
 
-const Carousel = ({ images, placeholder }) => {
+const Carousel = ({ images, productName, placeholder }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   if (images.length > 0) {
     return (
@@ -21,16 +21,22 @@ const Carousel = ({ images, placeholder }) => {
           autoHeight
           slidesPerView={1}
         >
-          {images.map(slide => (
-            <SwiperSlide key={slide.image.asset.fluid.src}>
-              <Lightbox image={slide.image.asset.fluid.src}>
-                <Img
-                  fluid={slide.image.asset.fluid}
-                  className="carousel-image block object-cover w-full"
-                />
-              </Lightbox>
-            </SwiperSlide>
-          ))}
+          {images.map((slide, index) => {
+            if (slide.alt == undefined) {
+              slide.alt = productName + "-" + (index + 1)
+            }
+            return (
+              <SwiperSlide key={slide.image.asset.fluid.src}>
+                <Lightbox image={slide.image.asset.fluid.src}>
+                  <Img
+                    fluid={slide.image.asset.fluid}
+                    className="carousel-image block object-cover w-full"
+                    alt={slide.alt}
+                  />
+                </Lightbox>
+              </SwiperSlide>
+            )
+          })}
         </Swiper>
 
         <Swiper
@@ -46,6 +52,7 @@ const Carousel = ({ images, placeholder }) => {
               <Img
                 fluid={slide.image.asset.fluid}
                 className="lg:h-20 object-cover w-full h-16 p-1 mt-1 rounded-lg"
+                alt=""
               />
             </SwiperSlide>
           ))}

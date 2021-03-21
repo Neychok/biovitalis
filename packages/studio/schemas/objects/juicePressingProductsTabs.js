@@ -35,6 +35,18 @@ export default {
       },
       validation: Rule => Rule.unique().warning("Повтарят се характеристики"),
     },
+    //* Свързани продукти
+    {
+      type: "array",
+      title: "Свързани продукти",
+      name: "relatedProducts",
+      fieldset: "main",
+      of: [{ type: "relatedProductObject" }],
+      options: {
+        layout: "grid",
+      },
+      validation: Rule => Rule.unique().error("Този продукт е вече избран"),
+    },
 
     //* MEDIA TAB
 
@@ -80,6 +92,18 @@ export default {
       },
     },
 
+    //* Мета описание
+    {
+      type: "string",
+      title: "Мета описание",
+      name: "metaDescription",
+      fieldset: "seo",
+      validation: Rule =>
+        Rule.max(160).warning(
+          `Мета описанието не бива да е повече от 160 знака.`
+        ),
+    },
+
     //* Тагове
     {
       type: "tags",
@@ -87,18 +111,6 @@ export default {
       name: "tags",
       fieldset: "seo",
       validation: Rule => Rule.unique().error("Премахни повтарящите се тагове"),
-    },
-    //* Свързани продукти
-    {
-      type: "array",
-      title: "Свързани продукти",
-      name: "relatedProducts",
-      fieldset: "seo",
-      of: [{ type: "relatedProductObject" }],
-      options: {
-        layout: "grid",
-      },
-      validation: Rule => Rule.unique().error("Този продукт е вече избран"),
     },
   ],
 }
