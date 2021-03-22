@@ -56,7 +56,6 @@ const theme = createMuiTheme({
 })
 
 const Product = ({ data }) => {
-  // Semantic variable
   const product = data.sanityJuicePressingProduct
 
   // Handles state for the swipeable tabs
@@ -111,14 +110,14 @@ const Product = ({ data }) => {
     return BlockContent.defaultSerializers.types.block(props)
   }
 
-  // Cuts long text, used for the breadcrumbs
+  //* Cuts long text, used for the breadcrumbs
   function cutLongText(text) {
     if (text.length > 25) {
       return text.substring(0, 24) + "..."
     } else return text
   }
 
-  // Converts Sanity's Portable Text Blocks to plain text, used for the SEO description
+  //* Converts Sanity's Portable Text Blocks to plain text, used for the SEO description
   const description = blocks =>
     blocks
       // loop through each block
@@ -344,7 +343,6 @@ const Product = ({ data }) => {
             <ContactForm
               message="Изпрати запитване за този продукт"
               product={product.name}
-              productUrl={product.tabs.slug.current}
             ></ContactForm>
           </div>
         </Paper>

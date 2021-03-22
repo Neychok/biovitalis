@@ -1,6 +1,6 @@
 import React from "react"
-import TextField from "@material-ui/core/TextField"
-import Button from "@material-ui/core/Button"
+import { TextField, Button, Snackbar } from "@material-ui/core"
+import { Alert } from "@material-ui/lab"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import axios from "axios"
 
@@ -30,9 +30,11 @@ export default class Contact extends React.Component {
     email: "",
     message: "",
     product: this.props.product,
-    productUrl: this.props.productUrl,
+    errorOpen: false,
+    successOpen: false,
   }
 
+  //* Changes the state on every key
   handleChange = event => {
     const name = event.target.name
     const value = event.target.value
@@ -42,9 +44,10 @@ export default class Contact extends React.Component {
     this.setState(statesToUpdate)
   }
 
+  //* Handles submit
   handleSubmit = e => {
-    let { name, phone, email, message, product, productUrl } = this.state
-    let data = { name, phone, email, message, product, productUrl }
+    let { name, phone, email, message, product } = this.state
+    let data = { name, phone, email, message, product }
 
     axios.post(endpoints.contact, JSON.stringify(data)).then(response => {
       console.log(response)
@@ -54,10 +57,11 @@ export default class Contact extends React.Component {
         this.handleSuccess()
       }
     })
-
+    // Prevents default behaviour
     e.preventDefault()
   }
 
+  //* Fires if the email is sent successfully
   handleSuccess = () => {
     console.log("success")
     this.setState({
@@ -67,9 +71,11 @@ export default class Contact extends React.Component {
       message: "",
       loading: false,
       error: false,
+      successOpen: true,
     })
   }
 
+  //* Fires if there's an error
   handleError = msg => {
     console.log("error")
     this.setState({
@@ -77,6 +83,14 @@ export default class Contact extends React.Component {
       error: true,
       msg,
     })
+  }
+
+  //* Alerts
+  handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return
+    }
+    this.setState({ alertOpen: false })
   }
 
   render() {
@@ -145,6 +159,9 @@ export default class Contact extends React.Component {
               value={this.state.message}
               onChange={this.handleChange}
             />
+            <span className="text-sm">
+              Полетата маркирани с * са задължителни
+            </span>
             <Button
               variant="contained"
               color="primary"
@@ -154,6 +171,28 @@ export default class Contact extends React.Component {
               Изпрати
             </Button>
           </form>
+          <Snackbar
+            open={this.state.successOpen}
+            autoHideDuration={6000}
+            onClose={this.handleClose}
+          >
+            <Alert
+              onClose={this.handleClose}
+              variant="filled"
+              severity="success"
+            >
+              Вашето съобщение е изпратено успешно!
+            </Alert>
+          </Snackbar>
+          <Snackbar
+            open={this.state.errorOpen}
+            autoHideDuration={6000}
+            onClose={this.handleClose}
+          >
+            <Alert onClose={this.handleClose} variant="filled" severity="error">
+              Възникна проблем при изпращането, опитайте отново!
+            </Alert>
+          </Snackbar>
         </ThemeProvider>
       </>
     )

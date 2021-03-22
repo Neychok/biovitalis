@@ -7,16 +7,16 @@ const headers = {
 const successCode = 200
 const errorCode = 400
 
-// Connect to our Mailgun API
+//* Connect to our Mailgun API
 const mg = mailgun({
   apiKey: process.env.MAILGUN_API_KEY,
   domain: process.env.MAILGUN_DOMAIN,
 })
 
-// Our Netlify function
+//* Netlify function
 export function handler(event, context, callback) {
   let data = JSON.parse(event.body)
-  let { name, email, phone, message, product, productUrl } = data
+  let { name, email, phone, message, product } = data
   let mailOptions = null
 
   if (product != null) {
@@ -30,7 +30,6 @@ export function handler(event, context, callback) {
       И-мейл: ${email} \n
       Телефон: ${phone} \n
       Запитване относно продукт: "${product}" \n
-      Адрес на продукта: ${productUrl} \n
       Съобщение: \n
       ${message}
       `,
@@ -49,10 +48,10 @@ export function handler(event, context, callback) {
     }
   }
 
-  // Our MailGun code
-  mg.messages().send(mailOptions, function (error, body) {
+  //* MailGun code
+  mg.messages().send(mailOptions, (error, body) => {
     console.log(error)
-    console.log(typeof error)
+    console.log(body)
     if (error) {
       callback(null, {
         errorCode,
