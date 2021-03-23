@@ -1,69 +1,46 @@
-import mailgun from "mailgun-js"
+const sgMail = require("@sendgrid/mail")
 
-const headers = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type",
-}
-const successCode = 200
-const errorCode = 400
-
-//* Connect to our Mailgun API
-const mg = mailgun({
-  apiKey: process.env.MAILGUN_API_KEY,
-  domain: process.env.MAILGUN_DOMAIN,
+require("dotenv").config({
+  path: `.env`,
 })
 
 //* Netlify function
-export function handler(event, context, callback) {
+exports.handler = async (event, context, callback) => {
   let data = JSON.parse(event.body)
   let { name, email, phone, message, product } = data
-  let mailOptions = null
+  let msg = null
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-  if (product != null) {
-    mailOptions = {
-      from: `БиоВиталис: ${name} <${email}>`,
-      to: process.env.MY_EMAIL_ADDRESS,
-      replyTo: email,
-      subject: `Запитване относно: ${product}`,
-      text: `
+  //* Email details
+  msg = {
+    to: process.env.SENDGRID_TO_EMAIL,
+    from: `БиоВиталис: ${name} <${process.env.SENDGRID_TO_EMAIL}>`,
+    replyTo: email,
+    subject: product
+      ? `Запитване относно: ${product}`
+      : `Получено съобщение от формата за контакти`,
+    text: `
       Изпратено от: ${name} \n
       И-мейл: ${email} \n
       Телефон: ${phone} \n
-      Запитване относно продукт: "${product}" \n
+      ${product ? `Запитване относно продукт: "${product}"` : ``} \n
       Съобщение: \n
       ${message}
       `,
-    }
-  } else {
-    mailOptions = {
-      from: `БиоВиталис: ${name} <${email}>`,
-      to: process.env.MY_EMAIL_ADDRESS,
-      replyTo: email,
-      subject: `Изпратено съобщение от ${name} чрез формата за контакти`,
-      text: `
-      Изпратено от: ${name} \n
-      И-мейл: ${email} \n
-      Телефон: ${phone} \n
-      Съобщение: \n${message}`,
-    }
   }
 
-  //* MailGun code
-  mg.messages().send(mailOptions, (error, body) => {
-    console.log(error)
-    console.log(body)
-    if (error) {
-      callback(null, {
-        errorCode,
-        headers,
-        body: JSON.stringify(error),
-      })
-    } else {
-      callback(null, {
-        successCode,
-        headers,
-        body: JSON.stringify(body),
-      })
+  //* Sendgrid mail send
+  try {
+    await sgMail.send(msg)
+
+    return {
+      statusCode: 200,
+      body: "Message sent",
     }
-  })
+  } catch (e) {
+    return {
+      statusCode: e.code,
+      body: e.message,
+    }
+  }
 }
