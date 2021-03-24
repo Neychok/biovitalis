@@ -5,8 +5,10 @@ import Paper from "@material-ui/core/Paper"
 import Layout from "../components/layout"
 import Map from "../components/map"
 
+import GoogleMapsIcon from "../assets/svgs/google-maps.svg"
+
 const ContactPage = () => {
-  const position = [42.8201084, 23.2291607]
+  const position = [42.82008, 23.2291849]
   const zoom = 13
   return (
     <Layout>
@@ -33,12 +35,18 @@ const ContactPage = () => {
               />
             </svg>
             <div className="primary-1000 text-xl text-center">Адрес</div>
-            <a
-              href="https://goo.gl/maps/Xr2BPVQKzUz3gdvB6"
-              className="secondary-700 xl:text-xl md:text-lg hover:underline block pt-1 mb-4 text-base text-center"
-            >
-              ул. Първи Май 15, Костинброд 2230
-            </a>
+            <div className="flex justify-center my-2">
+              <a
+                href="https://www.google.com/maps/place/1-%D0%B2%D0%B8+%D0%BC%D0%B0%D0%B9+15,+2230+%D0%A6%D0%B5%D0%BD%D1%82%D1%8A%D1%80,+%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B1%D1%80%D0%BE%D0%B4/@42.82008,23.2291849,19z/data=!4m5!3m4!1s0x40aa943693d84399:0xc92418574869ddd9!8m2!3d42.8201635!4d23.2294209"
+                className="hover:bg-gray-100 inline-flex items-center justify-center p-2 border rounded"
+                title="Към Google Maps"
+              >
+                <GoogleMapsIcon className="h-8 mr-2" />
+                <p className="secondary-700 xl:text-xl text-lg text-center">
+                  ул. Първи Май 15, Костинброд 2230
+                </p>
+              </a>
+            </div>
             <div
               className="border-color-primary border-t"
               style={{ width: "100%", height: "24rem" }}
