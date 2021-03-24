@@ -7,9 +7,12 @@ import Map from "../components/map"
 
 import GoogleMapsIcon from "../assets/svgs/google-maps.svg"
 
-const ContactPage = () => {
-  const position = [42.82008, 23.2291849]
+const ContactPage = ({ data }) => {
+  const info = data.sanityContactsPage
+  const position = [info.location.lng, info.location.lat]
   const zoom = 13
+
+  const email = info.email
   return (
     <Layout>
       <div className="max-w-6xl px-2 mx-auto">
@@ -37,7 +40,7 @@ const ContactPage = () => {
             <div className="primary-1000 text-xl text-center">Адрес</div>
             <div className="flex justify-center my-2">
               <a
-                href="https://www.google.com/maps/place/1-%D0%B2%D0%B8+%D0%BC%D0%B0%D0%B9+15,+2230+%D0%A6%D0%B5%D0%BD%D1%82%D1%8A%D1%80,+%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B1%D1%80%D0%BE%D0%B4/@42.82008,23.2291849,19z/data=!4m5!3m4!1s0x40aa943693d84399:0xc92418574869ddd9!8m2!3d42.8201635!4d23.2294209"
+                href={info.locationURL}
                 target="_blank"
                 rel="nofollow"
                 className="hover:bg-gray-100 inline-flex items-center justify-center p-2 border rounded"
@@ -45,7 +48,7 @@ const ContactPage = () => {
               >
                 <GoogleMapsIcon className="h-8 mr-2" />
                 <p className="secondary-700 xl:text-xl text-base text-center">
-                  ул. Първи Май 15, Костинброд 2230
+                  {info.address}
                 </p>
               </a>
             </div>
@@ -85,13 +88,13 @@ const ContactPage = () => {
                   href="tel:+359878909322"
                   className="secondary-700 xl:text-xl hover:underline block pb-2 text-lg"
                 >
-                  +359 878 909 322
+                  {info.phone_1}
                 </a>
                 <a
                   href="tel:+359885172150"
                   className="secondary-700 xl:text-xl hover:underline block pt-2 text-lg"
                 >
-                  +359 885 172 150
+                  {info.phone_2}
                 </a>
               </div>
             </div>
@@ -122,8 +125,8 @@ const ContactPage = () => {
                   href="mailto:biovitalis.bulgaria@gmail.com"
                   className="secondary-700 xl:text-xl hover:underline block text-lg text-center"
                 >
-                  <span className="block">biovitalis.bulgaria</span>
-                  <span className="block">@gmail.com</span>
+                  <span className="block">{info.email.split("@")[0]}</span>
+                  <span className="block">@{info.email.split("@")[1]}</span>
                 </a>
               </div>
             </div>
@@ -138,4 +141,19 @@ const ContactPage = () => {
     </Layout>
   )
 }
+export const query = graphql`
+  {
+    sanityContactsPage {
+      email
+      phone_2
+      phone_1
+      locationURL
+      location {
+        lng
+        lat
+      }
+      address
+    }
+  }
+`
 export default ContactPage
