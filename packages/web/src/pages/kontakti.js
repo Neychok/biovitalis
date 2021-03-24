@@ -38,6 +38,8 @@ const ContactPage = () => {
             <div className="flex justify-center my-2">
               <a
                 href="https://www.google.com/maps/place/1-%D0%B2%D0%B8+%D0%BC%D0%B0%D0%B9+15,+2230+%D0%A6%D0%B5%D0%BD%D1%82%D1%8A%D1%80,+%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B1%D1%80%D0%BE%D0%B4/@42.82008,23.2291849,19z/data=!4m5!3m4!1s0x40aa943693d84399:0xc92418574869ddd9!8m2!3d42.8201635!4d23.2294209"
+                target="_blank"
+                rel="nofollow"
                 className="hover:bg-gray-100 inline-flex items-center justify-center p-2 border rounded"
                 title="Към Google Maps"
               >
