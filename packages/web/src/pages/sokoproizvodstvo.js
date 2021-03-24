@@ -19,7 +19,7 @@ const ProductsPage = ({ data }) => {
       <hr className="hr-line md:mb-8 mx-auto mb-5" />
 
       {/* Categories List */}
-      <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 container grid grid-cols-2 gap-6 px-2 mx-auto">
+      <div className="md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-6 md:gap-5 container grid grid-cols-2 gap-3 px-2 mx-auto">
         {categories.map(category => {
           return (
             <div key={category.node.slug.current}>
