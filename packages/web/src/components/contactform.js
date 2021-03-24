@@ -179,7 +179,7 @@ export default class Contact extends React.Component {
   render() {
     return (
       <>
-        <div className="xl:text-2xl xl:py-6 md:py-4 md:text-xl text-primary-black px-3 py-2 text-lg text-center">
+        <div className="xl:text-2xl xl:py-6 md:text-xl text-primary-black px-3 py-5 text-lg text-center">
           {this.props.message}
         </div>
         <ThemeProvider theme={theme}>

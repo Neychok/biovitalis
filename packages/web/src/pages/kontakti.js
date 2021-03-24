@@ -55,7 +55,7 @@ class ContactPage extends Component {
               <div className="primary-1000 text-xl text-center">Адрес</div>
               <a
                 href="https://goo.gl/maps/Xr2BPVQKzUz3gdvB6"
-                className="secondary-700 xl:text-xl md:text-lg block pt-1 mb-4 text-base text-center hover:underline"
+                className="secondary-700 xl:text-xl md:text-lg hover:underline block pt-1 mb-4 text-base text-center"
               >
                 ул. Първи Май 15, Костинброд 2230
               </a>
@@ -147,7 +147,7 @@ class ContactPage extends Component {
               </div>
             </div>
           </Paper>
-          <Paper className="xl:py-10 py-4 mb-4">
+          <Paper className="xl:py-10 pb-6 mb-4">
             <div className="max-w-3xl mx-auto">
               <ContactForm message="Изпратете ни имейл и ние ще се свържим с вас!"></ContactForm>
             </div>
