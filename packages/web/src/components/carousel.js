@@ -50,7 +50,12 @@ const Carousel = ({ images, productName, placeholder }) => {
             }
             return (
               <SwiperSlide key={slide.image.asset.fluid.src}>
-                <button className="w-full h-full" onClick={() => setOpen(true)}>
+                <button
+                  className="w-full h-full"
+                  onClick={() => {
+                    setPhotoIndex(index), setOpen(true)
+                  }}
+                >
                   <Img
                     fluid={slide.image.asset.fluid}
                     className="carousel-image block object-cover w-full"
