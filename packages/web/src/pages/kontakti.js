@@ -55,7 +55,7 @@ class ContactPage extends Component {
               <div className="primary-1000 text-xl text-center">Адрес</div>
               <a
                 href="https://goo.gl/maps/Xr2BPVQKzUz3gdvB6"
-                className="secondary-700 xl:text-xl md:text-lg block pt-1 mb-2 text-base text-center"
+                className="secondary-700 xl:text-xl md:text-lg block pt-1 mb-4 text-base text-center hover:underline"
               >
                 ул. Първи Май 15, Костинброд 2230
               </a>

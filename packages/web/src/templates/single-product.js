@@ -314,12 +314,11 @@ const Product = ({ data }) => {
           <div className="border-color-primary-500 py-3 mb-6 text-center border-b">
             <p className="text-lg">Описание</p>
           </div>
-          <p className="text-primary-black max-w-3xl px-6 pb-8 mx-auto">
-            <BlockContent
-              blocks={product.tabs._rawDescription}
-              serializers={{ types: { block: BlockRenderer } }}
-            />
-          </p>
+          <BlockContent
+            blocks={product.tabs._rawDescription}
+            serializers={{ types: { block: BlockRenderer } }}
+            className="text-primary-black max-w-3xl px-6 pb-8 mx-auto"
+          />
           <iframe
             title={product.tabs.YoutubeUrl}
             modestbranding="1"

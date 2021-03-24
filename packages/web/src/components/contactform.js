@@ -91,6 +91,8 @@ export default class Contact extends React.Component {
           }
           break
         }
+        default: {
+        }
       }
     })
   }
@@ -194,7 +196,7 @@ export default class Contact extends React.Component {
               label="Вашето име"
               variant="outlined"
               size="medium"
-              className="w-full md:mb-3 mb-6"
+              className="md:mb-3 w-full mb-6"
               required
               value={this.state.name}
               error={this.state.nameError}
@@ -213,7 +215,7 @@ export default class Contact extends React.Component {
               label="Телефон за обратна връзка"
               variant="outlined"
               size="medium"
-              className="md:w-1/2 w-full md:pr-1 md:mb-3 mb-6"
+              className="md:w-1/2 md:pr-1 md:mb-3 w-full mb-6"
               value={this.state.phone}
               error={this.state.phoneError}
               helperText={
@@ -231,7 +233,7 @@ export default class Contact extends React.Component {
               label="Вашият И-мейл"
               variant="outlined"
               size="medium"
-              className="md:w-1/2 w-full md:pl-1 md:mb-3 mb-6"
+              className="md:w-1/2 md:pl-1 md:mb-3 w-full mb-6"
               required
               value={this.state.email}
               error={this.state.emailError}

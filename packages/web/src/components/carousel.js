@@ -3,21 +3,44 @@ import SwiperCore, { Thumbs } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper-bundle.min.css"
 import Img from "gatsby-image"
-import Lightbox from "./lightbox"
+
+import Lightbox from "react-image-lightbox"
+import "react-image-lightbox/style.css"
 
 SwiperCore.use([Thumbs])
 
 const Carousel = ({ images, productName, placeholder }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [photoIndex, setPhotoIndex] = useState(0)
+  const [isOpen, setOpen] = useState(false)
+
   if (images.length > 0) {
     return (
-      <div>
+      <>
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex].image.asset.fluid.src}
+            nextSrc={
+              images[(photoIndex + 1) % images.length].image.asset.fluid.src
+            }
+            prevSrc={
+              images[(photoIndex + images.length - 1) % images.length].image
+                .asset.fluid.src
+            }
+            onCloseRequest={() => setOpen(false)}
+            onMovePrevRequest={() =>
+              setPhotoIndex((photoIndex + images.length - 1) % images.length)
+            }
+            onMoveNextRequest={() =>
+              setPhotoIndex((photoIndex + 1) % images.length)
+            }
+          />
+        )}
         <Swiper
           thumbs={{
             swiper: thumbsSwiper,
             slideThumbActiveClass: "thumb-is-active",
           }}
-          className=""
           autoHeight
           slidesPerView={1}
         >
@@ -27,13 +50,13 @@ const Carousel = ({ images, productName, placeholder }) => {
             }
             return (
               <SwiperSlide key={slide.image.asset.fluid.src}>
-                <Lightbox image={slide.image.asset.fluid.src}>
+                <button className="w-full h-full" onClick={() => setOpen(true)}>
                   <Img
                     fluid={slide.image.asset.fluid}
                     className="carousel-image block object-cover w-full"
                     alt={slide.alt}
                   />
-                </Lightbox>
+                </button>
               </SwiperSlide>
             )
           })}
@@ -57,7 +80,7 @@ const Carousel = ({ images, productName, placeholder }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </>
     )
   } else {
     return <Img fluid={placeholder} />
