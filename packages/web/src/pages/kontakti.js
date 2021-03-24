@@ -25,7 +25,7 @@ class ContactPage extends Component {
       lat: 42.8201084,
       lng: 23.2291607,
     },
-    zoom: 15,
+    zoom: 13,
   }
   render() {
     return (
