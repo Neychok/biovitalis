@@ -44,7 +44,7 @@ const ContactPage = () => {
                 title="Към Google Maps"
               >
                 <GoogleMapsIcon className="h-8 mr-2" />
-                <p className="secondary-700 xl:text-xl text-lg text-center">
+                <p className="secondary-700 xl:text-xl text-base text-center">
                   ул. Първи Май 15, Костинброд 2230
                 </p>
               </a>
