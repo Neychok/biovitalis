@@ -60,8 +60,8 @@ class ContactPage extends Component {
                 ул. Първи Май 15, Костинброд 2230
               </a>
               <div
-                className="border-color-primary md:h-96 border-t"
-                style={{ width: "100%" }}
+                className="border-color-primary border-t"
+                style={{ width: "100%", height: "24rem" }}
               >
                 <GoogleMapReact
                   bootstrapURLKeys={{
