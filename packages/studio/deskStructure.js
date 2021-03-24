@@ -64,5 +64,10 @@ S.list()
             ),
         S.listItem()
             .title("Страници")
-            .id("pages"),
+            .id("pages")
+            .child(
+                S.document()
+                .schemaType('contactsPage')
+                .documentId('contactsPage')
+            )
     ])

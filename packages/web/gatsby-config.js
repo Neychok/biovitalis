@@ -45,6 +45,9 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-react-leaflet",
+    },
     // Plugin needed for TailwindCSS to work
     `gatsby-plugin-postcss`,
     `gatsby-plugin-material-ui`,
