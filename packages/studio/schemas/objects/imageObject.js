@@ -1,5 +1,6 @@
 export default {
   type: "object",
+  title: "Снимка",
   name: "imageObject",
   fields: [
     {

@@ -1,6 +1,7 @@
 import Tabs from "sanity-plugin-tabs"
 export default {
   type: "object",
+  title: "Табове",
   name: "juicePressingProductsTabs",
   inputComponent: Tabs,
 

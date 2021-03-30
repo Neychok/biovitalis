@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import ContactForm from "../components/contactform"
 import Paper from "@material-ui/core/Paper"
@@ -9,10 +10,9 @@ import GoogleMapsIcon from "../assets/svgs/google-maps.svg"
 
 const ContactPage = ({ data }) => {
   const info = data.sanityContactsPage
-  const position = [info.location.lng, info.location.lat]
+  const position = [info.location.lat, info.location.lng]
   const zoom = 13
-
-  const email = info.email
+  console.log(position)
   return (
     <Layout>
       <div className="max-w-6xl px-2 mx-auto">
@@ -122,7 +122,7 @@ const ContactPage = ({ data }) => {
               </div>
               <div className="border-color-primary md:justify-start md:px-8 flex items-center justify-center w-3/5 h-20 align-middle border-l-2">
                 <a
-                  href="mailto:biovitalis.bulgaria@gmail.com"
+                  href={"mailto:" + info.email}
                   className="secondary-700 xl:text-xl hover:underline block text-lg text-center"
                 >
                   <span className="block">{info.email.split("@")[0]}</span>

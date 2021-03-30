@@ -17,7 +17,8 @@
     "autocomplete-tags",
     "@sanity/dashboard",
     "dashboard-widget-netlify",
-    "leaflet-input"
+    "leaflet-input",
+    "better-slug"
   ],
   "env": {
     "development": {}

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 import PropTypes from "prop-types"
+import Img from "gatsby-image"
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Breadcrumbs from "@material-ui/core/Breadcrumbs"
@@ -17,6 +18,8 @@ import "lazysizes"
 import getYoutubeID from "get-youtube-id"
 import BlockContent from "@sanity/block-content-to-react"
 import ContactForm from "../components/contactform"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/swiper-bundle.min.css"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -120,18 +123,12 @@ const Product = ({ data }) => {
   //* Converts Sanity's Portable Text Blocks to plain text, used for the SEO description
   const description = blocks =>
     blocks
-      // loop through each block
       .map(block => {
-        // if it's not a text block with children,
-        // return nothing
         if (block._type !== "block" || !block.children) {
           return ""
         }
-        // loop through the children spans, and join the
-        // text strings
         return block.children.map(child => child.text).join("")
       })
-      // join the paragraphs leaving split by two linebreaks
       .join("\n\n")
       .substr(0, 159)
 
@@ -314,29 +311,68 @@ const Product = ({ data }) => {
           <div className="border-color-primary-500 py-3 mb-6 text-center border-b">
             <p className="text-lg">Описание</p>
           </div>
-          <BlockContent
-            blocks={product.tabs._rawDescription}
-            serializers={{ types: { block: BlockRenderer } }}
-            className="text-primary-black max-w-3xl px-6 pb-8 mx-auto"
-          />
-          <iframe
-            title={product.tabs.YoutubeUrl}
-            modestbranding="1"
-            showinfo="0"
-            rel="0"
-            iv_load_policy="3"
-            autohide="0"
-            frameBorder="0"
-            allowFullScreen="1"
-            className={`lazyload w-full max-w-3xl mx-auto h-80 pb-6 px-6 ${
-              product.tabs.YoutubeUrl == null ? "hidden" : ""
-            }`}
-            data-src={`https://www.youtube.com/embed/${getYoutubeID(
-              product.tabs.YoutubeUrl
-            )}`}
-          />
+          <div className="max-w-3xl px-6 pb-8 mx-auto">
+            <BlockContent
+              blocks={product.tabs._rawDescription}
+              serializers={{ types: { block: BlockRenderer } }}
+            />
+            <iframe
+              title={product.tabs.YoutubeUrl}
+              modestbranding="1"
+              showinfo="0"
+              rel="0"
+              iv_load_policy="3"
+              autohide="0"
+              frameBorder="0"
+              allowFullScreen="1"
+              className={`lazyload w-full max-w-3xl mx-auto h-80 pb-6 px-6 ${
+                product.tabs.YoutubeUrl == null ? "hidden" : ""
+              }`}
+              data-src={`https://www.youtube.com/embed/${getYoutubeID(
+                product.tabs.YoutubeUrl
+              )}`}
+            />
+            <p className="pt-4 mt-6 text-xs font-semibold text-gray-400 uppercase border-t">
+              <span>Тагове: </span>
+              {product.tabs.tags.map((tag, index) => {
+                if (index + 1 == product.tabs.tags.length) {
+                  return <span>{tag.value}</span>
+                } else return <span>{tag.value}, </span>
+              })}
+            </p>
+          </div>
         </Paper>
 
+        {product.tabs.relatedProducts && (
+          <Paper className="md:px-4 max-w-6xl px-2 pb-6 mx-auto mb-4">
+            <div className="border-color-primary-500 py-3 mb-6 text-center border-b">
+              <p className="text-lg">Свързани продукти</p>
+            </div>
+            <div className="md:grid-cols-3 lg:grid-cols-4 md:gap-4 grid grid-cols-2 gap-2">
+              {product.tabs.relatedProducts.map(product => {
+                return (
+                  <div className="col-span-1 border rounded">
+                    <Link
+                      to={`/sokoproizvodstvo/${product.relatedProduct.category.slug.current}/${product.relatedProduct.tabs.slug.current}`}
+                      className="w-full h-full"
+                    >
+                      <Img
+                        fluid={
+                          product.relatedProduct.tabs.gallery[0].image.asset
+                            .fluid
+                        }
+                        className="max-h-48 object-cover rounded"
+                      />
+                      <p className="md:text-base px-2 py-4 text-sm border-t">
+                        {product.relatedProduct.name}
+                      </p>
+                    </Link>
+                  </div>
+                )
+              })}
+            </div>
+          </Paper>
+        )}
         <Paper className="max-w-6xl pb-4 mx-auto mb-4" id="contactForm">
           <div className="max-w-3xl mx-auto">
             <ContactForm
@@ -366,8 +402,36 @@ export const query = graphql`
             id
           }
         }
+        relatedProducts {
+          relatedProduct {
+            _key
+            name
+            category {
+              slug {
+                current
+              }
+            }
+            tabs {
+              slug {
+                current
+              }
+              gallery {
+                image {
+                  asset {
+                    fluid {
+                      ...GatsbySanityImageFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         slug {
           current
+        }
+        tags {
+          value
         }
         metaDescription
         YoutubeUrl

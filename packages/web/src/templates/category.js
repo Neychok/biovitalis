@@ -96,7 +96,7 @@ const CategoryPage = ({ data }) => {
             {products.map(product => {
               return (
                 // Container for item
-                <div key={product.node.id} className="grid-span-1 md:mr-4 mb-4">
+                <div key={product.node.id} className="md:mr-4 col-span-1 mb-4">
                   <Paper className="hover:shadow-lg h-36">
                     <Link
                       to={

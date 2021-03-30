@@ -11,6 +11,7 @@ export default {
   ],
   preview: {
     select: {
+      title: "relatedProduct.name",
       media: "relatedProduct.tabs.gallery[0].image",
     },
   },
