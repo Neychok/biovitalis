@@ -18,8 +18,6 @@ import "lazysizes"
 import getYoutubeID from "get-youtube-id"
 import BlockContent from "@sanity/block-content-to-react"
 import ContactForm from "../components/contactform"
-import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/swiper-bundle.min.css"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props

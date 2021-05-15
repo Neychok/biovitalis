@@ -9,13 +9,20 @@ const NavigationBar = () => {
     <>
       <div className="bg-secondary-1000 w-full h-10 text-white">
         <div className="container flex items-center justify-start h-full px-4 mx-auto">
-          <a className="flex items-center" href="tel:0878909322">
-            <PhoneIcon className="h-5 mr-3"></PhoneIcon>
-            <div className="italic">0878 909 322</div>
+          <span className="opacity-90 mr-4">Свържете се с нас:</span>
+          <a
+            className="opacity-90 hover:opacity-100 flex items-center"
+            href="tel:0878909322"
+          >
+            <PhoneIcon className="h-4 mr-2"></PhoneIcon>
+            <span className="text-lg">0878 909 322</span>
           </a>
-          <a className="flex items-center ml-8" href="tel:0885172150">
-            <PhoneIcon className="h-5 mr-3"></PhoneIcon>
-            <div className="italic">0885 172 150</div>
+          <a
+            className="opacity-90 hover:opacity-100 flex items-center ml-8"
+            href="tel:0885172150"
+          >
+            <PhoneIcon className="h-4 mr-2"></PhoneIcon>
+            <span className="text-lg">0885 172 150</span>
           </a>
         </div>
       </div>
