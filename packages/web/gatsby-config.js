@@ -6,8 +6,8 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: `https://biovitalisbg.com/`,
-    title: `BioVitalis`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Био Виталис: Производство на натурални сокове`,
+    description: `Машини за производство и пакетиране на сок от плодове и зеленчуци. Bio Vitalis Ви предлага най-доброто решение в производството и пакетирането на сок от плодове и зеленчуци.`,
     author: `@Neycho`,
   },
 
