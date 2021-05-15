@@ -5,7 +5,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://hungry-kowalevski-954933.netlify.app/`,
+    siteUrl: `https://biovitalisbg.com/`,
     title: `BioVitalis`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@Neycho`,
@@ -46,6 +46,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: ["G-Q882G0YHTY"],
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-leaflet",
     },
     // Plugin needed for TailwindCSS to work
@@ -75,7 +82,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.
       },
     },
 
