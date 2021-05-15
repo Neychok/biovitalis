@@ -340,8 +340,7 @@ const Product = ({ data }) => {
             </p>
           </div>
         </Paper>
-
-        {product.tabs.relatedProducts && (
+        {product.tabs.relatedProducts.length > 0 && (
           <Paper className="md:px-4 max-w-6xl px-2 pb-6 mx-auto mb-4">
             <div className="border-color-primary-500 py-3 mb-6 text-center border-b">
               <p className="text-lg">Свързани продукти</p>
