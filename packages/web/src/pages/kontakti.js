@@ -16,7 +16,7 @@ const ContactPage = ({ data }) => {
   return (
     <Layout>
       <div className="max-w-6xl px-2 mx-auto">
-        <SEO title="Home" />
+        <SEO title="Контакти" />
         {/* Page Title */}
         <h1 className="md:text-2xl mt-8 mb-3 text-xl font-normal text-center">
           Контакти

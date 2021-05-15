@@ -10,7 +10,7 @@ import Layout from "../components/layout"
 const ProductsPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Машини" />
       <div className="px-3">
         <div className="px-3 mt-8 mb-3 text-xl text-center">
           <h1>Машини</h1>

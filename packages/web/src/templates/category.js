@@ -11,7 +11,7 @@ const CategoryPage = ({ data }) => {
   const products = data.allSanityJuicePressingProduct.edges
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title={data.category.name} />
       <div className="md:grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4">
         <div className="md:h-full md:flex md:flex-col hidden col-start-1 col-end-1 bg-white shadow">
           <Link

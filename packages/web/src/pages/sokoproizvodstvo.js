@@ -9,7 +9,7 @@ const ProductsPage = ({ data }) => {
   const categories = data.allSanityJuicePressingCategory.edges
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Сокопроизводство" />
 
       {/* Categories Title */}
       <div className="md:text-2xl md:mb-4 px-3 mt-8 mb-3 text-xl text-center">

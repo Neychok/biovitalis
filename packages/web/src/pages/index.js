@@ -17,7 +17,7 @@ import ProductionIcon from "../assets/svgs/production.svg"
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Машини за производство и пакетиране на сок" />
       {/* Hero */}
       <div className="border-color-primary-1000 hero-image relative mx-auto border-b-4 shadow-inner">
         <Img
