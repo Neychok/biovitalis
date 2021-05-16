@@ -402,3 +402,10 @@ button:focus {
 .footer-border {
   border-top: 2px solid #65d6ad;
 }
+
+.z-top {
+  z-index: 9999;
+}
+.z-before-top {
+  z-index: 9998;
+}

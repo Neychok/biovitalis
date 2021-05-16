@@ -46,7 +46,7 @@ const Sidebar = () => {
       <MotionConfig features={[AnimationFeature]}>
         <nav id="navigation" className="mb-12">
           {/* Top navbar */}
-          <div className="h-14 fixed top-0 z-50 flex items-center w-full bg-white shadow">
+          <div className="h-14 z-top fixed top-0 flex items-center w-full bg-white shadow">
             {/* Container for the hamburger button */}
             <div className="flex justify-start">
               <button
@@ -97,7 +97,7 @@ const Sidebar = () => {
             initial={"closed"} // Initial state of the m
             variants={variantsMenu}
             transition="easeIn"
-            className="mt-14 fixed top-0 left-0 z-50 flex flex-col justify-between w-56 h-full pb-24 overflow-hidden font-normal bg-white border-t"
+            className="mt-14 z-top fixed top-0 left-0 flex flex-col justify-between w-56 h-full pb-24 overflow-hidden font-normal bg-white border-t"
           >
             <div>
               {/* Background pattern */}
@@ -206,7 +206,7 @@ const Sidebar = () => {
             variants={variantsOverlay}
             transition="easeIn"
             onClick={OpenMenu}
-            className={`bg-opacity-50 bg-gray-900 h-full w-full top-0 right-0 fixed overflow-hidden z-30 ${
+            className={`bg-opacity-50 bg-gray-900 h-full w-full top-0 right-0 fixed overflow-hidden z-before-top ${
               menuOpen ? "" : "hidden "
             } `}
           ></motion.div>
