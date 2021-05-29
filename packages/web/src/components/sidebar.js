@@ -177,7 +177,7 @@ const Sidebar = () => {
             <div className="text-center">
               <a
                 className="menu-quick-action flex items-center justify-between py-3 pl-2 pr-3 mb-1 text-xl"
-                href="tel:0895000166"
+                href="tel:+356878909322"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
