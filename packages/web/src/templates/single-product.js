@@ -146,13 +146,11 @@ const Product = ({ data }) => {
           maxItems={3}
           className="list-none w-full py-1.5 mb-1"
         >
-          <Link to="/sokoproizvodstvo/" className="mb-0">
+          <Link to="/sokoproizvodstvo" className="mb-0">
             Машини
           </Link>
           <Link
-            to={`/sokoproizvodstvo/${cutLongText(
-              product.category.slug.current
-            )}`}
+            to={`/sokoproizvodstvo/${product.category.slug.current}`}
             className="mb-0"
           >
             {product.category.slug.current}
@@ -163,7 +161,7 @@ const Product = ({ data }) => {
         {/* Back Button */}
         <div className="xl:py-1 flex items-center justify-between py-2">
           <Link
-            to={`/sokoproizvodstvo/${product.category.slug.current}/`}
+            to={`/sokoproizvodstvo/${product.category.slug.current}`}
             className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 xl:px-5 xl:py-2 xl:text-lg inline-flex items-center py-1 pl-3 pr-4 text-center bg-white border-b-0 rounded-md shadow"
           >
             <svg

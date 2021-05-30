@@ -121,7 +121,7 @@ const Sidebar = () => {
               </Link>
               <Link
                 partiallyActive={true}
-                to="/sokoproizvodstvo/"
+                to="/sokoproizvodstvo"
                 className="mobile-menu-item block py-2 mb-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}
@@ -141,7 +141,7 @@ const Sidebar = () => {
                 Машини
               </Link>
               {/* <Link
-                to="/nashi-klienti/"
+                to="/nashi-klienti"
                 className="mobile-menu-item block py-2 mb-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}
@@ -157,7 +157,7 @@ const Sidebar = () => {
                 Наши клиенти
               </Link> */}
               <Link
-                to="/kontakti/"
+                to="/kontakti"
                 className="mobile-menu-item block py-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}

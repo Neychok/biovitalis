@@ -56,7 +56,7 @@ const CategoryPage = ({ data }) => {
                 aria-label="breadcrumb"
                 className="w-full py-1.5 mb-1"
               >
-                <Link to="/sokoproizvodstvo/" className="mb-0">
+                <Link to="/sokoproizvodstvo" className="mb-0">
                   Продукти
                 </Link>
                 <p className="mb-0">{data.category.slug.current}</p>
@@ -64,7 +64,7 @@ const CategoryPage = ({ data }) => {
 
               {/* Back Button */}
               <Link
-                to={`/sokoproizvodstvo/`}
+                to={`/sokoproizvodstvo`}
                 className="scrollToContact md:hidden focus:bg-gray-200 hover:bg-gray-200 inline-flex items-center py-1 pl-3 pr-4 my-1 text-center bg-white border-b-0 rounded-md shadow"
               >
                 <svg

@@ -225,7 +225,7 @@ const IndexPage = ({ data }) => {
         </div>
 
         <Link
-          to="/kontakti/"
+          to="/kontakti"
           className="bg-secondary-800 md:mt-8 lg:py-4 lg:w-1/2 lg:mx-auto lg:text-xl flex justify-center w-full px-6 py-3 mt-4 text-white rounded-md shadow"
         >
           Свържи се с нас
