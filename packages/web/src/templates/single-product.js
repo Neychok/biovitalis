@@ -334,8 +334,8 @@ const Product = ({ data }) => {
               <span>Тагове: </span>
               {product.tabs.tags.map((tag, index) => {
                 if (index + 1 == product.tabs.tags.length) {
-                  return <span>{tag.value}</span>
-                } else return <span>{tag.value}, </span>
+                  return <span key={tag.value}>{tag.value}</span>
+                } else return <span key={tag.value}>{tag.value}, </span>
               })}
             </p>
           </div>
@@ -348,7 +348,10 @@ const Product = ({ data }) => {
             <div className="md:grid-cols-3 lg:grid-cols-4 md:gap-4 grid grid-cols-2 gap-2">
               {product.tabs.relatedProducts.map(product => {
                 return (
-                  <div className="col-span-1 border rounded">
+                  <div
+                    key={product.relatedProduct.name}
+                    className="col-span-1 border rounded"
+                  >
                     <Link
                       to={`/sokoproizvodstvo/${product.relatedProduct.category.slug.current}/${product.relatedProduct.tabs.slug.current}`}
                       className="w-full h-full"
