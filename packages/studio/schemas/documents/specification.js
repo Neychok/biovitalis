@@ -1,6 +1,6 @@
 export default {
   type: "document",
-  title: "Характеристика - Сокопроизводство",
+  title: "Характеристика",
   name: "specification",
   initialValue: {
     section: "all",

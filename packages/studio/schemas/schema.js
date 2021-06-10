@@ -8,6 +8,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type"
 import juicePressingProduct from "./documents/juicePressing/juicePressingProduct"
 import juicePressingCategory from "./documents/juicePressing/juicePressingCategory"
 import specification from "./documents/specification"
+import section from "./documents/section"
 import contactsPage from "./documents/pages/contactsPage"
 
 // Objects
@@ -31,6 +32,7 @@ export default createSchema({
     juicePressingProduct,
     juicePressingCategory,
     specification,
+    section,
     contactsPage,
   ]),
 })

@@ -14,7 +14,7 @@ const Carousel = ({ images, productName, placeholder }) => {
   const [photoIndex, setPhotoIndex] = useState(0)
   const [isOpen, setOpen] = useState(false)
 
-  if (images.length > 0) {
+  if (images.length > 0 && images[photoIndex].image.asset !== null) {
     return (
       <>
         {isOpen && (

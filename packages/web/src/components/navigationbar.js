@@ -47,7 +47,7 @@ const NavigationBar = () => {
               Начало
             </Link>
             <Link
-              to="/sokoproizvodstvo"
+              to="/mashini"
               partiallyActive={true}
               className="hover:opacity-100 secondary-900 menu-item h-14 flex items-center px-5 ml-4 duration-100 rounded-full"
               activeClassName={`opacity-100 menu-item-active`}

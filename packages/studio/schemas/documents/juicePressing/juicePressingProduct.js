@@ -11,7 +11,7 @@
 
 export default {
   type: "document",
-  title: "Продукт - Сокопроизводство",
+  title: "Продукт",
   name: "juicePressingProduct",
   fields: [
     //* Име на продукт
@@ -21,7 +21,6 @@ export default {
       name: "name",
       validation: Rule => Rule.required().error(`Това поле е задължително.`),
     },
-
     //* Категория
     {
       type: "reference",
@@ -34,14 +33,11 @@ export default {
       ],
       validation: Rule => Rule.required().error(`Това поле е задължително.`),
     },
-
-    //* Секция
     {
-      type: "string",
-      name: "section",
-      hidden: true,
+      title: "Приоритет",
+      name: "order",
+      type: "number",
     },
-
     //* Табове
     {
       type: "juicePressingProductsTabs",

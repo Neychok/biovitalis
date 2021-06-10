@@ -22,9 +22,24 @@ export default {
         maxLength: 200, // will be ignored if slugify is set
         //isUnique: isUniqueAcrossAllDocuments,
         slugify: input =>
-          input.charAt(0).toUpperCase() +
-          input.slice(1).toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
+    },
+    {
+      type: "reference",
+      title: "Секция",
+      name: "section",
+      to: [
+        {
+          type: "section",
+        },
+      ],
+      validation: Rule => Rule.required().error(`Това поле е задължително.`),
+    },
+    {
+      title: "Приоритет",
+      name: "order",
+      type: "number",
     },
     {
       type: "image",

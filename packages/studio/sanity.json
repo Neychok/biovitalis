@@ -18,7 +18,8 @@
     "@sanity/dashboard",
     "dashboard-widget-netlify",
     "leaflet-input",
-    "better-slug"
+    "better-slug",
+    "order-documents"
   ],
   "env": {
     "development": {}

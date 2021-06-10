@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: `https://biovitalisbg.com/`,
     title: `Био Виталис: Производство на натурални сокове`,
     description: `Машини за производство и пакетиране на сок от плодове и зеленчуци. Bio Vitalis Ви предлага най-доброто решение в производството и пакетирането на сок от плодове и зеленчуци.`,
-    author: `@Neycho`,
+    author: `@biovitalis`,
   },
 
   developMiddleware: app => {

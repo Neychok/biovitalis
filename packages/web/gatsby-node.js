@@ -4,11 +4,25 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query CreatePageQuery {
+      allSanitySection {
+        edges {
+          node {
+            slug {
+              current
+            }
+          }
+        }
+      }
       allSanityJuicePressingCategory {
         edges {
           node {
             slug {
               current
+            }
+            section {
+              slug {
+                current
+              }
             }
           }
         }
@@ -25,6 +39,11 @@ exports.createPages = async ({ graphql, actions }) => {
               slug {
                 current
               }
+              section {
+                slug {
+                  current
+                }
+              }
             }
           }
         }
@@ -32,35 +51,54 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // Creates a page for every product
-  result.data.allSanityJuicePressingProduct.edges.forEach(({ node }) => {
-    if (node.tabs.slug !== null && node.category !== null) {
+  // Create a page for every section
+  result.data.allSanitySection.edges.forEach(({ node }) => {
+    if (node.slug !== null) {
       createPage({
-        path:
-          "/sokoproizvodstvo/" +
-          node.category.slug.current +
-          "/" +
-          node.tabs.slug.current,
-        component: path.resolve(`./src/templates/single-product.js`),
+        path: "/" + node.slug.current.toLowerCase(),
+        component: path.resolve(`./src/templates/section.js`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
-          slug: node.tabs.slug.current,
+          slug: node.slug.current,
         },
       })
     }
   })
-
   // Create a page for every category
   result.data.allSanityJuicePressingCategory.edges.forEach(({ node }) => {
-    if (node.slug !== null) {
+    if (node.slug !== null && node.section.slug !== null) {
       createPage({
-        path: "/sokoproizvodstvo/" + node.slug.current,
+        path:
+          "/" +
+          node.section.slug.current.toLowerCase() +
+          "/" +
+          node.slug.current.toLowerCase(),
         component: path.resolve(`./src/templates/category.js`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
           slug: node.slug.current,
+        },
+      })
+    }
+  })
+  // Creates a page for every product
+  result.data.allSanityJuicePressingProduct.edges.forEach(({ node }) => {
+    if (node.tabs.slug !== null && node.category !== null) {
+      createPage({
+        path:
+          "/" +
+          node.category.section.slug.current.toLowerCase() +
+          "/" +
+          node.category.slug.current.toLowerCase() +
+          "/" +
+          node.tabs.slug.current.toLowerCase(),
+        component: path.resolve(`./src/templates/single-product.js`),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          slug: node.tabs.slug.current,
         },
       })
     }

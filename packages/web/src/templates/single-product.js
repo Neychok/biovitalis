@@ -146,22 +146,25 @@ const Product = ({ data }) => {
           maxItems={3}
           className="list-none w-full py-1.5 mb-1"
         >
-          <Link to="/sokoproizvodstvo" className="mb-0">
-            Машини
-          </Link>
           <Link
-            to={`/sokoproizvodstvo/${product.category.slug.current}`}
+            to={"/" + product.category.section.slug.current.toLowerCase()}
             className="mb-0"
           >
-            {product.category.slug.current}
+            {product.category.section.section_name}
           </Link>
-          <p className="mb-0">{cutLongText(product.tabs.slug.current)}</p>
+          <Link
+            to={`/${product.category.section.slug.current.toLowerCase()}/${product.category.slug.current.toLowerCase()}`}
+            className="mb-0"
+          >
+            {product.category.name}
+          </Link>
+          <p className="mb-0">{cutLongText(product.name)}</p>
         </Breadcrumbs>
 
         {/* Back Button */}
         <div className="xl:py-1 flex items-center justify-between py-2">
           <Link
-            to={`/sokoproizvodstvo/${product.category.slug.current}`}
+            to={`/${product.category.section.slug.current.toLowerCase()}/${product.category.slug.current.toLowerCase()}`}
             className="scrollToContact focus:bg-gray-200 hover:bg-gray-200 xl:px-5 xl:py-2 xl:text-lg inline-flex items-center py-1 pl-3 pr-4 text-center bg-white border-b-0 rounded-md shadow"
           >
             <svg
@@ -351,7 +354,7 @@ const Product = ({ data }) => {
                     className="col-span-1 border rounded"
                   >
                     <Link
-                      to={`/sokoproizvodstvo/${product.relatedProduct.category.slug.current}/${product.relatedProduct.tabs.slug.current}`}
+                      to={`/${product.category.section.slug.current.toLowerCase()}/${product.relatedProduct.category.slug.current.toLowerCase()}/${product.relatedProduct.tabs.slug.current.toLowerCase()}`}
                       className="w-full h-full"
                     >
                       <Img
@@ -388,8 +391,15 @@ export const query = graphql`
     sanityJuicePressingProduct(tabs: { slug: { current: { eq: $slug } } }) {
       name
       category {
+        name
         slug {
           current
+        }
+        section {
+          section_name
+          slug {
+            current
+          }
         }
       }
       tabs {

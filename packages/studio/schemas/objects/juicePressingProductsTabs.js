@@ -88,8 +88,7 @@ export default {
         source: "name",
         maxLength: 200,
         slugify: input =>
-          input.charAt(0).toUpperCase() +
-          input.slice(1).toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
     },
 

@@ -13,9 +13,9 @@ const CategoryPage = ({ data }) => {
     <Layout>
       <SEO title={data.category.name} />
       <div className="md:grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4">
-        <div className="md:h-full md:flex md:flex-col hidden col-start-1 col-end-1 bg-white shadow">
+        <div className="md:h-full md:flex md:flex-col hidden col-start-1 col-end-1 mb-12 bg-white shadow">
           <Link
-            to="/sokoproizvodstvo"
+            to={"/" + data.category.section.slug.current.toLowerCase()}
             className="hover:opacity-100 opacity-70 flex items-center py-1 pl-4 my-2"
           >
             <svg
@@ -38,9 +38,14 @@ const CategoryPage = ({ data }) => {
           {data.allCategories.edges.map(category => {
             return (
               <Link
-                to={"/sokoproizvodstvo/" + category.node.slug.current}
+                to={
+                  "/" +
+                  category.node.section.slug.current.toLowerCase() +
+                  "/" +
+                  category.node.slug.current.toLowerCase()
+                }
                 key={category.node.slug.current}
-                className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 py-3 pl-5 border-b border-green-500 border-opacity-25"
+                className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 py-3.5 pl-5 border-b border-green-500 border-opacity-25"
                 activeClassName="bg-green-500 bg-opacity-25 hover:bg-opacity-25"
               >
                 {category.node.name}
@@ -56,15 +61,18 @@ const CategoryPage = ({ data }) => {
                 aria-label="breadcrumb"
                 className="w-full py-1.5 mb-1"
               >
-                <Link to="/sokoproizvodstvo" className="mb-0">
-                  Продукти
+                <Link
+                  to={"/" + data.category.section.slug.current.toLowerCase()}
+                  className="mb-0"
+                >
+                  {data.category.section.section_name}
                 </Link>
-                <p className="mb-0">{data.category.slug.current}</p>
+                <p className="mb-0">{data.category.name}</p>
               </Breadcrumbs>
 
               {/* Back Button */}
               <Link
-                to={`/sokoproizvodstvo`}
+                to={"/" + data.category.section.slug.current.toLowerCase()}
                 className="scrollToContact md:hidden focus:bg-gray-200 hover:bg-gray-200 inline-flex items-center py-1 pl-3 pr-4 my-1 text-center bg-white border-b-0 rounded-md shadow"
               >
                 <svg
@@ -100,16 +108,19 @@ const CategoryPage = ({ data }) => {
                   <Paper className="hover:shadow-lg h-36">
                     <Link
                       to={
-                        "/sokoproizvodstvo/" +
-                        data.category.slug.current +
                         "/" +
-                        product.node.tabs.slug.current
+                        data.category.section.slug.current.toLowerCase() +
+                        "/" +
+                        data.category.slug.current.toLowerCase() +
+                        "/" +
+                        product.node.tabs.slug.current.toLowerCase()
                       }
                       className="grid w-full h-full grid-cols-10"
                     >
                       <Img
                         fluid={
-                          product.node.tabs.gallery.length > 0
+                          product.node.tabs.gallery.length > 0 &&
+                          product.node.tabs.gallery[0].image.asset !== null
                             ? product.node.tabs.gallery[0].image.asset.fluid
                             : data.file.childImageSharp.fluid
                         }
@@ -149,7 +160,7 @@ export const query = graphql`
   query($slug: String!) {
     allSanityJuicePressingProduct(
       filter: { category: { slug: { current: { eq: $slug } } } }
-      sort: { order: ASC, fields: tabs___slug___current }
+      sort: { fields: order, order: ASC }
     ) {
       edges {
         node {
@@ -181,17 +192,31 @@ export const query = graphql`
     }
 
     category: sanityJuicePressingCategory(slug: { current: { eq: $slug } }) {
+      name
       slug {
         current
       }
+      section {
+        section_name
+        slug {
+          current
+        }
+      }
       name
     }
-    allCategories: allSanityJuicePressingCategory {
+    allCategories: allSanityJuicePressingCategory(
+      sort: { order: ASC, fields: order }
+    ) {
       edges {
         node {
           name
           slug {
             current
+          }
+          section {
+            slug {
+              current
+            }
           }
         }
       }

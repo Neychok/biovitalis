@@ -12,31 +12,61 @@ const ProductsPage = ({ data }) => {
     <Layout>
       <SEO title="Машини" />
       <div className="px-3">
-        <div className="px-3 mt-8 mb-3 text-xl text-center">
-          <h1>Машини</h1>
+        <h1 className="md:text-2xl md:mb-4 px-3 mt-8 mb-3 text-xl font-normal text-center">
+          Машини
+        </h1>
+        <hr className="hr-line md:mb-8 mx-auto mb-5" />
+        <div className="md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 md:gap-5 container grid grid-cols-2 gap-3 mx-auto">
+          {data.allSanitySection.edges.map(section => {
+            return (
+              <Link to={`/${section.node.slug.current.toLowerCase()}`}>
+                <Paper elevation={1} className="hover:shadow-lg">
+                  <Img
+                    fluid={
+                      section.node.image.asset
+                        ? section.node.image.asset.fluid
+                        : data.file.childImageSharp.fluid
+                    }
+                  />
+                  <span className="category-product-name lg:text-lg flex items-center justify-center px-2 my-auto text-center">
+                    {section.node.section_name}
+                  </span>
+                </Paper>
+              </Link>
+            )
+          })}
         </div>
-        <hr className="hr-line mx-auto mb-6"></hr>
-        <Link to="/sokoproizvodstvo" className="">
-          <Paper className="menu-item-active flex items-center w-full p-2">
-            <Img
-              fluid={data.file.childImageSharp.fluid}
-              className="w-16 rounded-full"
-            />
-            <span className="text-primary-black pl-3 text-lg">
-              Сокопроизводство
-            </span>
-          </Paper>
-        </Link>
       </div>
     </Layout>
   )
 }
 export const query = graphql`
-  {
-    file(relativePath: { eq: "sokoproizvodstvo.jpg" }) {
+  query Sections {
+    allSanitySection(sort: { fields: order, order: ASC }) {
+      edges {
+        node {
+          slug {
+            current
+          }
+          section_name
+          image {
+            alt
+            image {
+              asset {
+                fluid(maxHeight: 550) {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
+          }
+          _id
+        }
+      }
+    }
+    file(relativePath: { eq: "placeholder.jpg" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
+        fluid(maxHeight: 550) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

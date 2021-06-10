@@ -29,6 +29,7 @@
     "sanity-plugin-better-slug": "^1.0.0",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
     "sanity-plugin-leaflet-input": "^1.0.1",
+    "sanity-plugin-order-documents": "^0.0.19",
     "sanity-plugin-tabs": "^2.0.1"
   }
 }
