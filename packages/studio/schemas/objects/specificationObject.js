@@ -1,3 +1,5 @@
+import sanityClient from "part:@sanity/base/client"
+const client = sanityClient.withConfig({ apiVersion: "2019-05-28" })
 export default {
   type: "object",
   name: "specificationObject",
@@ -9,16 +11,26 @@ export default {
       name: "spec_name",
       to: [{ type: "specification" }],
       options: {
-        filter: ({ document }) => {
-          if (!document.section) {
+        filter: async function (document) {
+          document = document.document
+          if (!document.category) {
             return {
-              filter: "section == 'all'",
+              filter: "show_all == true",
             }
           }
-
+          let section_ref
+          await client
+            .fetch(
+              `*[_type == "juicePressingCategory" && _id == "${document.category._ref}"]{
+              section
+            }`
+            )
+            .then(response => {
+              section_ref = response[0].section._ref
+            })
           return {
-            filter: "section == $section || section == 'all'",
-            params: { section: document.section },
+            filter: "section._ref == $section || show_all == true",
+            params: { section: section_ref },
           }
         },
       },

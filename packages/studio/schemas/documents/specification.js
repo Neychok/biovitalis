@@ -13,17 +13,19 @@ export default {
       validation: Rule => Rule.required().warning(`Това поле е задължително.`),
     },
     {
-      type: "string",
-      title: "Раздел",
+      title: "Покажи на всички секции",
+      name: "show_all",
+      type: "boolean",
+    },
+    {
+      type: "reference",
+      title: "Секция",
       name: "section",
-      options: {
-        list: [
-          { title: "Всички", value: "all" },
-          { title: "Сокопроизводство", value: "juicePressing" },
-        ],
-        layout: "radio", // <-- defaults to 'dropdown'
-      },
-      validation: Rule => Rule.required().warning(`Това поле е задължително.`),
+      to: [
+        {
+          type: "section",
+        },
+      ],
     },
   ],
 }
