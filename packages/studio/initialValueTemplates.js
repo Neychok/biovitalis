@@ -11,7 +11,6 @@ export default [
     parameters: [{ name: "id", type: "string" }],
     value: params => ({
       category: { _type: "reference", _ref: params.id },
-      section: "juicePressing",
     }),
   }),
 ]

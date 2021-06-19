@@ -41,12 +41,6 @@ export default {
       name: "order",
       type: "number",
     },
-    {
-      type: "image",
-      title: "Изображение",
-      name: "image",
-      validation: Rule => Rule.required().warning("Липсва заглавна снимка."),
-    },
     // {
     //   type: "array",
     //   title: "Предварително зададени характеристики",

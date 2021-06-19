@@ -36,4 +36,10 @@ export default {
       hidden: true,
     },
   ],
+  preview: {
+    select: {
+      media: "image.image",
+      title: "section_name",
+    },
+  },
 }
