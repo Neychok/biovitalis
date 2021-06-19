@@ -19,12 +19,16 @@ const ProductsPage = ({ data }) => {
         <div className="md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 md:gap-5 container grid grid-cols-2 gap-3 mx-auto">
           {data.allSanitySection.edges.map(section => {
             return (
-              <Link to={`/${section.node.slug.current.toLowerCase()}`}>
+              <Link
+                to={`/${section.node.slug.current.toLowerCase()}`}
+                key={section.node.image.alt}
+              >
                 <Paper elevation={1} className="hover:shadow-lg">
                   <Img
+                    alt={section.node.image.alt}
                     fluid={
-                      section.node.image.asset
-                        ? section.node.image.asset.fluid
+                      section.node.image.image.asset
+                        ? section.node.image.image.asset.fluid
                         : data.file.childImageSharp.fluid
                     }
                   />
@@ -53,7 +57,7 @@ export const query = graphql`
             alt
             image {
               asset {
-                fluid(maxHeight: 550) {
+                fluid(maxHeight: 600) {
                   ...GatsbySanityImageFluid
                 }
               }

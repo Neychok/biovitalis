@@ -29,9 +29,10 @@ const SectionPage = ({ data }) => {
               >
                 <Paper elevation={1} className="hover:shadow-lg">
                   <Img
+                    alt={category.node.image.alt}
                     fluid={
-                      category.node.image.asset
-                        ? category.node.image.asset.fluid
+                      category.node.image.image.asset
+                        ? category.node.image.image.asset.fluid
                         : data.file.childImageSharp.fluid
                     }
                   />
@@ -61,9 +62,12 @@ export const query = graphql`
             current
           }
           image {
-            asset {
-              fluid(maxHeight: 550) {
-                ...GatsbySanityImageFluid
+            alt
+            image {
+              asset {
+                fluid(maxHeight: 550) {
+                  ...GatsbySanityImageFluid
+                }
               }
             }
           }

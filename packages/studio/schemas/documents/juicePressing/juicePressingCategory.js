@@ -41,6 +41,11 @@ export default {
       name: "order",
       type: "number",
     },
+    {
+      type: "imageObject",
+      title: " ",
+      name: "image",
+    },
     // {
     //   type: "array",
     //   title: "Предварително зададени характеристики",
@@ -52,4 +57,10 @@ export default {
     //   validation: Rule => Rule.unique().warning("Повтарят се характеристики"),
     // },
   ],
+  preview: {
+    select: {
+      media: "image.image",
+      title: "name",
+    },
+  },
 }
