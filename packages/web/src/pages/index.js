@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => {
             </h3>
           </div>
           <Link
-            to="/sokoproizvodstvo"
+            to="/mashini"
             className="bg-primary-1000 hover:bg-green-700 lg:px-8 xl:text-lg lg:mt-32 md:mt-20 px-6 py-2 mt-10 duration-200 border-l-2 border-r-2 rounded-full shadow-lg"
           >
             Разгледай

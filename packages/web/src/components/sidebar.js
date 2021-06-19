@@ -121,7 +121,7 @@ const Sidebar = () => {
               </Link>
               <Link
                 partiallyActive={true}
-                to="/sokoproizvodstvo"
+                to="/mashini"
                 className="mobile-menu-item block py-2 mb-2 text-sm"
                 activeClassName="mobile-menu-item-active"
                 onClick={OpenMenu}
