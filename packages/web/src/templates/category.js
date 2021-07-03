@@ -12,7 +12,7 @@ const CategoryPage = ({ data }) => {
   return (
     <Layout>
       <SEO title={data.category.name} />
-      <div className="md:grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4">
+      <div className="md:grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 h-full">
         <div className="md:h-full md:flex md:flex-col hidden col-start-1 col-end-1 mb-12 bg-white shadow">
           <Link
             to={"/" + data.category.section.slug.current.toLowerCase()}
@@ -34,23 +34,32 @@ const CategoryPage = ({ data }) => {
             </svg>
             Обратно към списък
           </Link>
-          <p className="p-3 mb-5 text-2xl border-t border-b">Категории</p>
+          <p className="p-3 mb-5 text-lg text-center border-t border-b">
+            {data.category.section.section_name}
+          </p>
           {data.allCategories.edges.map(category => {
-            return (
-              <Link
-                to={
-                  "/" +
-                  category.node.section.slug.current.toLowerCase() +
-                  "/" +
-                  category.node.slug.current.toLowerCase()
-                }
-                key={category.node.slug.current}
-                className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 py-3.5 pl-5 border-b border-green-500 border-opacity-25"
-                activeClassName="bg-green-500 bg-opacity-25 hover:bg-opacity-25"
-              >
-                {category.node.name}
-              </Link>
-            )
+            if (
+              category.node.section.slug.current.toLowerCase() ==
+              data.category.section.slug.current.toLowerCase()
+            ) {
+              return (
+                <Link
+                  to={
+                    "/" +
+                    category.node.section.slug.current.toLowerCase() +
+                    "/" +
+                    category.node.slug.current.toLowerCase()
+                  }
+                  key={category.node.slug.current}
+                  className="hover:border-opacity-80 hover:bg-green-500 hover:bg-opacity-10 py-3.5 pl-5 border-b border-green-500 border-opacity-25"
+                  activeClassName="bg-green-500 bg-opacity-25 hover:bg-opacity-25"
+                >
+                  {category.node.name}
+                </Link>
+              )
+            } else {
+              return
+            }
           })}
         </div>
         <div className="xl:col-end-7 lg:col-end-6 md:col-end-5 col-start-2">

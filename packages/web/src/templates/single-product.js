@@ -354,7 +354,7 @@ const Product = ({ data }) => {
                     className="col-span-1 border rounded"
                   >
                     <Link
-                      to={`/${product.category.section.slug.current.toLowerCase()}/${product.relatedProduct.category.slug.current.toLowerCase()}/${product.relatedProduct.tabs.slug.current.toLowerCase()}`}
+                      to={`/${product.relatedProduct.category.section.slug.current.toLowerCase()}/${product.relatedProduct.category.slug.current.toLowerCase()}/${product.relatedProduct.tabs.slug.current.toLowerCase()}`}
                       className="w-full h-full"
                     >
                       <Img
@@ -417,6 +417,12 @@ export const query = graphql`
             category {
               slug {
                 current
+              }
+              section {
+                section_name
+                slug {
+                  current
+                }
               }
             }
             tabs {
